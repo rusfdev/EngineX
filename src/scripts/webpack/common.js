@@ -354,16 +354,21 @@ class HeadAnimation {
         this.$dots = this.$dots_container.querySelectorAll('.page-head__dot');
         
         this.dots_animations = [];
-        this.dots_animations[0] = gsap.timeline()
-          .fromTo(this.$dots, {autoAlpha:0}, {autoAlpha:1, duration:0.35, ease:'none', stagger:{grid:[row_count, column_count], from:"random", amount:2}})
 
-        if(!Dev) {
+        let types = ['start', 'center', 'end', 'edges', 'random'],
+            index = Math.floor(Math.random() * types.length),
+            type = types[index];
+
+        this.dots_animations[0] = gsap.timeline()
+          .fromTo(this.$dots, {autoAlpha:0}, {autoAlpha:1, duration:0.35, ease:'none', stagger:{grid:[row_count, column_count], from:type, amount:2}})
+
+        /* if(!Dev) {
           this.dots_animations[1] = gsap.timeline({repeat:-1, yoyo:true})
           .to(this.$dots, {autoAlpha:0, duration:0.35, ease:'none', stagger:{grid:[row_count, column_count], from:"random", amount:4}})
         
           this.dots_animations[2] = gsap.timeline({repeat:-1, yoyo:true})
             .to(this.$dots, {autoAlpha:1, duration:0.35, ease:'none', stagger:{grid:[row_count, column_count], from:"random", amount:4}})
-        }
+        } */
       }
     }
 
