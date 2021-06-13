@@ -355,20 +355,28 @@ class HeadAnimation {
         
         this.dots_animations = [];
 
-        let types = ['start', 'center', 'end', 'edges', 'random'],
-            index = Math.floor(Math.random() * types.length),
-            type = types[index];
+        let from_vars = ['start', 'center', 'end', 'edges', 'random'],
+            from_index = Math.floor(Math.random() * from_vars.length),
+            from = from_vars[from_index];
+
+        let axis_vars = [null, 'x', 'y'],
+            axis_index = Math.floor(Math.random() * axis_vars.length),
+            axis = axis_vars[axis_index];
 
         this.dots_animations[0] = gsap.timeline()
-          .fromTo(this.$dots, {autoAlpha:0}, {autoAlpha:1, duration:0.35, ease:'none', stagger:{grid:[row_count, column_count], from:type, amount:2}})
+          .fromTo(this.$dots, {autoAlpha:0}, {autoAlpha:1, duration:0.25, ease:'none', stagger:{grid:[row_count, column_count], from:from, axis:axis, amount:1.25}})
+          .eventCallback('onComplete', () => {
 
-        /* if(!Dev) {
-          this.dots_animations[1] = gsap.timeline({repeat:-1, yoyo:true})
-          .to(this.$dots, {autoAlpha:0, duration:0.35, ease:'none', stagger:{grid:[row_count, column_count], from:"random", amount:4}})
-        
-          this.dots_animations[2] = gsap.timeline({repeat:-1, yoyo:true})
-            .to(this.$dots, {autoAlpha:1, duration:0.35, ease:'none', stagger:{grid:[row_count, column_count], from:"random", amount:4}})
-        } */
+            /* if(Dev) {
+              this.dots_animations[1] = gsap.timeline({repeat:-1, yoyo:true})
+                .to(this.$dots, {autoAlpha:0, duration:0.25, ease:'none', stagger:{grid:[row_count, column_count], from:"random", amount:4}})
+            
+              this.dots_animations[2] = gsap.timeline({repeat:-1, yoyo:true})
+                .to(this.$dots, {autoAlpha:1, duration:0.25, ease:'none', stagger:{grid:[row_count, column_count], from:"random", amount:4}})
+            } */
+
+          })
+      
       }
     }
 
