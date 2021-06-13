@@ -1,0 +1,43 @@
+extends layout/layout
+block variables
+  -var title = sitename+' - Технология'
+  -var namespace = 'technology'
+block content
+
+  section.section.page-head.home-screen.technology-screen.screen
+    .page-head__dots
+      .page-head__dot
+
+    .home-screen__container.container 
+      .home-screen__content
+        .home-screen__text-content
+          h1.home-screen__title.technology-screen__title.page-head__animate-item Технология EngineX
+          ul.home-screen__check-list
+            li.page-head__animate-item 
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#check')
+              | В 100 раз быстрее стандартных CMS
+            li.page-head__animate-item 
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#check')
+              | Закрытый безопасный код, полное шифрование данных
+            li.page-head__animate-item 
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#check') 
+              | Неограниченное масштабирование функционала
+            li.page-head__animate-item 
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#check')
+              | Приватность данных, анонимность пользователей
+            li.page-head__animate-item 
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#check')
+              | Поддержка 135+ валют и систем платежей
+
+        a(href="#").button.button_style-1.home-screen__button.technology-screen__button.page-head__animate-item 
+          span Ознакомиться подробнее
+          svg.icon
+            use(xlink:href='./img/icons/icons.svg#right-down')
+
+      .technology-screen__image.image 
+        img(data-src="./img/technology.png", alt="image").lazyload

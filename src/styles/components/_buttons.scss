@@ -1,0 +1,31 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  &_style-1 {
+    font-size: 20px;
+    line-height: 24px;
+    padding: 20px 32px;
+    border-radius: 4px;
+    background-color: var(--color-btn-1-background);
+    transition: background-color $trs1;
+    &[data-touch], &[data-hover] {
+      background-color: var(--color-btn-1-hover-background);
+    }
+    &[data-click] {
+      background-color: var(--color-btn-1-click-background);
+    }
+    .icon {
+      width: 16px;
+      height: 16px;
+      &:last-child {
+        margin-left: 8px;
+      }
+    }
+  }
+  @include media-breakpoint-down(xxl) {
+    &_style-1 {
+      padding: 16px 32px;
+    }
+  }
+}

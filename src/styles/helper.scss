@@ -1,0 +1,115 @@
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
+//variables
+$color-accent: #353535;
+$color-active: #ca2323;
+$color-hover: #000;
+$border-color: #D9D9DE;
+$bg-color: #fff;
+$btn-color: #fff;
+$shadow: 3px 3px 3px 0px rgba(0,0,0,0.05);
+$trs: .25s ease-in-out;
+$font1: 'Roboto', sans-serif;
+$font2: 'Open Sans', sans-serif;
+
+
+.helper {
+  font-family: $font1;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 50%;
+  transform: translate(-100%, -50%);
+  transition: transform $trs;
+  width: 100%;
+  max-width: 280px;
+  color: #000;
+  &__trigger {
+    display: block;
+    position: absolute;
+    left: calc(100% - 1px);
+    width: 40px;
+    height: 40px;
+    border-radius: 0 2px 2px 0;
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+    border-color: $border-color;
+    background-color: $bg-color;
+    box-shadow: $shadow;
+    display: flex;
+    z-index: 2;
+    color: $color-accent;
+    transition: color $trs;
+    .icon {
+      margin: auto;
+      width: 18px;
+      height: 18px;
+      color: inherit;
+      transition: transform $trs;
+    }
+    &[data-touch], &[data-hover] {
+      color: $color-active;
+    }
+  }
+  &__container {
+    position: relative;
+    z-index: 1;
+    padding: 20px 15px;
+    background-color: $bg-color;
+    box-shadow: $shadow;
+    width: 100%;
+    border-radius: 0 0 2px 0;
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+    border-color: $border-color;
+  }
+  &__section {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+    &-title {
+      font-size: 14px;
+      font-weight: 500;
+      display: block;
+      margin: 0 0 10px 0;
+      font-family: $font2;
+    }
+    &-content {
+      margin: 0 -5px -5px 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &-button {
+      margin: 0 5px 5px 0;
+      font-size: 12px;
+      font-weight: 400;
+      text-align: center;
+      background-color: $color-accent;
+      color: $btn-color;
+      transition: background-color $trs;
+      line-height: 32px;
+      min-height: 32px;
+      min-width: 32px;
+      padding: 0 10px;
+      border-radius: 2px;
+      text-decoration: none;
+      border: none;
+      &[data-touch], &[data-hover] {
+        background-color: $color-hover;
+      }
+      &.is-active {
+        pointer-events: none;
+        background-color: $color-active;
+      }
+    }
+  }
+  &.active {
+    transform: translate(0, -50%);
+    .helper__trigger {
+      .icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

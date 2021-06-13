@@ -1,0 +1,38 @@
+:root {
+  --content-width: #{map-get($container-max-widths, xxl)};
+  --container-gutter-x: 24px;
+  @include media-breakpoint-down(xxl) {
+    --content-width: #{map-get($container-max-widths, xl)};
+  }
+  @include media-breakpoint-down(xl) {
+    --content-width: #{map-get($container-max-widths, lg)};
+  }
+  @include media-breakpoint-down(lg) {
+    --content-width: #{map-get($container-max-widths, md)};
+  }
+  @include media-breakpoint-down(sm) {
+    --content-width: #{map-get($container-max-widths, sm)};
+    --container-gutter-x: 16px;
+  }
+}
+
+* {
+  @include media-breakpoint-up(md) {
+    --bs-gutter-x: 24px !important;
+  }
+  @include media-breakpoint-down(sm) {
+    --bs-gutter-x: 16px !important;
+  }
+}
+
+$field: calc((100vw - #{var(--content-width)} + #{var(--bs-gutter-x)} * 2)/2);
+
+$trs1: .15s ease-in-out;
+$trs2: .3s ease-in-out;
+$trs3: .5s ease-in-out;
+
+$out: cubic-bezier(.23,.74,.35,1);
+$in: cubic-bezier(.65,.0,.77,.26);
+
+$font1: 'Nunito Sans', sans-serif;
+$font2: 'Qanelas', sans-serif;

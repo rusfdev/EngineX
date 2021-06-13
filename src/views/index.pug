@@ -1,0 +1,39 @@
+extends layout/layout
+block variables
+  -var title = sitename+' - Главная'
+  -var namespace = 'home'
+block content
+
+  section.section.page-head.home-screen.screen.home
+    .page-head__dots
+      .page-head__dot
+
+    .home-screen__container.container 
+
+      .home-screen__content
+        .home-screen__text-content
+          h1.home-screen__title.page-head__animate-item Разработка уникальных CMS-платформ для стартапов и SaaS-сервисов
+          p.home-screen__text.page-head__animate-item Комплексное IT-решение для проектов, где важнейшим является безопасность и скорость транзакций с мультиплатформенной системой платежей в любой валюте, включая все крипто-монеты
+        a(href="#").button.button_style-1.home-screen__button.page-head__animate-item Получить предложение
+
+        .home-screen__items 
+          .home-screen__item.page-head__animate-item 
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#locked')
+            span Высокая<br> безопасность
+          .home-screen__item.page-head__animate-item 
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#speedometer-outline')
+            span Скорость<br> CMS x100
+          .home-screen__item.page-head__animate-item 
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#monitor')
+            span Продуманный<br> UI/UX
+          .home-screen__item.page-head__animate-item 
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#credit-card')
+            span Крипто-<br>автоматизация
+
+      .home__image
+        .image 
+          img(data-src="./img/home.png", alt="image").lazyload

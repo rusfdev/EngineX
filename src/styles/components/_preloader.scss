@@ -1,0 +1,28 @@
+.preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: var(--color-preloader-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__wrapper {
+    overflow: hidden;
+  }
+  &__element {
+    font-family: $font2;
+    line-height: 1.3;
+    span {
+      &:first-child {
+        color: var(--color-accent-1);
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      &:last-child {
+        color: var(--color-accent-2);
+      }
+    }
+  }
+}
