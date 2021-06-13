@@ -1,10 +1,32 @@
 .header {
+  --color: var(--color-text-light);
+  --color-logo: var(--color-text-light);
   flex-shrink: 0;
-  position: absolute;
+  position: fixed;
   width: 100%;
-  color: var(--color-text-light);
   z-index: 1000;
   padding: 40px 0;
+  transition: background-color $trs2, color $trs2, padding-top $trs2, padding-bottom $trs2, transform .5s ease-out;
+  &:not(.header_fixed) {
+    color: var(--color-text-light);
+  }
+  &_fixed {
+    --color: var(--color-text-dark);
+    --color-logo: var(--color-accent-1);
+    background-color: var(--color-header-fixed-bg);
+    padding: 15px 0;
+  }
+  &_hidden {
+    transition: background-color $trs2, color $trs2, padding-top $trs2, padding-bottom $trs2, transform .35s ease-in;
+    transform: translateY(-100%);
+  }
+  &__logo {
+    color: var(--color-logo);
+    transition: color $trs2;
+  }
+  &__nav-link {
+    color: var(--color);
+  }
   &__container {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -14,6 +36,7 @@
   &__button {
     display: flex;
     justify-content: flex-end;
+    color: var(--color-btn-magic);
     .button {
       font-size: 14px;
       line-height: 16px;

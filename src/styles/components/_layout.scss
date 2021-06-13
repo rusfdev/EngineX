@@ -9,8 +9,13 @@
 }
 .section {
   position: relative;
-  margin-bottom: 100px;
-  
+  padding: 110px 0;
+  &_bg-light {
+    background: var(--section-bg-light);
+  }
+  &_bg-dark {
+    background: var(--section-bg-dark);
+  }
 }
 
 

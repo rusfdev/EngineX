@@ -41,6 +41,7 @@ const $overlay = document.querySelector('.overlay');
 document.addEventListener('DOMContentLoaded', function() {
   TouchHoverEvents.init();
   Magic.init();
+  Header.init();
 })
 
 window.onload = function() {
@@ -211,28 +212,69 @@ const ActiveLinks = {
   }
 }
 
+const Header = {
+  init: function () {
+    this.old_scroll = 0;
+    window.addEventListener('scroll', () => {
+      this.check();
+    })
+    this.check();
+  },
+  check: function () {
+    let y = window.pageYOffset,
+        h = window.innerHeight/2,
+        fixed = $header.classList.contains('header_fixed'),
+        hidden = $header.classList.contains('header_hidden');
+
+    if (y > 0 && !fixed) {
+      $header.classList.add('header_fixed');
+    } else if (y<=0 && fixed) {
+      $header.classList.remove('header_fixed');
+    }
+
+    //листаем вниз
+    if(this.old_scroll<y && y>h && !hidden) {
+      $header.classList.add('header_hidden');
+    }
+    //листаем вверх
+    else if(this.old_scroll>y && hidden) {
+      $header.classList.remove('header_hidden');
+    } 
+
+    this.old_scroll = y;
+  }
+}
+
 const Magic = {
   init: function() {
     this.$trigger = document.querySelector('.button-magic');
-
 
     this.$trigger.addEventListener('click', () => {
       let independent_elements = 'h1, h2, h3, h4, h5, h6, li, p, button, .button, .image, .logo',
           $independent_elements = document.querySelectorAll(independent_elements),
           $else_elements = document.querySelectorAll('strong, a, span, img, img, .icon');
 
-      let $animate_items = [];
+      let $suitable_items = [],
+          $animate_items = [];
 
       $else_elements.forEach(($this) => {
         if($this.tagName=='A' || $this.tagName=='SPAN' || $this.tagName=='STRONG' || $this.tagName=='IMG' || $this.classList.contains('icon')) {
-          if(!$this.closest(independent_elements)) $animate_items.push($this);
+          if(!$this.closest(independent_elements)) $suitable_items.push($this);
         }
       })
 
       $independent_elements.forEach(($this) => {
-        $animate_items.push($this);
+        $suitable_items.push($this);
       })
-      
+
+      $suitable_items.forEach($this => {
+        let y = $this.getBoundingClientRect().y,
+            h = $this.getBoundingClientRect().height;
+        if(y+h>0 && y<window.innerHeight) {
+          $animate_items.push($this);
+        }
+      })
+
       this.animation = gsap.timeline({
         onStart: () => {
           disablePageScroll();
@@ -249,11 +291,11 @@ const Magic = {
           })
         }
       })
-        .to($animate_items, {scale:2, autoAlpha:0, duration:0.5, ease:'power2.in', stagger:{from:'random', each:0.035}})
-        .fromTo($animate_items, {scale:0.5}, {immediateRender:false, scale:1, autoAlpha:1, duration:0.5, ease:'power2.out', stagger:{from:'random', each:0.035}})
+        .to($animate_items, {scale:2, autoAlpha:0, duration:0.5, ease:'power2.in', stagger:{from:'random', each:0.03}})
+        .fromTo($animate_items, {scale:0.5}, {immediateRender:false, scale:1, autoAlpha:1, rotation:0, duration:1, ease:'power2.out', stagger:{from:'random', each:0.015}})
+    
+    
     })
-
-
   }
 }
 

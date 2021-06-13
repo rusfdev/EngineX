@@ -9,8 +9,9 @@
   }
   &__link {
     font-weight: 700;
-    transition: color $trs1;
+    transition: color $trs2;
     &[data-touch], &[data-hover] {
+      transition: color $trs1;
       color: var(--color-accent-2);
     }
     &.is-active {
@@ -38,6 +39,7 @@
   background: linear-gradient(301.95deg, #45108A 2.3%, #3D065F 29.86%, #10054D 101.35%);
   color: var(--color-text-light);
   overflow: hidden;
+  padding: 0;
   &__container {
     padding-top: 122px;
     padding-bottom: 112px;
@@ -179,5 +181,30 @@
       width: 109%;
       height: 117%;
     }
+  }
+}
+
+
+.we-create-section {
+  &__title {
+    margin-bottom: 4px;
+  }
+  &__sub-title {
+    font-size: 1.75rem;
+    max-width: 792px;
+  }
+  &__head {
+    margin-bottom: 40px;
+  }
+  &__text-content {
+    position: relative;
+  }
+  &__image {
+    position: absolute;
+    width: 514px;
+    height: auto;
+    top: 50%;
+    right: 36px;
+    transform: translateY(-50%);
   }
 }

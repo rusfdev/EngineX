@@ -4,12 +4,17 @@
 
   --color-overlay-background: #fff;
 
-  --color-accent-1: #45108A;
+  --color-accent-1: #3D065F;
   --color-accent-2: #F72585;
 
   --gradient-1: linear-gradient(301.95deg, #45108A 2.3%, #3D065F 29.86%, #10054D 101.35%);
   --gradient-2: linear-gradient(262.85deg, #192038 0%, #2E3A59 100%);
 
+  --section-bg-light: #F6F9FC;
+  --section-bg-dark: var(--gradient-2);
+
+  //
+  --color-btn-magic: #fff;
   --color-btn-magic-background: #F72585;
   --color-btn-magic-hover-background: #de2176;
   --color-btn-magic-click-background: #db1b71;
@@ -17,4 +22,6 @@
   --color-btn-1-background: #4361EE;
   --color-btn-1-hover-background: #3D3ACE;
   --color-btn-1-click-background: #23209F;
+
+  --color-header-fixed-bg: #fff;
 }

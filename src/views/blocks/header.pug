@@ -1,19 +1,19 @@
 header.header(data-scroll-lock-fill-gap)
   .container.header__container 
-    .header__logo
-      a(href=home data-namespace='home').logo Engine
+    .header__logo-wrapper
+      a(href=home data-namespace='home').logo.header__logo Engine
         span X
 
     nav.nav.header__nav
       ul.nav__list  
         li.nav__item 
-          a(href=home data-namespace='home').nav__link Главная 
+          a(href=home data-namespace='home').nav__link.header__nav-link Главная 
         li.nav__item 
-          a(href=technology data-namespace='technology').nav__link Технология
+          a(href=technology data-namespace='technology').nav__link.header__nav-link Технология
         li.nav__item 
-          a(href=about data-namespace='about').nav__link О компании
+          a(href=about data-namespace='about').nav__link.header__nav-link О компании
         li.nav__item 
-          a(href=blog data-namespace='blog').nav__link Блог
+          a(href=blog data-namespace='blog').nav__link.header__nav-link Блог
     
     .header__button
       button(type='button').button.button-magic Кнопка, которую<br> НЕ надо нажимать
