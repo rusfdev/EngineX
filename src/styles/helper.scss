@@ -46,7 +46,6 @@ $font2: 'Open Sans', sans-serif;
       width: 18px;
       height: 18px;
       color: inherit;
-      transition: transform $trs;
     }
     &[data-touch], &[data-hover] {
       color: $color-active;

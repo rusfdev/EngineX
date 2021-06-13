@@ -6,7 +6,7 @@ gsap.defaults({
   duration: 1,
   ease: 'power2.inOut'
 });
-import scrollLock from 'scroll-lock';
+import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 import Inputmask from "inputmask";
 //barba
 import barba from '@barba/core';
@@ -40,6 +40,7 @@ const $overlay = document.querySelector('.overlay');
 
 document.addEventListener('DOMContentLoaded', function() {
   TouchHoverEvents.init();
+  Magic.init();
 })
 
 window.onload = function() {
@@ -207,6 +208,52 @@ const ActiveLinks = {
     this.$active_links.forEach($this=>{
       $this.classList.remove('is-active');
     })
+  }
+}
+
+const Magic = {
+  init: function() {
+    this.$trigger = document.querySelector('.button-magic');
+
+
+    this.$trigger.addEventListener('click', () => {
+      let independent_elements = 'h1, h2, h3, h4, h5, h6, li, p, button, .button, .image, .logo',
+          $independent_elements = document.querySelectorAll(independent_elements),
+          $else_elements = document.querySelectorAll('strong, a, span, img, img, .icon');
+
+      let $animate_items = [];
+
+      $else_elements.forEach(($this) => {
+        if($this.tagName=='A' || $this.tagName=='SPAN' || $this.tagName=='STRONG' || $this.tagName=='IMG' || $this.classList.contains('icon')) {
+          if(!$this.closest(independent_elements)) $animate_items.push($this);
+        }
+      })
+
+      $independent_elements.forEach(($this) => {
+        $animate_items.push($this);
+      })
+      
+      this.animation = gsap.timeline({
+        onStart: () => {
+          disablePageScroll();
+          $animate_items.forEach($this => {
+            $this.classList.add('in-magic-animation');
+          })
+        },
+        onComplete: () => {
+          enablePageScroll();
+          this.animation.kill();
+          gsap.set($animate_items, {clearProps: "all"});
+          $animate_items.forEach($this => {
+            $this.classList.remove('in-magic-animation');
+          })
+        }
+      })
+        .to($animate_items, {scale:2, autoAlpha:0, duration:0.5, ease:'power2.in', stagger:{from:'random', each:0.035}})
+        .fromTo($animate_items, {scale:0.5}, {immediateRender:false, scale:1, autoAlpha:1, duration:0.5, ease:'power2.out', stagger:{from:'random', each:0.035}})
+    })
+
+
   }
 }
 

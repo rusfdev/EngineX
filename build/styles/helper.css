@@ -31,8 +31,7 @@
       margin: auto;
       width: 18px;
       height: 18px;
-      color: inherit;
-      transition: transform 0.25s ease-in-out; }
+      color: inherit; }
     .helper__trigger[data-touch], .helper__trigger[data-hover] {
       color: #ca2323; }
   .helper__container {

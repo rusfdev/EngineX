@@ -42,6 +42,7 @@ img {
 }
 
 .logo {
+  display: inline-block;
   font-size: 27px;
   font-weight: 700;
   font-family: $font2;
@@ -52,4 +53,8 @@ img {
   &.is-active {
     pointer-events: none;
   }
+}
+
+.in-magic-animation {
+  pointer-events: none !important;
 }
