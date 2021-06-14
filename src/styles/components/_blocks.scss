@@ -198,6 +198,7 @@
   }
   &__text-content {
     position: relative;
+    margin-bottom: 85px;
   }
   &__image {
     position: absolute;
@@ -206,5 +207,85 @@
     top: 50%;
     right: 36px;
     transform: translateY(-50%);
+  }
+}
+
+.scroll-slider {
+  &__button {
+    opacity: 0.3;
+    width: 24px;
+    height: 24px;
+    transition: opacity $trs1, color $trs1;
+    .icon {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__nav {
+    display: flex;
+    flex-direction: column;
+  }
+  &__nav-elements {
+    display: flex;
+    flex-direction: column;
+    margin: 17px 0;
+  }
+  &__nav-element {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 700;
+    opacity: 0.3;
+    transition: opacity $trs1, color $trs1;
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+    &.is-active {
+      pointer-events: none;
+    }
+  }
+}
+
+.we-create-slider {
+  align-items: center;
+  &__nav {
+    align-items: flex-end;
+    transform: translateX(14px);
+  }
+  &__nav-elements {
+    align-items: flex-end;
+  }
+  &__button, &__nav-element {
+    &[data-touch], &[data-hover], &.is-active {
+      color: var(--color-accent-1);
+    }
+    &[data-touch], &[data-hover] {
+      opacity: 0.8;
+    }
+    &[data-click], &.is-active {
+      opacity: 1;
+    }
+  }
+  &__slide {
+    & > .row {
+      align-items: center;
+    }
+  }
+  &__slide-image {
+    .image {
+      transform: translateX(10px);
+      width: 215px;
+      margin: 0 auto;
+      &::before {
+        content: '';
+        display: block;
+        padding-top: 200%;
+      }
+      img {
+        width: 120%;
+        height: 111%;
+        top: -1%;
+        left: -1%;
+      }
+    }
   }
 }

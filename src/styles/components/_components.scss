@@ -58,3 +58,27 @@ img {
 .in-magic-animation {
   pointer-events: none !important;
 }
+
+.swiper {
+  &-lazy {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $trs3, visibility $trs3;
+    &-loaded {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+.swiper-container-fade {
+  overflow: initial;
+  .swiper-slide {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition-property: all;
+    &-active {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  }
+}

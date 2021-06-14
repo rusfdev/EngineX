@@ -1,6 +1,6 @@
 .header {
   --color: var(--color-text-light);
-  --color-logo: var(--color-text-light);
+  --color-logo: #fff;
   flex-shrink: 0;
   position: fixed;
   width: 100%;
@@ -12,7 +12,7 @@
   }
   &_fixed {
     --color: var(--color-text-dark);
-    --color-logo: var(--color-accent-1);
+    --color-logo: #3D065F;
     background-color: var(--color-header-fixed-bg);
     padding: 15px 0;
   }

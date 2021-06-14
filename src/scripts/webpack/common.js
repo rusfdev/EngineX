@@ -24,6 +24,9 @@ barba.init({
   }]
 });
 
+import Swiper, {Navigation, Pagination, Lazy, Autoplay, EffectFade, Mousewheel} from 'swiper/core';
+Swiper.use([Navigation, Pagination, Lazy, Autoplay, EffectFade, Mousewheel]);
+
 const brakepoints = {
   sm: 576,
   md: 768,
@@ -50,6 +53,8 @@ window.onload = function() {
 
 window.addEventListener('beforeEnter', function(event) {
   ActiveInstances.add(HeadAnimation, '.page-head', event.detail.container);
+  ActiveInstances.add(ScrollSlider, '.scroll-slider', event.detail.container);
+  
   ActiveInstances.init();
   ActiveLinks.check(event.detail.namespace);
 })
@@ -404,5 +409,191 @@ class HeadAnimation {
       }
     }
     this.animation.kill();
+  }
+}
+
+class ScrollSlider {
+  constructor($parent) {
+    this.$parent = $parent;
+  }
+
+  init() {
+    this.check = ()=> {
+      if(window.innerWidth >= brakepoints.lg && (!this.initialized || !this.flag)) {
+        this.initDesktop();
+        this.flag = true;
+      } 
+      else if(window.innerWidth<brakepoints.lg && (!this.initialized || this.flag)) {
+        if(this.initialized) {
+          this.destroyDesktop();
+        }
+        this.flag = false;
+      }
+    }
+    this.check();
+    window.addEventListener('resize', this.check);
+    this.initialized = true;
+  }
+
+  initDesktop() {
+    this.$slider = this.$parent.querySelector('.swiper-container')
+    this.$nav_elements = this.$parent.querySelectorAll('.scroll-slider__nav-element');
+    this.$prev = this.$parent.querySelector('.swiper-button-prev');
+    this.$next = this.$parent.querySelector('.swiper-button-next');
+
+    this.change = (index) => {
+      if(this.index!==index) {
+        if(this.index!==undefined) {
+          this.$nav_elements[this.index].classList.remove('is-active');
+        }
+        this.$nav_elements[index].classList.add('is-active');
+
+        this.index = index;
+      }
+    }
+
+    this.slider = new Swiper(this.$slider, {
+      init: false,
+      effect: 'fade',
+      loop: true,
+      speed: 500,
+      mousewheel: {
+        releaseOnEdges: true,
+      },
+      navigation: {
+        prevEl: this.$prev,
+        nextEl: this.$next
+      },
+      lazy: {
+        loadOnTransitionStart: true,
+        loadPrevNext: true
+      }
+    });
+
+    this.slider.on('slideChange', (swiper) => {
+      this.change(swiper.realIndex)
+    });
+
+    this.slider.on('init', (swiper) => {
+      this.change(swiper.realIndex)
+    });
+
+    this.clickEvents = [];
+    this.$nav_elements.forEach(($this, index) => {
+      this.clickEvents[index] = () => {
+        this.slider.slideToLoop(index)
+      }
+      $this.addEventListener('click', this.clickEvents[index])
+    })
+
+    this.slider.init();
+  }
+
+  destroyDesktop() {
+    this.slider.destroy();
+    delete this.index;
+    this.$nav_elements.forEach(($this, index) => {
+      $this.removeEventListener('click', this.clickEvents[index])
+    })
+  }
+
+  destroy() {
+    if(this.flag) this.destroyDesktop();
+
+    window.removeEventListener('resize', this.check);
+    for(let child in this) delete this[child];
+  }
+}
+
+class ScrollSliderOld {
+  constructor($parent) {
+    this.$parent = $parent;
+  }
+
+  init() {
+    this.check = ()=> {
+      if(window.innerWidth >= brakepoints.lg && (!this.initialized || !this.flag)) {
+        this.initDesktop();
+        this.flag = true;
+      } 
+      else if(window.innerWidth<brakepoints.lg && (!this.initialized || this.flag)) {
+        if(this.initialized) {
+          this.destroyDesktop();
+        }
+        this.flag = false;
+      }
+    }
+    this.check();
+    window.addEventListener('resize', this.check);
+    this.initialized = true;
+  }
+
+  initDesktop() {
+    this.$slides = this.$parent.querySelectorAll('.scroll-slider__slide');
+    this.$wrapper = this.$parent.querySelector('.scroll-slider__items');
+    this.$nav_elements = this.$parent.querySelectorAll('.scroll-slider__nav-element');
+    this.$nav_top = this.$parent.querySelector('.scroll-slider__button-top');
+    this.$nav_bottom = this.$parent.querySelector('.scroll-slider__button-bottom');
+
+    this.getNext = ()=> {
+      return this.index == this.$slides.length-1 ? 0 : this.index+1;
+    }
+    this.getPrev = ()=> {
+      return this.index==0 ? this.$slides.length-1 : this.index-1;
+    }
+
+    this.animations = [];
+
+    this.$slides.forEach(($slide, index) => {
+      this.animations[index] = gsap.timeline({paused:true})
+        .fromTo($slide, {autoAlpha:0}, {autoAlpha:1, duration:0.5, ease:'power2.inOut'})
+    })
+
+    this.change = (index) => {
+      if(this.index!==index) {
+        if(this.index!==undefined) {
+          this.animations[this.index].timeScale(3).reverse();
+          this.$slides[this.index].classList.remove('is-active');
+          this.$nav_elements[this.index].classList.remove('is-active');
+        }
+        this.animations[index].timeScale(1).play();
+        this.$slides[index].classList.add('is-active');
+        this.$nav_elements[index].classList.add('is-active');
+
+        this.index = index;
+      }
+    }
+
+    this.clickEvents = [];
+    this.prevClick = () => {
+      this.change(this.getPrev());
+    }
+    this.nextClick = () => {
+      this.change(this.getNext());
+    }
+
+    this.$nav_elements.forEach(($this, index) => {
+      this.clickEvents[index] = () => {
+        this.change(index);
+      }
+      $this.addEventListener('click', this.clickEvents[index])
+    })
+    this.$nav_top.addEventListener('click', this.prevClick);
+    this.$nav_bottom.addEventListener('click', this.nextClick);
+
+    this.change(0);
+
+
+  }
+
+  destroyDesktop() {
+    
+  }
+
+  destroy() {
+    if(this.flag) this.destroyDesktop();
+
+    window.removeEventListener('resize', this.check);
+    for(let child in this) delete this[child];
   }
 }
