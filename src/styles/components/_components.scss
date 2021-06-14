@@ -73,6 +73,7 @@ img {
 .swiper-container-fade {
   overflow: initial;
   .swiper-slide {
+    will-change: opacity;
     opacity: 0 !important;
     visibility: hidden !important;
     transition-property: all;

@@ -57,17 +57,21 @@ block content
             button.swiper-button.swiper-button-prev.scroll-slider__button.we-create-slider__button
               svg.icon
                 use(xlink:href='./img/icons/icons.svg#arrow-up')
-            .scroll-slider__nav-elements.we-create-slider__nav-elements 
-              button.scroll-slider__nav-element.we-create-slider__nav-element Безопасность+Скорость
-              button.scroll-slider__nav-element.we-create-slider__nav-element Стабильность
-              button.scroll-slider__nav-element.we-create-slider__nav-element Удобство админки
-              button.scroll-slider__nav-element.we-create-slider__nav-element Платежный шлюз
+            ul.scroll-slider__nav-elements.we-create-slider__nav-elements
+              li.scroll-slider__nav-item
+                a(href="javascript:void(0);").scroll-slider__nav-element.we-create-slider__nav-element Безопасность+Скорость
+              li.scroll-slider__nav-item
+                a(href="javascript:void(0);").scroll-slider__nav-element.we-create-slider__nav-element Стабильность
+              li.scroll-slider__nav-item
+                a(href="javascript:void(0);").scroll-slider__nav-element.we-create-slider__nav-element Удобство админки
+              li.scroll-slider__nav-item
+                a(href="javascript:void(0);").scroll-slider__nav-element.we-create-slider__nav-element Платежный шлюз
             button.swiper-button.swiper-button-next.scroll-slider__button.we-create-slider__button
               svg.icon
                 use(xlink:href='./img/icons/icons.svg#arrow-down')
         .col-lg-9
           .swiper-container 
-            .swiper-wrapper.scroll-slider__items
+            .swiper-wrapper
               //slide
               .swiper-slide.scroll-slider__slide.we-create-slider__slide 
                 .row
@@ -110,3 +114,107 @@ block content
                     p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cumque ullam eligendi quae, reprehenderit harum molestiae quam culpa et? Vero aliquam repellendus eaque vitae dicta eos quasi officiis iure saepe.
 
           .swiper-pagination
+
+  section.section.section_bg-dark.additional-benefits
+    .additional-benefits-slider-slider.swiper.scroll-slider
+      .container
+        .row 
+          .col-lg-6 
+            h2.additional-benefits__title Дополнительные преимущества<br> нашей уникальной<br> платформы
+            .scroll-slider__nav 
+              button.swiper-button.swiper-button-prev.scroll-slider__button.additional-benefits-slider__button
+                svg.icon
+                  use(xlink:href='./img/icons/icons.svg#arrow-up')
+              ul.scroll-slider__nav-elements.additional-benefits-slider__nav-elements
+                li.scroll-slider__nav-item
+                  a(href="javascript:void(0);").scroll-slider__nav-element.additional-benefits-slider__nav-element Максимальная приватность
+                li.scroll-slider__nav-item
+                  a(href="javascript:void(0);").scroll-slider__nav-element.additional-benefits-slider__nav-element Интеграция по API
+                li.scroll-slider__nav-item
+                  a(href="javascript:void(0);").scroll-slider__nav-element.additional-benefits-slider__nav-element Мультиязычность
+                li.scroll-slider__nav-item
+                  a(href="javascript:void(0);").scroll-slider__nav-element.additional-benefits-slider__nav-element SEO-оптимизированный движок
+                li.scroll-slider__nav-item
+                  a(href="javascript:void(0);").scroll-slider__nav-element.additional-benefits-slider__nav-element Масштабируемость платформы
+                li.scroll-slider__nav-item
+                  a(href="javascript:void(0);").scroll-slider__nav-element.additional-benefits-slider__nav-element Высокая автоматизация платформы
+                li.scroll-slider__nav-item
+                  a(href="javascript:void(0);").scroll-slider__nav-element.additional-benefits-slider__nav-element Мобильные приложения
+              button.swiper-button.swiper-button-next.scroll-slider__button.additional-benefits-slider__button
+                svg.icon
+                  use(xlink:href='./img/icons/icons.svg#arrow-down')
+          .col-lg-6 
+            .swiper-container 
+              .swiper-wrapper
+                //slide
+                .swiper-slide.additional-benefits-slider__slide
+                  .image.image_cover
+                    span.h4.additional-benefits-slider__slide-index 01
+                    img(data-src="./img/benefits/1.jpg", alt="image").swiper-lazy
+                  .additional-benefits-slider__slide-text 
+                    h4 Максимальная приватность
+                    p В нашей системе предусмотрена возможность предоставить максимальную приватность личных данных пользователя, а также проводить финансовые операции, не предоставляя данные вашему сайту.
+                    p Благодаря этому, доверие к ресурсу будет высоким, а данные пользователей — в безопасности, о чем открыто можно указать на сайте.
+                //slide
+                .swiper-slide.additional-benefits-slider__slide
+                  .image.image_cover 
+                    span.h4.additional-benefits-slider__slide-index 02
+                    img(data-src="./img/benefits/2.jpg", alt="image").swiper-lazy
+                  .additional-benefits-slider__slide-text 
+                    h4 Интеграция по API
+                    p Наша система полностью оптимизирована и готова под любые дополнения и расширения без использования тяжелых плагинов — все делается с помощью простого кода API, который предоставляют все внешние сервисы интеграций, с которыми мы работаем. К ним относятся сервисы безопасности, платежные шлюзы, системы автоматизации процессов.
+                    p По желанию заказчика, можем подключить и интегрировать в ядро платформы практически любой внешний сервис, предоставляющий свой API. А также, можем написать дополнительный сервис с интеграцией EngineX для вашей CRM-системы компании.
+                //slide
+                .swiper-slide.additional-benefits-slider__slide
+                  .image.image_cover 
+                    span.h4.additional-benefits-slider__slide-index 03
+                    img(data-src="./img/benefits/3.jpg", alt="image").swiper-lazy
+                  .additional-benefits-slider__slide-text 
+                    h4 Мультиязычность
+                    p Одной из проблем многих популярных CMS является отсутствие нормальной мультиязычности с простой настройкой.<br> Наше решение мультиязычного функционала зашито в ядро EngineX.
+                    p Максимальная простота реализации нескольких языков на сайте обеспечена специальным разделом админки со всеми необходимыми полями и детальной пошаговой инструкцией.
+                    p Автоматическое определение языка пользователя по географическому расположению включается при разрешенных настройках приватности.
+                //slide
+                .swiper-slide.additional-benefits-slider__slide
+                  .image.image_cover 
+                    span.h4.additional-benefits-slider__slide-index 04
+                    img(data-src="./img/benefits/4.jpg", alt="image").swiper-lazy
+                  .additional-benefits-slider__slide-text 
+                    h4 SEO-оптимизированный движок
+                    p EngineX изначально настроена так, чтобы предусмотреть все моменты, связанные с технической оптимизацией сайта под поисковые механизмы.
+                    p SEO-специалисту предоставлен широкий функционал для настройки всех необходимых параметров для эффективного продвижения ресурса.
+                    p В большинстве случаев, простота и удобство SEO-блока админки, а также детальная инструкция, позволяют владельцу сайта выполнить оптимизацию без привлечения сеошника.
+                //slide
+                .swiper-slide.additional-benefits-slider__slide
+                  .image.image_cover 
+                    span.h4.additional-benefits-slider__slide-index 05
+                    img(data-src="./img/benefits/5.jpg", alt="image").swiper-lazy
+                  .additional-benefits-slider__slide-text 
+                    h4 Масштабируемость платформы
+                    p Ядро EngineX имеет в себе максимальный набор функций и средств, которые позволят реализовать практически любые стандартные задачи сайта для любой тематики бизнеса.
+                    p Но ключевое преимущество — неограниченные возможности по расширению функционала под любой запрос заказчика: любые скрипты, интеграции с системами аналитики и CRM, калькуляторы, cloud-технологии, собственный VPN-шлюз, собственные чат-комнаты и видеоконференции, чат-боты, разработка мобильных приложений, защищенные протоколы безопасности и крипто-шифрование.
+                //slide
+                .swiper-slide.additional-benefits-slider__slide
+                  .image.image_cover 
+                    span.h4.additional-benefits-slider__slide-index 06
+                    img(data-src="./img/benefits/6.jpg", alt="image").swiper-lazy
+                  .additional-benefits-slider__slide-text 
+                    h4 Высокая автоматизация платформы
+                    p Большая часть внутренних процессов происходит в автоматическом фоновом режиме, без участия администратора.
+                    p Система администрирования создана таким образом, чтобы максимально упростить управление любым разделом сайта, без необходимости копаться в сложных вложенных меню. Все упаковано в удобные понятные разделы и сопровождается wiki-инструкцией.
+                    p Полностью автоматизированы на старте: платежи, система безопасности и fraud-фильтры, передача, хранение и шифрование данных, мультиязычность.
+                //slide
+                .swiper-slide.additional-benefits-slider__slide
+                  .image.image_cover 
+                    span.h4.additional-benefits-slider__slide-index 07
+                    img(data-src="./img/benefits/7.jpg", alt="image").swiper-lazy
+                  .additional-benefits-slider__slide-text 
+                    h4 Мобильные приложения
+                    p Наша команда дополнительно может разработать мобильное мультиплатформенное приложение под Android / iOS, с полной синхронизацией процессов между сайтом на EngineX и мобильными устройствами.
+                    p Все сильные стороны движка сайта будут реализованы в приложении — скорость, безопасность и удобство управления.
+                    p Заказ разработки CMS и приложений вместе сильно повышает надежность работы и отказоустойчивость всей платформы, так как мы формируем общее безопасное и эффективное ядро в пределах одной команды, не подключая внешних подрядчиков.
+            .swiper-pagination
+
+  section.section.section_bg-light
+    .container 
+      h2 Для каких компаний будет актуальна наша платформа
