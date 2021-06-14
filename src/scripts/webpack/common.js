@@ -54,6 +54,8 @@ window.onload = function() {
 window.addEventListener('beforeEnter', function(event) {
   ActiveInstances.add(HeadAnimation, '.page-head', event.detail.container);
   ActiveInstances.add(ScrollSlider, '.scroll-slider', event.detail.container);
+  ActiveInstances.add(RelevanceCards, '.relevance-cards', event.detail.container);
+  
   
   ActiveInstances.init();
   ActiveLinks.check(event.detail.namespace);
@@ -357,8 +359,6 @@ class HeadAnimation {
         }
   
         this.$dots = this.$dots_container.querySelectorAll('.page-head__dot');
-        
-        this.dots_animations = [];
 
         let from_vars = ['start', 'center', 'end', 'edges', 'random'],
             from_index = Math.floor(Math.random() * from_vars.length),
@@ -368,18 +368,12 @@ class HeadAnimation {
             axis_index = Math.floor(Math.random() * axis_vars.length),
             axis = axis_vars[axis_index];
 
-        this.dots_animations[0] = gsap.timeline()
+        this.dots_animation = gsap.timeline()
           .fromTo(this.$dots, {autoAlpha:0}, {autoAlpha:1, duration:0.25, ease:'none', stagger:{grid:[row_count, column_count], from:from, axis:axis, amount:1.25}})
           .eventCallback('onComplete', () => {
-
-            /* if(Dev) {
-              this.dots_animations[1] = gsap.timeline({repeat:-1, yoyo:true})
-                .to(this.$dots, {autoAlpha:0, duration:0.25, ease:'none', stagger:{grid:[row_count, column_count], from:"random", amount:4}})
-            
-              this.dots_animations[2] = gsap.timeline({repeat:-1, yoyo:true})
-                .to(this.$dots, {autoAlpha:1, duration:0.25, ease:'none', stagger:{grid:[row_count, column_count], from:"random", amount:4}})
-            } */
-
+            this.dots_animation.kill();
+            delete this.dots_animation;
+            gsap.set(this.$dots, {clearProps:'all'});
           })
       
       }
@@ -389,6 +383,11 @@ class HeadAnimation {
 
     this.animation = gsap.timeline()
       .fromTo(this.$items, {y:40, autoAlpha:0}, {autoAlpha:1, y:0, duration:0.85, ease:'power2.out', stagger:{each:0.10}})
+      .eventCallback('onComplete', () => {
+        this.animation.kill();
+        delete this.animation;
+        gsap.set(this.$items, {clearProps:'all'});
+      })
 
     //images
     let $home_image = this.$parent.querySelector('.home__image .image'),
@@ -402,13 +401,9 @@ class HeadAnimation {
 
   }
   destroy() {
-    window.removeEventListener('afterEnter', this.createDots)
-    if(this.dots_animations.length) {
-      for(let index in this.dots_animations) {
-        this.dots_animations[index].kill();
-      }
-    }
-    this.animation.kill();
+    window.removeEventListener('afterEnter', this.createDots);
+    if(this.dots_animation) this.dots_animation.kill();
+    if(this.animation) this.animation.kill();
   }
 }
 
@@ -505,7 +500,7 @@ class ScrollSlider {
   }
 }
 
-class ScrollSliderOld {
+class RelevanceCards {
   constructor($parent) {
     this.$parent = $parent;
   }
@@ -529,61 +524,78 @@ class ScrollSliderOld {
   }
 
   initDesktop() {
-    this.$slides = this.$parent.querySelectorAll('.scroll-slider__slide');
-    this.$wrapper = this.$parent.querySelector('.scroll-slider__items');
-    this.$nav_elements = this.$parent.querySelectorAll('.scroll-slider__nav-element');
-    this.$nav_top = this.$parent.querySelector('.scroll-slider__button-top');
-    this.$nav_bottom = this.$parent.querySelector('.scroll-slider__button-bottom');
+    this.$cards = this.$parent.querySelectorAll('.relevance-card');
 
-    this.getNext = ()=> {
-      return this.index == this.$slides.length-1 ? 0 : this.index+1;
+    this.checkSize = () => {
+      let h = [], max;
+
+      this.$cards.forEach($this => {
+        h.push($this.getBoundingClientRect().height);
+      })
+
+      max = Math.max(...h);
+
+      this.$parent.style.height = `${max}px`;
+
+      this.$cards.forEach($this => {
+        $this.style.height = `${max}px`;
+      })
     }
-    this.getPrev = ()=> {
-      return this.index==0 ? this.$slides.length-1 : this.index-1;
-    }
 
-    this.animations = [];
+    this.getPosition = () => {
+      let w = this.$parent.getBoundingClientRect().width,
+          w2 = this.$cards[0].getBoundingClientRect().width,
+          w3 = (w - w2) / (this.$cards.length - 1),
+          w4 = w2 - w3 - 5;
+          
+      this.x = [];
 
-    this.$slides.forEach(($slide, index) => {
-      this.animations[index] = gsap.timeline({paused:true})
-        .fromTo($slide, {autoAlpha:0}, {autoAlpha:1, duration:0.5, ease:'power2.inOut'})
-    })
-
-    this.change = (index) => {
-      if(this.index!==index) {
-        if(this.index!==undefined) {
-          this.animations[this.index].timeScale(3).reverse();
-          this.$slides[this.index].classList.remove('is-active');
-          this.$nav_elements[this.index].classList.remove('is-active');
+      for (let index = 0; index < this.$cards.length; index++) {
+        if (index <= this.index || this.index==undefined) {
+          this.x[index] = 0;
+        } else {
+          this.x[index] = w4;
         }
-        this.animations[index].timeScale(1).play();
-        this.$slides[index].classList.add('is-active');
-        this.$nav_elements[index].classList.add('is-active');
-
-        this.index = index;
       }
     }
 
-    this.clickEvents = [];
-    this.prevClick = () => {
-      this.change(this.getPrev());
-    }
-    this.nextClick = () => {
-      this.change(this.getNext());
+    this.setPosition = () => {
+      this.$cards.forEach(($card, index) => {
+        gsap.set($card, {x:this.x[index]})
+      })
     }
 
-    this.$nav_elements.forEach(($this, index) => {
+    this.checkSize();
+    this.getPosition();
+
+    this.changeState = (index) => {
+      if(this.index!==undefined) {
+        this.$cards[this.index].classList.remove('disabled');
+      }
+      this.$cards[index].classList.add('disabled');
+
+      this.index = index;
+
+      this.getPosition();
+
+      this.$cards.forEach(($card, index) => {
+        gsap.to($card, {x:this.x[index], duration:0.5})
+      })
+    }
+
+    this.changeState(this.$cards.length - 1);
+
+    this.clickEvents = []
+    this.$cards.forEach(($card, index) => {
       this.clickEvents[index] = () => {
-        this.change(index);
+        this.changeState(index);
       }
-      $this.addEventListener('click', this.clickEvents[index])
+      $card.addEventListener('click', this.clickEvents[index])
     })
-    this.$nav_top.addEventListener('click', this.prevClick);
-    this.$nav_bottom.addEventListener('click', this.nextClick);
 
-    this.change(0);
-
-
+    window.addEventListener('resize', this.checkSize);
+    window.addEventListener('resize', this.getPosition);
+    window.addEventListener('resize', this.setPosition);
   }
 
   destroyDesktop() {

@@ -6,8 +6,10 @@
   --color-accent-2: #F72585;
   --gradient-1: linear-gradient(301.95deg, #45108A 2.3%, #3D065F 29.86%, #10054D 101.35%);
   --gradient-2: linear-gradient(262.85deg, #192038 0%, #2E3A59 100%);
+  --color-bg-card: #535B70;
   --section-bg-light: #F6F9FC;
   --section-bg-dark: var(--gradient-2);
+  --color-border: #CED3D9;
   --color-btn-magic: #fff;
   --color-btn-magic-background: #F72585;
   --color-btn-magic-hover-background: #de2176;

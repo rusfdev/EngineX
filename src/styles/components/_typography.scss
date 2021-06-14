@@ -19,6 +19,9 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   &:last-child {
     margin-bottom: 0;
   }
+  strong {
+    color: var(--color-accent-1);
+  }
 }
 
 h1, .h1 {
@@ -31,12 +34,14 @@ h2, .h2 {
 }
 h3, .h3 {
   font-size: 2.5rem;
+  line-height: 1.2;
 }
 h4, .h4 {
   font-size: 2rem;
+  line-height: 1.2;
 }
 h5, .h5 {
-  font-size: 1.125rem;
+  font-size: 1.5rem;
 }
 h6, .h6 {
   font-size: 1rem;
@@ -57,4 +62,55 @@ p {
 
 strong, b {
   font-weight: 700;
+}
+
+a:not([class]) {
+  color: var(--color-accent-2);
+  transition: opacity $trs1;
+  &[data-touch], &[data-hover] {
+    opacity: 0.8;
+  }
+}
+
+ul:not([class]), ol:not([class]) {
+  margin: 1.25rem 0;
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  li {
+    position: relative;
+    padding-left: 24px;
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+ul:not([class]) {
+  li {
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 8px;
+      top: -1px;
+    }
+  }
+}
+
+ol:not([class]) {
+  counter-reset: section;
+  li:not([class]) {
+    &:before {
+      counter-increment: section;
+      content: counter(section) '. ';
+      position: absolute;
+      right: calc(100% - 25px);
+      width: 30px;
+      text-align: center;
+      top: 0;
+    }
+  }
 }

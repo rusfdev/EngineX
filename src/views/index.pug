@@ -215,6 +215,126 @@ block content
                     p Заказ разработки CMS и приложений вместе сильно повышает надежность работы и отказоустойчивость всей платформы, так как мы формируем общее безопасное и эффективное ядро в пределах одной команды, не подключая внешних подрядчиков.
             .swiper-pagination
 
-  section.section.section_bg-light
+  section.section.section_bg-light.relevance-for-companies
     .container 
-      h2 Для каких компаний будет актуальна наша платформа
+      h2.relevance-for-companies__title Для каких компаний будет актуальна наша платформа
+      .relevance-for-companies__text-content.row
+        p.col-lg-6 Стандартные задачи - не про EngineX. К нам приходят уникальные проекты - в первую очередь, стартапы, маркетплейсы нового формата и финтех-проекты, где важен сложный функционал, нестандартный подход к реализации и инновационные технологии скорости, безопасности и удобства.
+        p.col-lg-6 Кроме того, EngineX может быть реализован в полном объеме для проектов по продаже инфотоваров, курсов обучения, своих технологических продуктов, оборудования.
+      .relevance-cards
+        //card
+        .relevance-card(data-touch-hover)
+          .relevance-card__container
+            .relevance-card__head 
+              span.relevance-card__index.h4 01
+              h4.relevance-card__title Финтех-стартапы
+            .relevance-card__content 
+              .image.image_cover 
+                img(data-src="./img/relevance/1.jpg", alt="image").lazyload
+              .relevance-card__text-content
+                p EngineX подойдет для реализации проектов, связанных с:
+                ol 
+                  li Инвестициями и трейдингом
+                  li Блокчейном
+                  li Кредитованием и другими банковскими услугами
+                  li Учетом личных финансов
+                  li Переводами личных средств и безналичными платежами для юр.лиц
+                  li Автоматизацией рабочих процессов
+                  li Автоматизацией бухгалтерского учета и аудита
+        //card
+        .relevance-card(data-touch-hover)
+          .relevance-card__container
+            .relevance-card__head 
+              span.relevance-card__index.h4 02
+              h4.relevance-card__title SaaS-платформы
+            .relevance-card__content 
+              .image.image_cover 
+                img(data-src="./img/relevance/2.jpg", alt="image").lazyload
+              .relevance-card__text-content
+                p SaaS — это модель обслуживания, при которой подписчикам предоставляется готовое прикладное программное обеспечение, полностью обслуживаемое провайдером.<br> Поставщик самостоятельно управляет приложением, предоставляя заказчикам доступ к функциям с клиентских устройств, как правило через мобильное приложение или веб-браузер.
+                p EngineX подойдет практически для любых SaaS-платформ, так как имеет весь необходимый функционал для реализации задач любой сложности, с перспективами неограниченного масштабирования функционала в любое время. Абсолютно любая тематика любого бизнеса!
+        //card
+        .relevance-card(data-touch-hover)
+          .relevance-card__container
+            .relevance-card__head 
+              span.relevance-card__index.h4 03
+              h4.relevance-card__title Маркетплейсы
+            .relevance-card__content 
+              .image.image_cover 
+                img(data-src="./img/relevance/3.jpg", alt="image").lazyload
+              .relevance-card__text-content
+                p Маркетплейс — это сложный Интернет-магазин, где выставлены товары от разных продавцов. Он может предоставлять только место для размещения товаров на сайте или же брать на себя общение с покупателями и даже доставку, например, Wildberries, Ozon, Amazon и прочие.
+                p В текущий момент ниша развивается очень динамично, постепенно уводя конечных покупателей от мелких Интернет-магазинов в огромный рынок всевозможных товаров, которые можно приобрести по одному адресу. Маркетплейсы широкого профиля плотно забирают рынок, но это не мешает появлению небольших нишевых, узкоспециализированных маркетплейсов (например, авто, мебель, туризм), которые вполне можно реализовать на базе EngineX и неограниченно масштабировать функционально и ресурсно.
+        //card
+        .relevance-card(data-touch-hover)
+          .relevance-card__container
+            .relevance-card__head 
+              span.relevance-card__index.h4 04
+              h4.relevance-card__title Крипто-сервисы
+            .relevance-card__content 
+              .image.image_cover 
+                img(data-src="./img/relevance/4.jpg", alt="image").lazyload
+              .relevance-card__text-content
+                p Крипто-сервис — это обобщенное понятие онлайн-сервиса по хранению и транзакциям в криптовалюте для любых целей, в первую очередь, для трейдинга и взаиморасчетов.
+                p EngineX позволит реализовать сложный проект для:
+                ol
+                  li Мобильного банкинга
+                  li Криптовалютного трейдинга
+                  li Онлайн-обменника электронных денег и криптовалюты
+                  li Автоматизации трейдинга
+                  li Биржевой аналитики
+
+  section.section.section-warranty
+    .container 
+      .section-warranty__top.row 
+        .col-lg-6 
+          .text-block-bordered 
+            h4 Наша платформа гарантирует 
+              strong совместимость практически со всеми видами платежных сервисов, 
+              | сохраняя максимальную безопасность транзакций
+            p Интеграция по API с ведущими мировыми платежными сервисами позволяет проводить транзации с любыми платежными инструментами с моментальным осуществлением вывода и перевода.
+            p Поддерживается 135 валют, крипто-кошельков, а также транзакции через Apple Pay, Google Pay и другие электронные платежные средства.
+            p Детальнее читайте на странице 
+              a(href=technology) <strong>Технология</strong> 
+              | .
+        .col-lg-6
+          .section-warranty__content
+            .section-warranty__text 
+              h4 Онлайн-прием криптовалют
+              ul 
+                li Нет верификации аккаунта, сохраняем приватность транзакций пользователей
+                li Мгновенные выплаты через API с получением номера транзакции
+                li Формирование формы оплаты на сайте, без перехода на внешние ресурсы, с которыми мы интегрируем платежный функционал
+            .payment-list.section-warranty__payment-list 
+              .payment-list__container
+                img(src="./img/payment/1.svg", alt="img").payment-list__item
+                img(src="./img/payment/2.svg", alt="img").payment-list__item
+                img(src="./img/payment/3.svg", alt="img").payment-list__item
+                img(src="./img/payment/4.svg", alt="img").payment-list__item
+                img(src="./img/payment/5.svg", alt="img").payment-list__item
+                img(src="./img/payment/6.svg", alt="img").payment-list__item
+                img(src="./img/payment/7.svg", alt="img").payment-list__item
+                img(src="./img/payment/8.svg", alt="img").payment-list__item
+                img(src="./img/payment/GooglePay.svg", alt="img").payment-list__item
+                img(src="./img/payment/ApplePay.svg", alt="img").payment-list__item
+                img(src="./img/payment/Stripe.svg", alt="img").payment-list__item
+                img(src="./img/payment/Visa.svg", alt="img").payment-list__item
+                img(src="./img/payment/MasterCard.svg", alt="img").payment-list__item
+                img(src="./img/payment/Maestro.svg", alt="img").payment-list__item
+      
+      .section-warranty__cards 
+        .section-warranty__card(data-touch-hover)
+          .image.image_contain
+            img(data-src="./img/llldls.png", alt="image").lazyload
+          h5 Никаких проверок и документов
+        .section-warranty__card(data-touch-hover)
+          .image.image_contain
+            img(data-src="./img/dsd.png", alt="image").lazyload
+          h5 Быстрый и безопасный вывод средств
+        .section-warranty__card(data-touch-hover)
+          .image.image_contain
+            img(data-src="./img/llfld].png", alt="image").lazyload
+          h5 Выбор стороны, отвечающей за комиссию
+
+  section.section.section_bg-dark.development-components
+    .container
