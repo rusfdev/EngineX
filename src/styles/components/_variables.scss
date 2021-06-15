@@ -2,7 +2,6 @@
   --content-width: #{map-get($container-max-widths, xxl)};
   --container-gutter-x: 24px;
   --text-content-margin: 50px;
-
   
   @include media-breakpoint-down(xxl) {
     --content-width: #{map-get($container-max-widths, xl)};

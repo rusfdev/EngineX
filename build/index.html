@@ -49,8 +49,12 @@
           <div class="header__button">
             <button class="button button-magic" type="button">Кнопка, которую<br> НЕ надо нажимать</button>
           </div>
+          <div class="nav-toggle"><span></span><span></span><span></span></div>
         </div>
       </header>
+      <nav class="mobile-nav">
+        <div class="mobile-nav__container"></div>
+      </nav>
       <main class="main" data-barba="container" data-barba-namespace="home">
         <section class="section page-head home-screen screen home">
           <div class="page-head__dots">
@@ -150,9 +154,9 @@
                           <div class="image image_contain"> <img class="swiper-lazy" data-src="./img/phone.png" alt="image"></div>
                         </div>
                         <div class="we-create-slider__slide-text col-lg-8">
-                          <h4>Lorem ipsum dolor amet consectetur adipisicing elit.</h4>
-                          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia quia commodi eligendi nobis labore dolore reprehenderit, provident quam placeat veritatis maxime reiciendis tempora omnis libero iste distinctio dignissimos velit ut?</p>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cumque ullam eligendi quae, reprehenderit harum molestiae quam culpa et? Vero aliquam repellendus eaque vitae dicta eos quasi officiis iure saepe.</p>
+                          <h4>Стабильность и отказоустойчивость системы</h4>
+                          <p>Тысячи часов тестирования и оптимизации ядра EngineX перед релизом гарантированно дают возможность выдерживать отказоустойчивость на уровне 99,9%. Мы самостоятельно настраиваем серверы заказчиков для максимальной эффективности и стабильности работы CMS-платформы.</p>
+                          <p>Защита от DDoS реализована на программном уровне, но также мы можем реализовать комплексную безопасность от атак на уровне серверного оборудования и дополнительных hardware-шлюзов.</p>
                         </div>
                       </div>
                     </div>
@@ -163,8 +167,10 @@
                           <div class="image image_contain"> <img class="swiper-lazy" data-src="./img/phone.png" alt="image"></div>
                         </div>
                         <div class="we-create-slider__slide-text col-lg-8">
-                          <h4>Lorem ipsum dolor sit amet adipisicing elit.</h4>
-                          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia quia commodi eligendi nobis labore dolore reprehenderit, provident quam placeat veritatis maxime reiciendis tempora omnis libero iste distinctio dignissimos velit ut?</p>
+                          <h4>Удобство системы администрирования</h4>
+                          <p>Администрирование сайтов на стандартных движках зачастую вызывает большие проблемы ввиду неудобства реализации функционала, сложности структуры блоков и длительности процесса.</p>
+                          <p>Наше решение максимально нативно, удобно и быстро. Весь необходимый функционал изначально зашивается в движок под ТЗ заказчика, без каких-либо плагинов и лишнего кода, который нагружает ядро.</p>
+                          <p>Контент добавляется, меняется и удаляется в 2 клика на самом сайте. А система управления пользователями, заявками, безопасностью и интеграциями выведена в максимально простое меню, в котором разберется даже начинающий пользователь.</p>
                         </div>
                       </div>
                     </div>
@@ -175,9 +181,9 @@
                           <div class="image image_contain"> <img class="swiper-lazy" data-src="./img/phone.png" alt="image"></div>
                         </div>
                         <div class="we-create-slider__slide-text col-lg-8">
-                          <h4>Lorem sit amet consectetur adipisicing elit.</h4>
-                          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia quia commodi eligendi nobis labore dolore reprehenderit, provident quam placeat veritatis maxime reiciendis tempora omnis libero iste distinctio dignissimos velit ut?</p>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cumque ullam eligendi quae, reprehenderit harum molestiae quam culpa et? Vero aliquam repellendus eaque vitae dicta eos quasi officiis iure saepe.</p>
+                          <h4>Поддержка всех возможных платежных систем на уровне API</h4>
+                          <p>Ваша платформа на EngineX сможет принимать и проводить транзакции в любой валюте, включая все крипто-монеты. Вывод средств на любые кошельки, в любой стране мира — моментально.</p>
+                          <p>Все данные карт, платежных систем, а также крипто-кошельков НЕ сохраняются на сайте, так как все транзации проходят через внешних безопасных мировых платежных агрегаторов — Stripe, CoinPayments и прочих, которые гарантируют максимальную скорость и безопасность транзакций. Подключение и проведение оплат осуществляется через их APIorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cumque ullam eligendi quae, reprehenderit harum molestiae quam culpa et? Vero aliquam repellendus eaque vitae dicta eos quasi officiis iure saepe.</p>
                         </div>
                       </div>
                     </div>
@@ -306,7 +312,9 @@
               <div class="relevance-card" data-touch-hover>
                 <div class="relevance-card__container">
                   <div class="relevance-card__head"> <span class="relevance-card__index h4">01</span>
-                    <h4 class="relevance-card__title">Финтех-стартапы</h4>
+                    <div class="relevance-card__title">
+                      <h4>Финтех-стартапы</h4>
+                    </div>
                   </div>
                   <div class="relevance-card__content">
                     <div class="image image_cover"> <img class="lazyload" data-src="./img/relevance/1.jpg" alt="image"></div>
@@ -329,7 +337,9 @@
               <div class="relevance-card" data-touch-hover>
                 <div class="relevance-card__container">
                   <div class="relevance-card__head"> <span class="relevance-card__index h4">02</span>
-                    <h4 class="relevance-card__title">SaaS-платформы</h4>
+                    <div class="relevance-card__title">
+                      <h4>SaaS-платформы</h4>
+                    </div>
                   </div>
                   <div class="relevance-card__content">
                     <div class="image image_cover"> <img class="lazyload" data-src="./img/relevance/2.jpg" alt="image"></div>
@@ -344,7 +354,9 @@
               <div class="relevance-card" data-touch-hover>
                 <div class="relevance-card__container">
                   <div class="relevance-card__head"> <span class="relevance-card__index h4">03</span>
-                    <h4 class="relevance-card__title">Маркетплейсы</h4>
+                    <div class="relevance-card__title">
+                      <h4>Маркетплейсы</h4>
+                    </div>
                   </div>
                   <div class="relevance-card__content">
                     <div class="image image_cover"> <img class="lazyload" data-src="./img/relevance/3.jpg" alt="image"></div>
@@ -359,7 +371,9 @@
               <div class="relevance-card" data-touch-hover>
                 <div class="relevance-card__container">
                   <div class="relevance-card__head"> <span class="relevance-card__index h4">04</span>
-                    <h4 class="relevance-card__title">Крипто-сервисы</h4>
+                    <div class="relevance-card__title">
+                      <h4>Крипто-сервисы</h4>
+                    </div>
                   </div>
                   <div class="relevance-card__content">
                     <div class="image image_cover"> <img class="lazyload" data-src="./img/relevance/4.jpg" alt="image"></div>
@@ -500,6 +514,28 @@
             </div>
           </div>
         </section>
+        <section class="section work-with-us">
+          <div class="container">
+            <h2 class="work-with-us__title">Почему с нами стоит работать</h2>
+            <div class="work-with-us__blocks">
+              <!--block-->
+              <div class="work-with-us__block" data-touch-hover> <span class="h2 work-with-us__block-index">01</span>
+                <h4 class="work-with-us__block-title">Опыт разработки самописных CMS более 10 лет</h4>
+                <p>Мы давно для себя определились, что создавать эксклюзивные самописные продукты под нестандартные задачи — дает несоизмеримо лучшие результаты, чем использование стандартных предложений на рынке</p>
+              </div>
+              <!--block-->
+              <div class="work-with-us__block" data-touch-hover> <span class="h2 work-with-us__block-index">02</span>
+                <h4 class="work-with-us__block-title">Команда узкопрофильных специалистов</h4>
+                <p>У нас нет многопрофильных специалистов, которые могут делать всё и сразу. Идеалогия компании EngineX в высоком профессионализме каждого сотрудника, который занимается определенной узкой задачей, давая самое высокое качество на выходе</p>
+              </div>
+              <!--block-->
+              <div class="work-with-us__block" data-touch-hover><span class="h2 work-with-us__block-index">03</span>
+                <h4 class="work-with-us__block-title">Закрываем все вопросы по онлайн-разработке</h4>
+                <p>Вам не нужно искать несколько подрядчиков — наша команда реализует все задачи онлайн- проектов «под ключ» — не только сайт с самописной CMS, но и мобильные приложения, сервисы интеграции, системы аналитики, подключение к вашей CRM, техническая поддержка всей системы и серверов, обучение сотрудников и прочее</p>
+              </div>
+            </div>
+          </div>
+        </section>
         <section class="section section_bg-light section-team">
           <div class="container">
             <h2 class="section-team__title">Наша команда</h2>
@@ -515,10 +551,10 @@
                   <div class="team-card__back">
                     <div class="team-card__back-content">
                       <h6>Ключевые навыки:</h6>
-                      <p>Дизайн и прототипирование пользовательского интерфейса</p><a class="team-card__link" href="#" target="_blank">
+                      <p>Дизайн и прототипирование пользовательского интерфейса</p><a class="team-card__link" href="https://t.me/maxdesigner79" target="_blank">
                         <svg class="icon">
                           <use xlink:href="./img/icons/icons.svg#telegram"></use>
-                        </svg><span>@JackDevSoft</span></a>
+                        </svg><span>@maxdesigner79</span></a>
                     </div>
                   </div>
                 </div>
@@ -534,10 +570,10 @@
                   <div class="team-card__back">
                     <div class="team-card__back-content">
                       <h6>Ключевые навыки:</h6>
-                      <p>Настройка сетевой инфраструктуры, администрирование крипто-нод, программирование</p><a class="team-card__link" href="#" target="_blank">
+                      <p>Настройка сетевой инфраструктуры, администрирование крипто-нод, программирование</p><a class="team-card__link" href="https://t.me/mikdeveloper778" target="_blank">
                         <svg class="icon">
                           <use xlink:href="./img/icons/icons.svg#telegram"></use>
-                        </svg><span>@JackDevSoft</span></a>
+                        </svg><span>@mikdeveloper778</span></a>
                     </div>
                   </div>
                 </div>
@@ -553,10 +589,10 @@
                   <div class="team-card__back">
                     <div class="team-card__back-content">
                       <h6>Ключевые навыки:</h6>
-                      <p>Верстка программирование запуск проекта</p><a class="team-card__link" href="#" target="_blank">
+                      <p>Верстка программирование запуск проекта</p><a class="team-card__link" href="https://t.me/IvanDevWarrior" target="_blank">
                         <svg class="icon">
                           <use xlink:href="./img/icons/icons.svg#telegram"></use>
-                        </svg><span>@JackDevSoft</span></a>
+                        </svg><span>@IvanDevWarrior</span></a>
                     </div>
                   </div>
                 </div>
@@ -572,7 +608,7 @@
                   <div class="team-card__back">
                     <div class="team-card__back-content">
                       <h6>Ключевые навыки:</h6>
-                      <p>Технический анализ, проектирование и оценка продукта, программирование</p><a class="team-card__link" href="#" target="_blank">
+                      <p>Технический анализ, проектирование и оценка продукта, программирование</p><a class="team-card__link" href="https://t.me/JackDevSoft" target="_blank">
                         <svg class="icon">
                           <use xlink:href="./img/icons/icons.svg#telegram"></use>
                         </svg><span>@JackDevSoft</span></a>

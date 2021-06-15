@@ -53,6 +53,9 @@ img {
   &.is-active {
     pointer-events: none;
   }
+  @include media-breakpoint-down(sm) {
+    font-size: 30px;
+  }
 }
 
 .swiper {

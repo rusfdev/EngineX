@@ -37,13 +37,13 @@ const brakepoints = {
 
 const $body = document.body;
 const $wrapper = document.querySelector('.wrapper');
-const $header = document.querySelector('.header');
 const $overlay = document.querySelector('.overlay');
 
 
 document.addEventListener('DOMContentLoaded', function() {
   TouchHoverEvents.init();
   Magic.init();
+  Nav.init();
   Header.init();
 })
 
@@ -61,7 +61,9 @@ window.addEventListener('beforeEnter', function(event) {
 
   ActiveLinks.check(event.detail.namespace);
 
-  window.scrollTo(0, 0);
+  if(!Dev) {
+    window.scrollTo(0, 0);
+  }
 })
 
 window.addEventListener('afterExit', function() {
@@ -224,6 +226,8 @@ const ActiveLinks = {
 
 const Header = {
   init: function () {
+    this.$element = document.querySelector('.header');
+
     this.old_scroll = 0;
     window.addEventListener('scroll', () => {
       this.check();
@@ -233,25 +237,70 @@ const Header = {
   check: function () {
     let y = window.pageYOffset,
         h = window.innerHeight,
-        fixed = $header.classList.contains('header_fixed'),
-        hidden = $header.classList.contains('header_hidden');
+        fixed = this.$element.classList.contains('header_fixed'),
+        hidden = this.$element.classList.contains('header_hidden');
 
     if (y > 0 && !fixed) {
-      $header.classList.add('header_fixed');
+      this.$element.classList.add('header_fixed');
+      Nav.$element.classList.add('mobile-nav_header-fixed');
     } else if (y<=0 && fixed) {
-      $header.classList.remove('header_fixed');
+      this.$element.classList.remove('header_fixed');
+      Nav.$element.classList.remove('mobile-nav_header-fixed');
     }
 
     //листаем вниз
     if(this.old_scroll<y && y>h && !hidden) {
-      $header.classList.add('header_hidden');
+      this.$element.classList.add('header_hidden');
     }
     //листаем вверх
     else if(this.old_scroll>y && hidden) {
-      $header.classList.remove('header_hidden');
+      this.$element.classList.remove('header_hidden');
     } 
 
     this.old_scroll = y;
+  }
+}
+
+const Nav = {
+  init: function() {
+    this.$element = document.querySelector('.mobile-nav');
+    this.$container = document.querySelector('.mobile-nav__container');
+    this.$toggle = document.querySelector('.nav-toggle');
+
+    this.animation = gsap.timeline({paused:true})
+      .fromTo(this.$container, {yPercent:-100}, {yPercent:0, duration:0.5, ease:'power2.out'})
+
+    window.addEventListener('afterExit', () => {
+      if(this.state) {
+        this.close();
+      }
+    })
+    
+    this.$toggle.addEventListener('click', () => {
+      if(!this.state) {
+        this.open();
+      } else {
+        this.close();
+      }
+    })
+    
+  },
+  open: function() {
+    this.state = true;
+    Header.$element.classList.add('header_nav-opened');
+    this.$element.classList.add('mobile-nav_opened');
+    this.animation.play();
+
+    disablePageScroll();
+  },
+  close: function() {
+    this.animation.reverse();
+    this.animation.eventCallback('onReverseComplete', () => {
+      this.state = false;
+      enablePageScroll();
+      Header.$element.classList.remove('header_nav-opened');
+      this.$element.classList.remove('mobile-nav_opened');
+    })
   }
 }
 
