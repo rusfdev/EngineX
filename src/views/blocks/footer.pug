@@ -1,3 +1,31 @@
 footer.footer
-  .container 
-    
+  .container.footer__container 
+    .footer__left
+      a(href=home data-namespace='home').logo.footer__logo Engine
+        span X
+      span.footer__copyright © 2010-2021 - EngineX.dev
+
+    nav.nav.footer__nav
+      ul.nav__list  
+        li.nav__item 
+          a(href=home data-namespace='home').nav__link.footer__nav-link Главная 
+        li.nav__item 
+          a(href=technology data-namespace='technology').nav__link.footer__nav-link Технология
+        li.nav__item 
+          a(href=about data-namespace='about').nav__link.footer__nav-link О компании
+        li.nav__item 
+          a(href=blog data-namespace='blog').nav__link.footer__nav-link Блог
+
+    .footer__right
+      .socials.footer__socials
+        ul.socials__list 
+          li.socials__item 
+            a(href="#").socials__link facebook  
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#facebook') 
+          li.socials__item 
+            a(href="#").socials__link telegram  
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#telegram') 
+      
+      a(href="#").footer__link Политика конфиденциальности 

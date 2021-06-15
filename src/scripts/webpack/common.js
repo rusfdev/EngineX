@@ -55,10 +55,13 @@ window.addEventListener('beforeEnter', function(event) {
   ActiveInstances.add(HeadAnimation, '.page-head', event.detail.container);
   ActiveInstances.add(ScrollSlider, '.scroll-slider', event.detail.container);
   ActiveInstances.add(RelevanceCards, '.relevance-cards', event.detail.container);
-  
+  ActiveInstances.add(DevelopmentSlider, '.development-slider', event.detail.container);
   
   ActiveInstances.init();
+
   ActiveLinks.check(event.detail.namespace);
+
+  window.scrollTo(0, 0);
 })
 
 window.addEventListener('afterExit', function() {
@@ -229,7 +232,7 @@ const Header = {
   },
   check: function () {
     let y = window.pageYOffset,
-        h = window.innerHeight/2,
+        h = window.innerHeight,
         fixed = $header.classList.contains('header_fixed'),
         hidden = $header.classList.contains('header_hidden');
 
@@ -259,13 +262,14 @@ const Magic = {
     this.$trigger.addEventListener('click', () => {
       let independent_elements = 'h1, h2, h3, h4, h5, h6, li, p, button, .button, .image, .logo',
           $independent_elements = document.querySelectorAll(independent_elements),
-          $else_elements = document.querySelectorAll('strong, a, span, img, img, .icon');
+          $else_elements = document.querySelectorAll('strong, a, span, .icon');
 
       let $suitable_items = [],
-          $animate_items = [];
+          $animate_group_1 = [],
+          $animate_group_2 = [];
 
       $else_elements.forEach(($this) => {
-        if($this.tagName=='A' || $this.tagName=='SPAN' || $this.tagName=='STRONG' || $this.tagName=='IMG' || $this.classList.contains('icon')) {
+        if($this.tagName=='A' || $this.tagName=='SPAN' || $this.tagName=='STRONG' || $this.classList.contains('icon')) {
           if(!$this.closest(independent_elements)) $suitable_items.push($this);
         }
       })
@@ -278,29 +282,33 @@ const Magic = {
         let y = $this.getBoundingClientRect().y,
             h = $this.getBoundingClientRect().height;
         if(y+h>0 && y<window.innerHeight) {
-          $animate_items.push($this);
+          if(Math.round(Math.random())) {
+            $animate_group_1.push($this);
+          } else {
+            $animate_group_2.push($this);
+          }
         }
       })
 
-      this.animation = gsap.timeline({
-        onStart: () => {
+      this.animation = gsap.timeline()
+        .to($animate_group_1, {scale:2, autoAlpha:0, duration:0.5, ease:'power2.in', stagger:{from:'random', amount:1}})
+        .to($animate_group_2, {scale:0.5, autoAlpha:0, duration:0.5, ease:'power2.in', stagger:{from:'random', amount:1}}, '-=1.5')
+        .fromTo($animate_group_1, {scale:0.5}, {immediateRender:false, scale:1, autoAlpha:1, duration:1, ease:'power2.out', stagger:{from:'random', amount:0.5}})
+        .fromTo($animate_group_2, {scale:2, rotation:180}, {immediateRender:false, scale:1, autoAlpha:1, duration:1, ease:'power2.out', stagger:{from:'random', amount:0.5}}, '-=1.5')
+        .to($animate_group_2, {rotation:0, duration:1, stagger:{amount:0.5}})
+
+        
+        .eventCallback('onStart', () => {
           disablePageScroll();
-          $animate_items.forEach($this => {
-            $this.classList.add('in-magic-animation');
-          })
-        },
-        onComplete: () => {
+          $wrapper.classList.add('disabled');
+        })
+        
+        .eventCallback('onComplete', () => {
           enablePageScroll();
           this.animation.kill();
-          gsap.set($animate_items, {clearProps: "all"});
-          $animate_items.forEach($this => {
-            $this.classList.remove('in-magic-animation');
-          })
-        }
-      })
-        .to($animate_items, {scale:2, autoAlpha:0, duration:0.5, ease:'power2.in', stagger:{from:'random', each:0.03}})
-        .fromTo($animate_items, {scale:0.5}, {immediateRender:false, scale:1, autoAlpha:1, rotation:0, duration:1, ease:'power2.out', stagger:{from:'random', each:0.015}})
-    
+          gsap.set([$animate_group_1, $animate_group_2], {clearProps: "all"});
+          $wrapper.classList.remove('disabled');
+        })
     
     })
   }
@@ -451,7 +459,7 @@ class ScrollSlider {
       init: false,
       effect: 'fade',
       loop: true,
-      speed: 500,
+      speed: 300,
       mousewheel: {
         releaseOnEdges: true,
       },
@@ -606,6 +614,38 @@ class RelevanceCards {
     if(this.flag) this.destroyDesktop();
 
     window.removeEventListener('resize', this.check);
+    for(let child in this) delete this[child];
+  }
+}
+
+class DevelopmentSlider {
+  constructor($parent) {
+    this.$parent = $parent;
+  }
+
+  init() {
+    this.$slider = this.$parent.querySelector('.swiper-container');
+    this.$prev = this.$parent.querySelector('.swiper-button-prev');
+    this.$next = this.$parent.querySelector('.swiper-button-next');
+
+    this.slider = new Swiper(this.$slider, {
+      loop: true,
+      speed: 300,
+      lazy: {
+        loadOnTransitionStart: true,
+        loadPrevNext: true
+      },
+      navigation: {
+        prevEl: this.$prev,
+        nextEl: this.$next
+      }
+    });
+
+
+  }
+
+  destroy() {
+    this.slider.destroy();
     for(let child in this) delete this[child];
   }
 }

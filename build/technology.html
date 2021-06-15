@@ -20,7 +20,7 @@
     <meta property="og:image" content="#">
     <!--fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="preload" href="./fonts/Qanelas-Bold/Qanelas-Bold.woff2" as="font" crossorigin="anonymous">
     <link rel="stylesheet" href="./fonts/Qanelas-Bold/style.css">
     <!--styles-->
@@ -97,7 +97,31 @@
         </section>
       </main>
       <footer class="footer">
-        <div class="container"> </div>
+        <div class="container footer__container">
+          <div class="footer__left"><a class="logo footer__logo" href="/EngineX/build/" data-namespace="home">Engine<span>X</span></a><span class="footer__copyright">© 2010-2021 — EngineX.dev</span></div>
+          <nav class="nav footer__nav">
+            <ul class="nav__list">
+              <li class="nav__item"> <a class="nav__link footer__nav-link" href="/EngineX/build/" data-namespace="home">Главная </a></li>
+              <li class="nav__item"> <a class="nav__link footer__nav-link" href="/EngineX/build/technology.html" data-namespace="technology">Технология</a></li>
+              <li class="nav__item"> <a class="nav__link footer__nav-link" href="/EngineX/build/about.html" data-namespace="about">О компании</a></li>
+              <li class="nav__item"> <a class="nav__link footer__nav-link" href="/EngineX/build/blog.html" data-namespace="blog">Блог</a></li>
+            </ul>
+          </nav>
+          <div class="footer__right">
+            <div class="socials footer__socials">
+              <ul class="socials__list">
+                <li class="socials__item"> <a class="socials__link" href="#">facebook
+                    <svg class="icon">
+                      <use xlink:href="./img/icons/icons.svg#facebook"> </use>
+                    </svg></a></li>
+                <li class="socials__item"> <a class="socials__link" href="#">telegram
+                    <svg class="icon">
+                      <use xlink:href="./img/icons/icons.svg#telegram"> </use>
+                    </svg></a></li>
+              </ul>
+            </div><a class="footer__link" href="#">Политика конфиденциальности </a>
+          </div>
+        </div>
       </footer>
     </div>
     <!--scripts-->

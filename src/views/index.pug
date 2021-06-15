@@ -116,6 +116,7 @@ block content
           .swiper-pagination
 
   section.section.section_bg-dark.additional-benefits
+    img(data-src="./img/dots.svg", alt="dots").lazyload.section__dots
     .additional-benefits-slider-slider.swiper.scroll-slider
       .container
         .row 
@@ -297,30 +298,29 @@ block content
             p Детальнее читайте на странице 
               a(href=technology) <strong>Технология</strong> 
               | .
-        .col-lg-6
-          .section-warranty__content
-            .section-warranty__text 
-              h4 Онлайн-прием криптовалют
-              ul 
-                li Нет верификации аккаунта, сохраняем приватность транзакций пользователей
-                li Мгновенные выплаты через API с получением номера транзакции
-                li Формирование формы оплаты на сайте, без перехода на внешние ресурсы, с которыми мы интегрируем платежный функционал
-            .payment-list.section-warranty__payment-list 
-              .payment-list__container
-                img(src="./img/payment/1.svg", alt="img").payment-list__item
-                img(src="./img/payment/2.svg", alt="img").payment-list__item
-                img(src="./img/payment/3.svg", alt="img").payment-list__item
-                img(src="./img/payment/4.svg", alt="img").payment-list__item
-                img(src="./img/payment/5.svg", alt="img").payment-list__item
-                img(src="./img/payment/6.svg", alt="img").payment-list__item
-                img(src="./img/payment/7.svg", alt="img").payment-list__item
-                img(src="./img/payment/8.svg", alt="img").payment-list__item
-                img(src="./img/payment/GooglePay.svg", alt="img").payment-list__item
-                img(src="./img/payment/ApplePay.svg", alt="img").payment-list__item
-                img(src="./img/payment/Stripe.svg", alt="img").payment-list__item
-                img(src="./img/payment/Visa.svg", alt="img").payment-list__item
-                img(src="./img/payment/MasterCard.svg", alt="img").payment-list__item
-                img(src="./img/payment/Maestro.svg", alt="img").payment-list__item
+        .col-lg-6.section-warranty__content
+          .section-warranty__text 
+            h4 Онлайн-прием криптовалют
+            ul 
+              li Нет верификации аккаунта, сохраняем приватность транзакций пользователей
+              li Мгновенные выплаты через API с получением номера транзакции
+              li Формирование формы оплаты на сайте, без перехода на внешние ресурсы, с которыми мы интегрируем платежный функционал
+          .payment-list.section-warranty__payment-list 
+            .payment-list__container
+              img(src="./img/payment/1.svg", alt="img").payment-list__item
+              img(src="./img/payment/2.svg", alt="img").payment-list__item
+              img(src="./img/payment/3.svg", alt="img").payment-list__item
+              img(src="./img/payment/4.svg", alt="img").payment-list__item
+              img(src="./img/payment/5.svg", alt="img").payment-list__item
+              img(src="./img/payment/6.svg", alt="img").payment-list__item
+              img(src="./img/payment/7.svg", alt="img").payment-list__item
+              img(src="./img/payment/8.svg", alt="img").payment-list__item
+              img(src="./img/payment/GooglePay.svg", alt="img").payment-list__item
+              img(src="./img/payment/ApplePay.svg", alt="img").payment-list__item
+              img(src="./img/payment/Stripe.svg", alt="img").payment-list__item
+              img(src="./img/payment/Visa.svg", alt="img").payment-list__item
+              img(src="./img/payment/MasterCard.svg", alt="img").payment-list__item
+              img(src="./img/payment/Maestro.svg", alt="img").payment-list__item
       
       .section-warranty__cards 
         .section-warranty__card(data-touch-hover)
@@ -337,4 +337,151 @@ block content
           h5 Выбор стороны, отвечающей за комиссию
 
   section.section.section_bg-dark.development-components
+    img(data-src="./img/dots.svg", alt="dots").lazyload.section__dots
     .container
+      .row.development-components__container
+        .col-lg-5
+          .swiper.development-slider 
+            .swiper-container 
+              .swiper-wrapper
+                //slider
+                .swiper-slide.development-slider__slide   
+                  span.h2.development-slider__slide-index 01
+                  .image.development-slider__slide-image.development-slider__slide-image_1
+                    img(data-src="./img/development/1.svg", alt="image").swiper-lazy
+                  h4.development-slider__slide-title Разработка сайта на EngineX
+                //slider
+                .swiper-slide.development-slider__slide   
+                  span.h2.development-slider__slide-index 02
+                  .image.development-slider__slide-image.development-slider__slide-image_2
+                    img(data-src="./img/development/2.svg", alt="image").swiper-lazy
+                  h4.development-slider__slide-title Написание API для работы с внешними ресурсами
+                //slider
+                .swiper-slide.development-slider__slide   
+                  span.h2.development-slider__slide-index 03
+                  .image.development-slider__slide-image.development-slider__slide-image_3
+                    img(data-src="./img/development/3.png", alt="image").swiper-lazy
+                  h4.development-slider__slide-title Любые интеграции с внешними сервисами
+                //slider
+                .swiper-slide.development-slider__slide   
+                  span.h2.development-slider__slide-index 04
+                  .image.development-slider__slide-image.development-slider__slide-image_4
+                    img(data-src="./img/development/4.svg", alt="image").swiper-lazy
+                  h4.development-slider__slide-title Полный пакет документации по использованию CMS EngineX
+                //slider
+                .swiper-slide.development-slider__slide   
+                  span.h2.development-slider__slide-index 05
+                  .image.development-slider__slide-image.development-slider__slide-image_5
+                    img(data-src="./img/development/5.png", alt="image").swiper-lazy
+                  h4.development-slider__slide-title Настройка оборудования заказчика
+                //slider
+                .swiper-slide.development-slider__slide   
+                  span.h2.development-slider__slide-index 06
+                  .image.development-slider__slide-image.development-slider__slide-image_6
+                    img(data-src="./img/development/6.svg", alt="image").swiper-lazy
+                  h4.development-slider__slide-title Разработка мобильных приложений
+                //slider
+                .swiper-slide.development-slider__slide   
+                  span.h2.development-slider__slide-index 07
+                  .image.development-slider__slide-image.development-slider__slide-image_7
+                    img(data-src="./img/development/7.svg", alt="image").swiper-lazy
+                  h4.development-slider__slide-title Оптимизированная мобильная версия сайта + 100% поддержка 
+                //slider
+                .swiper-slide.development-slider__slide   
+                  span.h2.development-slider__slide-index 08
+                  .image.development-slider__slide-image.development-slider__slide-image_8
+                    img(data-src="./img/development/8.svg", alt="image").swiper-lazy
+                  h4.development-slider__slide-title Поддержка обновлений ядра EngineX. Бесплатно, навсегда.
+
+            button.swiper-button.swiper-button-prev
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#arrow-left')
+            button.swiper-button.swiper-button-next
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#arrow-right')
+            .swiper-pagination
+
+        .col-lg-7.development-components__text 
+          h2.development-components__title Что входит в разработку CMS-платформы для Вас
+          p Наша команда реализует проекты на собственном движке EngineX "под ключ", начиная от прототипирования идеи и концепции, и заканчивая настройкой серверов под максимальную эффективность и безопасность готовой системы.
+          p Базовый минимум, который получает заказчик:
+          ol 
+            li Комплексная профессиональная разработка системы управления веб-проектом (CMS
+            li EngineX Frontend / Backend): стратегия проекта, прототип, дизайн, верстка и программирование функционала CMS (натяжка).
+            li Написание API (Для внедрения в мобильное приложение, телеграм бота, сторонние сервисы).
+            li Полный пакет интеграций со всеми необходимыми внешними сервисами по API, тестирование и оптимизация сервисов.
+            li Полный пакет документации, включая видео-обучение использования всех элементов системы EngineX и всех подключенных внешних сервисов.
+            li Настройка всех систем безопасности, включая внедрение безопасного рабочего окружения компании (облако, чат, видеоконференции, VPN), а также серверов заказчика для получения максимальной эффективности работы.
+          p Опционально: Разработка дополнительного мультиплатформенного мобильного приложения под задачи заказчика и интеграция его с CMS EngineX.
+
+
+  section.section.section_bg-light.section-team
+    .container
+      h2.section-team__title Наша команда
+      .section-team__container.row 
+        //card
+        .team-card.col-lg-3
+          .team-card__container(data-touch-hover)
+            .team-card__front 
+              .image.image_cover.team-card__photo 
+                img(data-src="./img/team/1.jpg", alt="image").lazyload
+              h6.team-card__title Evgeny
+              p.team-card__position Дизайнер
+            .team-card__back
+              .team-card__back-content
+                h6 Ключевые навыки:
+                p Дизайн и прототипирование пользовательского интерфейса
+                a(href="#" target='_blank').team-card__link
+                  svg.icon
+                    use(xlink:href='./img/icons/icons.svg#telegram')
+                  span @JackDevSoft
+        //card
+        .team-card.col-lg-3
+          .team-card__container(data-touch-hover)
+            .team-card__front 
+              .image.image_cover.team-card__photo 
+                img(data-src="./img/team/2.jpg", alt="image").lazyload
+              h6.team-card__title Михаил
+              p.team-card__position Программист
+            .team-card__back
+              .team-card__back-content
+                h6 Ключевые навыки:
+                p Настройка сетевой инфраструктуры, администрирование крипто-нод, программирование
+                a(href="#" target='_blank').team-card__link
+                  svg.icon
+                    use(xlink:href='./img/icons/icons.svg#telegram')
+                  span @JackDevSoft
+        //card
+        .team-card.col-lg-3
+          .team-card__container(data-touch-hover)
+            .team-card__front 
+              .image.image_cover.team-card__photo 
+                img(data-src="./img/team/3.jpg", alt="image").lazyload
+              h6.team-card__title Иван
+              p.team-card__position Верстальщик
+            .team-card__back
+              .team-card__back-content
+                h6 Ключевые навыки:
+                p Верстка программирование запуск проекта
+                a(href="#" target='_blank').team-card__link
+                  svg.icon
+                    use(xlink:href='./img/icons/icons.svg#telegram')
+                  span @JackDevSoft
+        //card
+        .team-card.col-lg-3
+          .team-card__container(data-touch-hover)
+            .team-card__front 
+              .image.image_cover.team-card__photo 
+                img(data-src="./img/team/4.jpg", alt="image").lazyload
+              h6.team-card__title Евгений
+              p.team-card__position Проектирование и QA
+            .team-card__back
+              .team-card__back-content
+                h6 Ключевые навыки:
+                p Технический анализ, проектирование и оценка продукта, программирование
+                a(href="#" target='_blank').team-card__link
+                  svg.icon
+                    use(xlink:href='./img/icons/icons.svg#telegram')
+                  span @JackDevSoft
+
+
