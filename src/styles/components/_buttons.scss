@@ -7,6 +7,7 @@
     line-height: 24px;
     padding: 20px 32px;
     border-radius: 4px;
+    color: var(--color-text-light);
     background-color: var(--color-btn-1-background);
     transition: background-color $trs1;
     &[data-touch], &[data-hover] {

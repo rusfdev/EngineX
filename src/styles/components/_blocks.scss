@@ -9,31 +9,31 @@
   }
   &__link {
     font-weight: 700;
-    transition: color $trs2;
-    &[data-touch], &[data-hover] {
-      transition: color $trs1;
+    transition: color $trs1;
+    &[data-touch], &[data-hover], &.is-active {
       color: var(--color-accent-2);
     }
     &.is-active {
-      color: var(--color-accent-2);
       pointer-events: none;
     }
   }
 }
 
 .socials {
+  --size: 24px;
+  --margin: 10px;
   &__list {
     display: flex;
   }
   &__item {
     &:not(:last-child) {
-      margin-right: 10px;
+      margin-right: var(--margin);
     }
   }
   &__link {
     transition: color $trs1;
-    width: 24px;
-    height: 24px;
+    width: var(--size);
+    height: var(--size);
     display: block;
     font-size: 0;
     .icon {

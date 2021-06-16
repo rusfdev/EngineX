@@ -225,15 +225,16 @@ const ActiveLinks = {
 }
 
 const Header = {
-  init: function () {
-    this.$element = document.querySelector('.header');
+  $element: document.querySelector('.header'),
 
+  init: function () {
     this.old_scroll = 0;
     window.addEventListener('scroll', () => {
       this.check();
     })
     this.check();
   },
+
   check: function () {
     let y = window.pageYOffset,
         h = window.innerHeight,
@@ -262,15 +263,27 @@ const Header = {
 }
 
 const Nav = {
+  $element: document.querySelector('.mobile-nav'),
+
   init: function() {
-    this.$element = document.querySelector('.mobile-nav');
+    
     this.$container = document.querySelector('.mobile-nav__container');
     this.$toggle = document.querySelector('.nav-toggle');
+    this.$toggle_items = this.$toggle.querySelectorAll('span');
+    this.$animate = document.querySelectorAll('.mobile-nav__animate-item');
 
     this.animation = gsap.timeline({paused:true})
-      .fromTo(this.$container, {yPercent:-100}, {yPercent:0, duration:0.5, ease:'power2.out'})
+      .fromTo(this.$container, {yPercent:-100}, {yPercent:0, duration:0.5, ease:'power2.out'}) //0.5
+      .fromTo(this.$animate, {autoAlpha:0, y:-40}, {autoAlpha:1, y:0, duration:0.6, ease:'power2.out', stagger:{amount:0.2, from:'end'}}, '-=0.3') //1
+      .to(this.$toggle_items[0], {y:11, duration:0.5, ease:'power2.in'}, '-=1')
+      .to(this.$toggle_items[2], {y:-11, duration:0.5, ease:'power2.in'}, '-=1')
+      .set(this.$toggle_items[1], {autoAlpha:0}, '-=0.5')
+      .to(this.$toggle_items[0], {rotate:45, duration:0.5, ease:'power2.out'}, '-=0.5')
+      .to(this.$toggle_items[2], {rotate:135, duration:0.5, ease:'power2.out'}, '-=0.5')
 
-    window.addEventListener('afterExit', () => {
+    console.log(this.animation.totalDuration())
+
+    window.addEventListener('beforeExit', () => {
       if(this.state) {
         this.close();
       }
@@ -283,23 +296,26 @@ const Nav = {
         this.close();
       }
     })
+
+    this.open();
     
   },
   open: function() {
     this.state = true;
     Header.$element.classList.add('header_nav-opened');
     this.$element.classList.add('mobile-nav_opened');
-    this.animation.play();
-
+    this.$toggle.classList.add('nav-toggle_active');
+    this.animation.timeScale(1).play();
     disablePageScroll();
   },
   close: function() {
-    this.animation.reverse();
+    this.animation.timeScale(1.5).reverse();
     this.animation.eventCallback('onReverseComplete', () => {
       this.state = false;
       enablePageScroll();
       Header.$element.classList.remove('header_nav-opened');
       this.$element.classList.remove('mobile-nav_opened');
+      this.$toggle.classList.remove('nav-toggle_active');
     })
   }
 }

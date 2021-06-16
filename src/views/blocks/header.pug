@@ -24,4 +24,27 @@ header.header(data-scroll-lock-fill-gap)
       span
 
 nav.mobile-nav
-  .mobile-nav__container
+  .mobile-nav__container(data-scroll-lock-scrollable)
+    .container
+      ul.mobile-nav__list 
+        li.mobile-nav__item.mobile-nav__animate-item
+          a(href=home data-namespace='home').mobile-nav__link Главная 
+        li.mobile-nav__item.mobile-nav__animate-item
+          a(href=technology data-namespace='technology').mobile-nav__link Технология
+        li.mobile-nav__item.mobile-nav__animate-item
+          a(href=about data-namespace='about').mobile-nav__link О компании
+        li.mobile-nav__item.mobile-nav__animate-item 
+          a(href=blog data-namespace='blog').mobile-nav__link Блог
+
+      .socials.mobile-nav__socials
+        ul.socials__list 
+          li.socials__item.mobile-nav__animate-item 
+            a(href="#").socials__link facebook  
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#facebook') 
+          li.socials__item.mobile-nav__animate-item 
+            a(href="#").socials__link telegram  
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#telegram') 
+      
+      a(href="javascript:void(0);").button.button_style-1.mobile-nav__button.mobile-nav__animate-item Связаться с нами
