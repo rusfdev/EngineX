@@ -25,11 +25,11 @@ $utilities: map-get-multiple($utilities, ("display", "order", "flex", "flex-dire
 /*========== Basic ==========*/
 @import "./components/basic";
 
-/*========== Layout ==========*/
-@import "./components/layout";
-
 /*========== Components ==========*/
 @import "./components/components";
+
+/*========== Layout ==========*/
+@import "./components/layout";
 
 /*========== Typography ==========*/
 @import "./components/typography";

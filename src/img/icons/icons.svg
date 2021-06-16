@@ -39,10 +39,10 @@
     <path d="M12 19V5m-7 7l7-7 7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
   </symbol>
   <symbol fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="arrow-right">
-    <path d="M6.25 15h17.5M15 6.25L23.75 15 15 23.75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M6.25 15h17.5M15 6.25L23.75 15 15 23.75" stroke-linecap="round" stroke-linejoin="round"></path>
   </symbol>
   <symbol fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="arrow-left">
-    <path d="M23.75 15H6.25M15 23.75L6.25 15 15 6.25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M23.75 15H6.25M15 23.75L6.25 15 15 6.25" stroke-linecap="round" stroke-linejoin="round"></path>
   </symbol>
   <symbol fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="telegram">
     <path d="M21.68 2.975a1.497 1.497 0 00-1.527-.26L2.851 9.514a1.5 1.5 0 00.254 2.867l4.395.88v5.489a1.5 1.5 0 002.56 1.06l2.433-2.432 3.691 3.248a1.488 1.488 0 001.451.302 1.488 1.488 0 001.002-1.093l3.526-15.387a1.496 1.496 0 00-.483-1.472zm-13.604 8.87L3.4 10.909l13.095-5.144-8.418 6.08zM9 18.747v-4.445l2.364 2.08L9 18.749zm8.175.751l-7.724-6.797 11.123-8.033-3.399 14.83z" stroke-width=".5" stroke-linejoin="round"></path>

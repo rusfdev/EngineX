@@ -56,6 +56,7 @@ window.addEventListener('beforeEnter', function(event) {
   ActiveInstances.add(ScrollSlider, '.scroll-slider', event.detail.container);
   ActiveInstances.add(RelevanceCards, '.relevance-cards', event.detail.container);
   ActiveInstances.add(DevelopmentSlider, '.development-slider', event.detail.container);
+  ActiveInstances.add(TeamCard, '.team-card', event.detail.container);
   
   ActiveInstances.init();
 
@@ -72,7 +73,14 @@ window.addEventListener('afterExit', function() {
 })
 
 
-
+//check device
+function mobile() {
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    return true;
+  } else {
+    return false;
+  }
+}
 
 const Transitions = {
   enter: function(container, namespace) {
@@ -250,12 +258,17 @@ const Header = {
     }
 
     //листаем вниз
-    if(this.old_scroll<y && y>h && !hidden) {
-      this.$element.classList.add('header_hidden');
+    if(this.old_scroll<y) {
+      this.old_flag = y;
+      if(y>h && !hidden) {
+        this.$element.classList.add('header_hidden');
+      }
     }
     //листаем вверх
-    else if(this.old_scroll>y && hidden) {
-      this.$element.classList.remove('header_hidden');
+    else if(this.old_scroll>y) {
+      if(hidden && (y<h || y+200<this.old_flag)) {
+        this.$element.classList.remove('header_hidden');
+      }
     } 
 
     this.old_scroll = y;
@@ -273,6 +286,7 @@ const Nav = {
     this.$animate = document.querySelectorAll('.mobile-nav__animate-item');
 
     this.animation = gsap.timeline({paused:true})
+      .set(this.$element, {autoAlpha:1})
       .fromTo(this.$container, {yPercent:-100}, {yPercent:0, duration:0.5, ease:'power2.out'}) //0.5
       .fromTo(this.$animate, {autoAlpha:0, y:-40}, {autoAlpha:1, y:0, duration:0.6, ease:'power2.out', stagger:{amount:0.2, from:'end'}}, '-=0.3') //1
       .to(this.$toggle_items[0], {y:11, duration:0.5, ease:'power2.in'}, '-=1')
@@ -280,8 +294,6 @@ const Nav = {
       .set(this.$toggle_items[1], {autoAlpha:0}, '-=0.5')
       .to(this.$toggle_items[0], {rotate:45, duration:0.5, ease:'power2.out'}, '-=0.5')
       .to(this.$toggle_items[2], {rotate:135, duration:0.5, ease:'power2.out'}, '-=0.5')
-
-    console.log(this.animation.totalDuration())
 
     window.addEventListener('beforeExit', () => {
       if(this.state) {
@@ -296,8 +308,6 @@ const Nav = {
         this.close();
       }
     })
-
-    this.open();
     
   },
   open: function() {
@@ -415,9 +425,13 @@ class HeadAnimation {
     this.$items = this.$parent.querySelectorAll('.page-head__animate-item');
     this.$dots_container = this.$parent.querySelector('.page-head__dots');
     this.$dot = this.$parent.querySelector('.page-head__dot');
+    this.$images = this.$parent.querySelectorAll('.home-screen__image');
+
+    let $home_image = this.$parent.querySelector('.home__image .image'),
+        $technology_image = this.$parent.querySelector('.technology-screen__image');
 
     this.createDots = () => {
-      if(this.$dot) {
+      if(this.$dot && window.innerWidth >= brakepoints.lg) {
         let ch = this.$dots_container.getBoundingClientRect().height,
             cw = this.$dots_container.getBoundingClientRect().width,
             dh = this.$dot.getBoundingClientRect().height,
@@ -452,22 +466,28 @@ class HeadAnimation {
       }
     }
 
-    window.addEventListener('afterEnter', this.createDots)
+    window.addEventListener('afterEnter', this.createDots);
+
+    this.animate = [...this.$items];
+    if(window.innerWidth < brakepoints.lg && this.$images.length) {
+      this.$images.forEach($this => {
+        this.animate.push($this);
+      })
+    }
 
     this.animation = gsap.timeline()
-      .fromTo(this.$items, {y:40, autoAlpha:0}, {autoAlpha:1, y:0, duration:0.85, ease:'power2.out', stagger:{each:0.10}})
+      .fromTo(this.animate, {y:40, autoAlpha:0}, {autoAlpha:1, y:0, duration:0.85, ease:'power2.out', stagger:{each:0.10}})
       .eventCallback('onComplete', () => {
         this.animation.kill();
         delete this.animation;
-        gsap.set(this.$items, {clearProps:'all'});
+        gsap.set(this.animate, {clearProps:'all'});
       })
 
     //images
-    let $home_image = this.$parent.querySelector('.home__image .image'),
-        $technology_image = this.$parent.querySelector('.technology-screen__image');
-    if($home_image) {
+    
+    if($home_image && window.innerWidth >= brakepoints.lg) {
       gsap.fromTo($home_image, {autoAlpha:0, xPercent:-7, yPercent:9}, {autoAlpha:1, xPercent:0, yPercent:0, duration:1, ease:'power2.out'})
-    } else if($technology_image) {
+    } else if($technology_image && window.innerWidth >= brakepoints.lg) {
       gsap.fromTo($technology_image, {autoAlpha:0, scale:0.8}, {autoAlpha:1, scale:1, duration:1, ease:'power2.out'})
     }
     
@@ -477,6 +497,7 @@ class HeadAnimation {
     window.removeEventListener('afterEnter', this.createDots);
     if(this.dots_animation) this.dots_animation.kill();
     if(this.animation) this.animation.kill();
+    for(let child in this) delete this[child];
   }
 }
 
@@ -488,6 +509,9 @@ class ScrollSlider {
   init() {
     this.check = ()=> {
       if(window.innerWidth >= brakepoints.lg && (!this.initialized || !this.flag)) {
+        if(this.initialized) {
+          this.destroyMobile();
+        }
         this.initDesktop();
         this.flag = true;
       } 
@@ -495,6 +519,7 @@ class ScrollSlider {
         if(this.initialized) {
           this.destroyDesktop();
         }
+        this.initMobile();
         this.flag = false;
       }
     }
@@ -525,6 +550,7 @@ class ScrollSlider {
       effect: 'fade',
       loop: true,
       speed: 300,
+      autoHeight: true,
       mousewheel: {
         releaseOnEdges: true,
       },
@@ -557,12 +583,37 @@ class ScrollSlider {
     this.slider.init();
   }
 
+  initMobile() {
+    this.$slider = this.$parent.querySelector('.swiper-container');
+    this.$pagination = this.$parent.querySelector('.swiper-pagination');
+
+    this.slider = new Swiper(this.$slider, {
+      loop: true,
+      speed: 300,
+      autoHeight: true,
+      pagination: {
+        el: this.$pagination,
+        clickable: true,
+        bulletElement: 'button'
+      },
+      lazy: {
+        loadOnTransitionStart: true,
+        loadPrevNext: true
+      }
+    });
+  }
+
   destroyDesktop() {
     this.slider.destroy();
+    this.$nav_elements[this.index].classList.remove('is-active');
     delete this.index;
     this.$nav_elements.forEach(($this, index) => {
       $this.removeEventListener('click', this.clickEvents[index])
     })
+  }
+
+  destroyMobile() {
+    this.slider.destroy();
   }
 
   destroy() {
@@ -581,6 +632,9 @@ class RelevanceCards {
   init() {
     this.check = ()=> {
       if(window.innerWidth >= brakepoints.lg && (!this.initialized || !this.flag)) {
+        if(this.initialized) {
+          this.destroyMobile();
+        }
         this.initDesktop();
         this.flag = true;
       } 
@@ -588,6 +642,7 @@ class RelevanceCards {
         if(this.initialized) {
           this.destroyDesktop();
         }
+        this.initMobile();
         this.flag = false;
       }
     }
@@ -671,13 +726,75 @@ class RelevanceCards {
     window.addEventListener('resize', this.setPosition);
   }
 
+  initMobile() {
+    this.$cards = this.$parent.querySelectorAll('.relevance-card');
+    this.$triggers = this.$parent.querySelectorAll('.relevance-card__head');
+    this.$content = this.$parent.querySelectorAll('.relevance-card__content');
+    this.$inner = this.$parent.querySelectorAll('.relevance-card__content-inner');
+
+    this.animations = [];
+
+    this.change = (index) => {
+      let state = this.$cards[index].classList.contains('is-active');
+
+      if(!state && (!this.animations[index] || !this.animations[index].isActive())) {
+        this.$cards[index].classList.add('is-active');
+
+        let h = this.$inner[index].getBoundingClientRect().height;
+        this.animations[index] = gsap.timeline()
+          .to(this.$content[index], {css:{height:h}, duration:0.5})
+      } else if(state && !this.animations[index].isActive()) {
+        this.$cards[index].classList.remove('is-active');
+        this.animations[index].reverse();
+      }
+    }
+
+    this.checkSize = () => {
+      this.$cards.forEach(($card, index) => {
+        let state = $card.classList.contains('is-active'),
+            h = this.$inner[index].getBoundingClientRect().height;
+        if(state) {
+          this.$content[index].style.height = `${h}px`;
+        } else {
+          this.$content[index].style.height = `0px`;
+        }
+      })
+    }
+
+    window.addEventListener('resize', this.checkSize);
+
+    this.clickEvents = [];
+    this.$triggers.forEach(($trigger, index) => {
+      this.clickEvents[index] = () => {
+        this.change(index);
+      }
+      $trigger.addEventListener('click', this.clickEvents[index])
+    })
+  }
+
   destroyDesktop() {
-    
+    window.removeEventListener('resize', this.checkSize);
+    window.removeEventListener('resize', this.getPosition);
+    window.removeEventListener('resize', this.setPosition);
+    this.$parent.removeAttribute('style');
+    this.$cards.forEach(($card, index) => {
+      gsap.set($card, {clearProps:'all'});
+      $card.removeEventListener('click', this.clickEvents[index])
+    })
+  }
+
+  destroyMobile() {
+    window.removeEventListener('resize', this.checkSize)
+    this.$triggers.forEach(($trigger, index) => {
+      this.$cards[index].classList.remove('is-active');
+      this.$content[index].removeAttribute('style');
+      $trigger.removeEventListener('click', this.clickEvents[index])
+    })
   }
 
   destroy() {
     if(this.flag) this.destroyDesktop();
-
+    else this.destroyMobile();
     window.removeEventListener('resize', this.check);
     for(let child in this) delete this[child];
   }
@@ -692,6 +809,7 @@ class DevelopmentSlider {
     this.$slider = this.$parent.querySelector('.swiper-container');
     this.$prev = this.$parent.querySelector('.swiper-button-prev');
     this.$next = this.$parent.querySelector('.swiper-button-next');
+    this.$pagination = this.$parent.querySelector('.swiper-pagination');
 
     this.slider = new Swiper(this.$slider, {
       loop: true,
@@ -699,6 +817,11 @@ class DevelopmentSlider {
       lazy: {
         loadOnTransitionStart: true,
         loadPrevNext: true
+      },
+      pagination: {
+        el: this.$pagination,
+        clickable: true,
+        bulletElement: 'button'
       },
       navigation: {
         prevEl: this.$prev,
@@ -712,5 +835,29 @@ class DevelopmentSlider {
   destroy() {
     this.slider.destroy();
     for(let child in this) delete this[child];
+  }
+}
+
+class TeamCard {
+  constructor($parent) {
+    this.$parent = $parent;
+  }
+
+  init() {
+    this.$container = this.$parent.querySelector('.team-card__container')
+
+    this.clickEvent = () => {
+      if(mobile() && !this.$container.classList.contains('is-active')) {
+        this.$container.classList.add('is-active');
+      } else if(mobile() && this.$container.classList.contains('is-active')) {
+        this.$container.classList.remove('is-active');
+      }
+    }
+
+    this.$container.addEventListener('click', this.clickEvent)
+  }
+
+  destroy() {
+    this.$container.removeEventListener('click', this.clickEvent)
   }
 }

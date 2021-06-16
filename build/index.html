@@ -77,7 +77,8 @@
         </div>
       </nav>
       <main class="main" data-barba="container" data-barba-namespace="home">
-        <section class="section page-head home-screen screen home">
+        <section class="section page-head home-screen home">
+          <div class="section__dots image"><img class="lazyload" data-src="./img/dots.svg" alt="dots"></div>
           <div class="page-head__dots">
             <div class="page-head__dot"></div>
           </div>
@@ -110,15 +111,15 @@
                 </div>
               </div>
             </div>
-            <div class="home__image">
-              <div class="image"> <img class="lazyload" data-src="./img/home.png" alt="image"></div>
+            <div class="home__image home-screen__image">
+              <div class="image image_contain"> <img class="lazyload" data-src="./img/home.png" alt="image"></div>
             </div>
           </div>
         </section>
         <section class="section section_bg-light we-create-section">
           <div class="container">
             <div class="we-create-section__head">
-              <h2 class="we-create-section__title">Создаем CMS-платформы ALL-in-ONE</h2>
+              <h2 class="we-create-section__title">Создаем CMS-платформы ALL‑in‑ONE</h2>
               <p class="we-create-section__sub-title">для стартапов и SaaS-сервисов, объединяющие скорость, простоту и безопасность</p>
             </div>
             <div class="we-create-section__text-content">
@@ -131,7 +132,7 @@
               <div class="image we-create-section__image"> <img class="lazyload" data-src="./img/lllds.png" alt="image"></div>
             </div>
             <div class="swiper scroll-slider we-create-slider row">
-              <div class="col-lg-3">
+              <div class="col-lg-auto">
                 <div class="scroll-slider__nav we-create-slider__nav">
                   <button class="swiper-button swiper-button-prev scroll-slider__button we-create-slider__button">
                     <svg class="icon">
@@ -151,19 +152,18 @@
                   </button>
                 </div>
               </div>
-              <div class="col-lg-9">
+              <div class="col-lg">
                 <div class="swiper-container">
                   <div class="swiper-wrapper">
                     <!--slide-->
                     <div class="swiper-slide scroll-slider__slide we-create-slider__slide">
                       <div class="row">
-                        <div class="we-create-slider__slide-image col-lg-4">
+                        <div class="we-create-slider__slide-image col-md-4 col-lg-0 col-xl-4">
                           <div class="image image_contain"> <img class="swiper-lazy" data-src="./img/phone.png" alt="image"></div>
                         </div>
-                        <div class="we-create-slider__slide-text col-lg-8">
+                        <div class="we-create-slider__slide-text col-md-8 col-lg-12 col-xl-8">
                           <h4>Быстрый и безопасный код, построенный на криптоалгоритмах</h4>
-                          <p>Наш приоритет — это безопасность системы, независимо от её масштабов.</p>
-                          <p>Криптоалгоритмы хранения и системы шифрования данных дают гарантию защиты от кражи и утечки данных</p>
+                          <p>Наш приоритет — это безопасность системы, независимо от её масштабов.<br> Криптоалгоритмы хранения и системы шифрования данных дают гарантию защиты от кражи и утечки данных</p>
                           <p>Оптимизированность ядра EngineX, согласно проведенных тестов, позволяет получить скорость ответа CMS минимум x100 в сравнении со стандартными движками. Это влияет как на загрузку контента, его обработку и реализацию, так и на скорость онлайн-транзакций, особенно, в криптовалютах.</p>
                         </div>
                       </div>
@@ -171,10 +171,10 @@
                     <!--slide-->
                     <div class="swiper-slide scroll-slider__slide we-create-slider__slide">
                       <div class="row">
-                        <div class="we-create-slider__slide-image col-lg-4">
+                        <div class="we-create-slider__slide-image col-md-4 col-lg-0 col-xl-4">
                           <div class="image image_contain"> <img class="swiper-lazy" data-src="./img/phone.png" alt="image"></div>
                         </div>
-                        <div class="we-create-slider__slide-text col-lg-8">
+                        <div class="we-create-slider__slide-text col-md-8 col-lg-12 col-xl-8">
                           <h4>Стабильность и отказоустойчивость системы</h4>
                           <p>Тысячи часов тестирования и оптимизации ядра EngineX перед релизом гарантированно дают возможность выдерживать отказоустойчивость на уровне 99,9%. Мы самостоятельно настраиваем серверы заказчиков для максимальной эффективности и стабильности работы CMS-платформы.</p>
                           <p>Защита от DDoS реализована на программном уровне, но также мы можем реализовать комплексную безопасность от атак на уровне серверного оборудования и дополнительных hardware-шлюзов.</p>
@@ -184,10 +184,10 @@
                     <!--slide-->
                     <div class="swiper-slide scroll-slider__slide we-create-slider__slide">
                       <div class="row">
-                        <div class="we-create-slider__slide-image col-lg-4">
+                        <div class="we-create-slider__slide-image col-md-4 col-lg-0 col-xl-4">
                           <div class="image image_contain"> <img class="swiper-lazy" data-src="./img/phone.png" alt="image"></div>
                         </div>
-                        <div class="we-create-slider__slide-text col-lg-8">
+                        <div class="we-create-slider__slide-text col-md-8 col-lg-12 col-xl-8">
                           <h4>Удобство системы администрирования</h4>
                           <p>Администрирование сайтов на стандартных движках зачастую вызывает большие проблемы ввиду неудобства реализации функционала, сложности структуры блоков и длительности процесса.</p>
                           <p>Наше решение максимально нативно, удобно и быстро. Весь необходимый функционал изначально зашивается в движок под ТЗ заказчика, без каких-либо плагинов и лишнего кода, который нагружает ядро.</p>
@@ -198,10 +198,10 @@
                     <!--slide-->
                     <div class="swiper-slide scroll-slider__slide we-create-slider__slide">
                       <div class="row">
-                        <div class="we-create-slider__slide-image col-lg-4">
+                        <div class="we-create-slider__slide-image col-md-4 col-lg-0 col-xl-4">
                           <div class="image image_contain"> <img class="swiper-lazy" data-src="./img/phone.png" alt="image"></div>
                         </div>
-                        <div class="we-create-slider__slide-text col-lg-8">
+                        <div class="we-create-slider__slide-text col-md-8 col-lg-12 col-xl-8">
                           <h4>Поддержка всех возможных платежных систем на уровне API</h4>
                           <p>Ваша платформа на EngineX сможет принимать и проводить транзакции в любой валюте, включая все крипто-монеты. Вывод средств на любые кошельки, в любой стране мира — моментально.</p>
                           <p>Все данные карт, платежных систем, а также крипто-кошельков НЕ сохраняются на сайте, так как все транзации проходят через внешних безопасных мировых платежных агрегаторов — Stripe, CoinPayments и прочих, которые гарантируют максимальную скорость и безопасность транзакций. Подключение и проведение оплат осуществляется через их APIorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cumque ullam eligendi quae, reprehenderit harum molestiae quam culpa et? Vero aliquam repellendus eaque vitae dicta eos quasi officiis iure saepe.</p>
@@ -215,8 +215,9 @@
             </div>
           </div>
         </section>
-        <section class="section section_bg-dark additional-benefits"><img class="lazyload section__dots" data-src="./img/dots.svg" alt="dots">
-          <div class="additional-benefits-slider-slider swiper scroll-slider">
+        <section class="section section_bg-dark additional-benefits">
+          <div class="image section__dots"><img class="lazyload" data-src="./img/dots.svg" alt="dots"></div>
+          <div class="additional-benefits-slider swiper scroll-slider">
             <div class="container">
               <div class="row">
                 <div class="col-lg-6">
@@ -334,22 +335,24 @@
                 <div class="relevance-card__container">
                   <div class="relevance-card__head"> <span class="relevance-card__index h4">01</span>
                     <div class="relevance-card__title">
-                      <h4>Финтех-стартапы</h4>
-                    </div>
+                      <h4 class="relevance-card__title-element">Финтех-стартапы</h4>
+                    </div><span class="relevance-card__icon"></span>
                   </div>
                   <div class="relevance-card__content">
-                    <div class="image image_cover"> <img class="lazyload" data-src="./img/relevance/1.jpg" alt="image"></div>
-                    <div class="relevance-card__text-content">
-                      <p>EngineX подойдет для реализации проектов, связанных с:</p>
-                      <ol>
-                        <li>Инвестициями и трейдингом</li>
-                        <li>Блокчейном</li>
-                        <li>Кредитованием и другими банковскими услугами</li>
-                        <li>Учетом личных финансов</li>
-                        <li>Переводами личных средств и безналичными платежами для юр.лиц</li>
-                        <li>Автоматизацией рабочих процессов</li>
-                        <li>Автоматизацией бухгалтерского учета и аудита</li>
-                      </ol>
+                    <div class="relevance-card__content-inner">
+                      <div class="image image_cover"> <img class="lazyload" data-src="./img/relevance/1.jpg" alt="image"></div>
+                      <div class="relevance-card__text-content">
+                        <p>EngineX подойдет для реализации проектов, связанных с:</p>
+                        <ol>
+                          <li>Инвестициями и трейдингом</li>
+                          <li>Блокчейном</li>
+                          <li>Кредитованием и другими банковскими услугами</li>
+                          <li>Учетом личных финансов</li>
+                          <li>Переводами личных средств и безналичными платежами для юр.лиц</li>
+                          <li>Автоматизацией рабочих процессов</li>
+                          <li>Автоматизацией бухгалтерского учета и аудита</li>
+                        </ol>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -359,14 +362,16 @@
                 <div class="relevance-card__container">
                   <div class="relevance-card__head"> <span class="relevance-card__index h4">02</span>
                     <div class="relevance-card__title">
-                      <h4>SaaS-платформы</h4>
-                    </div>
+                      <h4 class="relevance-card__title-element">SaaS-платформы</h4>
+                    </div><span class="relevance-card__icon"></span>
                   </div>
                   <div class="relevance-card__content">
-                    <div class="image image_cover"> <img class="lazyload" data-src="./img/relevance/2.jpg" alt="image"></div>
-                    <div class="relevance-card__text-content">
-                      <p>SaaS — это модель обслуживания, при которой подписчикам предоставляется готовое прикладное программное обеспечение, полностью обслуживаемое провайдером.<br> Поставщик самостоятельно управляет приложением, предоставляя заказчикам доступ к функциям с клиентских устройств, как правило через мобильное приложение или веб-браузер.</p>
-                      <p>EngineX подойдет практически для любых SaaS-платформ, так как имеет весь необходимый функционал для реализации задач любой сложности, с перспективами неограниченного масштабирования функционала в любое время. Абсолютно любая тематика любого бизнеса!</p>
+                    <div class="relevance-card__content-inner">
+                      <div class="image image_cover"> <img class="lazyload" data-src="./img/relevance/2.jpg" alt="image"></div>
+                      <div class="relevance-card__text-content">
+                        <p>SaaS — это модель обслуживания, при которой подписчикам предоставляется готовое прикладное программное обеспечение, полностью обслуживаемое провайдером.<br> Поставщик самостоятельно управляет приложением, предоставляя заказчикам доступ к функциям с клиентских устройств, как правило через мобильное приложение или веб-браузер.</p>
+                        <p>EngineX подойдет практически для любых SaaS-платформ, так как имеет весь необходимый функционал для реализации задач любой сложности, с перспективами неограниченного масштабирования функционала в любое время. Абсолютно любая тематика любого бизнеса!</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -376,14 +381,16 @@
                 <div class="relevance-card__container">
                   <div class="relevance-card__head"> <span class="relevance-card__index h4">03</span>
                     <div class="relevance-card__title">
-                      <h4>Маркетплейсы</h4>
-                    </div>
+                      <h4 class="relevance-card__title-element">Маркетплейсы</h4>
+                    </div><span class="relevance-card__icon"></span>
                   </div>
                   <div class="relevance-card__content">
-                    <div class="image image_cover"> <img class="lazyload" data-src="./img/relevance/3.jpg" alt="image"></div>
-                    <div class="relevance-card__text-content">
-                      <p>Маркетплейс — это сложный Интернет-магазин, где выставлены товары от разных продавцов. Он может предоставлять только место для размещения товаров на сайте или же брать на себя общение с покупателями и даже доставку, например, Wildberries, Ozon, Amazon и прочие.</p>
-                      <p>В текущий момент ниша развивается очень динамично, постепенно уводя конечных покупателей от мелких Интернет-магазинов в огромный рынок всевозможных товаров, которые можно приобрести по одному адресу. Маркетплейсы широкого профиля плотно забирают рынок, но это не мешает появлению небольших нишевых, узкоспециализированных маркетплейсов (например, авто, мебель, туризм), которые вполне можно реализовать на базе EngineX и неограниченно масштабировать функционально и ресурсно.</p>
+                    <div class="relevance-card__content-inner">
+                      <div class="image image_cover"> <img class="lazyload" data-src="./img/relevance/3.jpg" alt="image"></div>
+                      <div class="relevance-card__text-content">
+                        <p>Маркетплейс — это сложный Интернет-магазин, где выставлены товары от разных продавцов. Он может предоставлять только место для размещения товаров на сайте или же брать на себя общение с покупателями и даже доставку, например, Wildberries, Ozon, Amazon и прочие.</p>
+                        <p>В текущий момент ниша развивается очень динамично, постепенно уводя конечных покупателей от мелких Интернет-магазинов в огромный рынок всевозможных товаров, которые можно приобрести по одному адресу. Маркетплейсы широкого профиля плотно забирают рынок, но это не мешает появлению небольших нишевых, узкоспециализированных маркетплейсов (например, авто, мебель, туризм), которые вполне можно реализовать на базе EngineX и неограниченно масштабировать функционально и ресурсно.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -393,21 +400,23 @@
                 <div class="relevance-card__container">
                   <div class="relevance-card__head"> <span class="relevance-card__index h4">04</span>
                     <div class="relevance-card__title">
-                      <h4>Крипто-сервисы</h4>
-                    </div>
+                      <h4 class="relevance-card__title-element">Крипто-сервисы</h4>
+                    </div><span class="relevance-card__icon"></span>
                   </div>
                   <div class="relevance-card__content">
-                    <div class="image image_cover"> <img class="lazyload" data-src="./img/relevance/4.jpg" alt="image"></div>
-                    <div class="relevance-card__text-content">
-                      <p>Крипто-сервис — это обобщенное понятие онлайн-сервиса по хранению и транзакциям в криптовалюте для любых целей, в первую очередь, для трейдинга и взаиморасчетов.</p>
-                      <p>EngineX позволит реализовать сложный проект для:</p>
-                      <ol>
-                        <li>Мобильного банкинга</li>
-                        <li>Криптовалютного трейдинга</li>
-                        <li>Онлайн-обменника электронных денег и криптовалюты</li>
-                        <li>Автоматизации трейдинга</li>
-                        <li>Биржевой аналитики</li>
-                      </ol>
+                    <div class="relevance-card__content-inner">
+                      <div class="image image_cover"> <img class="lazyload" data-src="./img/relevance/4.jpg" alt="image"></div>
+                      <div class="relevance-card__text-content">
+                        <p>Крипто-сервис — это обобщенное понятие онлайн-сервиса по хранению и транзакциям в криптовалюте для любых целей, в первую очередь, для трейдинга и взаиморасчетов.</p>
+                        <p>EngineX позволит реализовать сложный проект для:</p>
+                        <ol>
+                          <li>Мобильного банкинга</li>
+                          <li>Криптовалютного трейдинга</li>
+                          <li>Онлайн-обменника электронных денег и криптовалюты</li>
+                          <li>Автоматизации трейдинга</li>
+                          <li>Биржевой аналитики</li>
+                        </ol>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -418,7 +427,7 @@
         <section class="section section-warranty">
           <div class="container">
             <div class="section-warranty__top row">
-              <div class="col-lg-6">
+              <div class="col-xl-6">
                 <div class="text-block-bordered">
                   <h4>Наша платформа гарантирует <strong>совместимость практически со всеми видами платежных сервисов, </strong>сохраняя максимальную безопасность транзакций</h4>
                   <p>Интеграция по API с ведущими мировыми платежными сервисами позволяет проводить транзации с любыми платежными инструментами с моментальным осуществлением вывода и перевода.</p>
@@ -426,7 +435,7 @@
                   <p>Детальнее читайте на странице <a href="/EngineX/build/technology.html"><strong>Технология</strong> </a>.</p>
                 </div>
               </div>
-              <div class="col-lg-6 section-warranty__content">
+              <div class="col-xl-6 section-warranty__content">
                 <div class="section-warranty__text">
                   <h4>Онлайн-прием криптовалют</h4>
                   <ul>
@@ -436,91 +445,94 @@
                   </ul>
                 </div>
                 <div class="payment-list section-warranty__payment-list">
-                  <div class="payment-list__container"><img class="payment-list__item" src="./img/payment/1.svg" alt="img"><img class="payment-list__item" src="./img/payment/2.svg" alt="img"><img class="payment-list__item" src="./img/payment/3.svg" alt="img"><img class="payment-list__item" src="./img/payment/4.svg" alt="img"><img class="payment-list__item" src="./img/payment/5.svg" alt="img"><img class="payment-list__item" src="./img/payment/6.svg" alt="img"><img class="payment-list__item" src="./img/payment/7.svg" alt="img"><img class="payment-list__item" src="./img/payment/8.svg" alt="img"><img class="payment-list__item" src="./img/payment/GooglePay.svg" alt="img"><img class="payment-list__item" src="./img/payment/ApplePay.svg" alt="img"><img class="payment-list__item" src="./img/payment/Stripe.svg" alt="img"><img class="payment-list__item" src="./img/payment/Visa.svg" alt="img"><img class="payment-list__item" src="./img/payment/MasterCard.svg" alt="img"><img class="payment-list__item" src="./img/payment/Maestro.svg" alt="img"></div>
+                  <div class="payment-list__container">
+                    <div class="payment-list__top"><img class="payment-list__item" src="./img/payment/1.svg" alt="img"><img class="payment-list__item" src="./img/payment/2.svg" alt="img"><img class="payment-list__item" src="./img/payment/3.svg" alt="img"><img class="payment-list__item" src="./img/payment/4.svg" alt="img"><img class="payment-list__item" src="./img/payment/5.svg" alt="img"><img class="payment-list__item" src="./img/payment/6.svg" alt="img"><img class="payment-list__item" src="./img/payment/7.svg" alt="img"><img class="payment-list__item" src="./img/payment/8.svg" alt="img"></div>
+                    <div class="payment-list__last"><img class="payment-list__item" src="./img/payment/GooglePay.svg" alt="img"><img class="payment-list__item" src="./img/payment/ApplePay.svg" alt="img"><img class="payment-list__item" src="./img/payment/Stripe.svg" alt="img"><img class="payment-list__item" src="./img/payment/Visa.svg" alt="img"><img class="payment-list__item" src="./img/payment/MasterCard.svg" alt="img"><img class="payment-list__item" src="./img/payment/Maestro.svg" alt="img"></div>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="section-warranty__cards">
               <div class="section-warranty__card" data-touch-hover>
                 <div class="image image_contain"><img class="lazyload" data-src="./img/llldls.png" alt="image"></div>
-                <h5>Никаких проверок и документов</h5>
+                <h5 class="section-warranty__card-title">Никаких проверок и документов</h5>
               </div>
               <div class="section-warranty__card" data-touch-hover>
                 <div class="image image_contain"><img class="lazyload" data-src="./img/dsd.png" alt="image"></div>
-                <h5>Быстрый и безопасный вывод средств</h5>
+                <h5 class="section-warranty__card-title">Быстрый и безопасный вывод средств</h5>
               </div>
               <div class="section-warranty__card" data-touch-hover>
                 <div class="image image_contain"><img class="lazyload" data-src="./img/llfld].png" alt="image"></div>
-                <h5>Выбор стороны, отвечающей за комиссию</h5>
+                <h5 class="section-warranty__card-title">Выбор стороны, отвечающей за комиссию</h5>
               </div>
             </div>
           </div>
         </section>
         <section class="section section_bg-dark development-components"><img class="lazyload section__dots" data-src="./img/dots.svg" alt="dots">
           <div class="container">
-            <div class="row development-components__container">
-              <div class="col-lg-5">
-                <div class="swiper development-slider">
-                  <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                      <!--slider-->
-                      <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">01</span>
-                        <div class="image development-slider__slide-image development-slider__slide-image_1"><img class="swiper-lazy" data-src="./img/development/1.svg" alt="image"></div>
-                        <h4 class="development-slider__slide-title">Разработка сайта на EngineX</h4>
-                      </div>
-                      <!--slider-->
-                      <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">02</span>
-                        <div class="image development-slider__slide-image development-slider__slide-image_2"><img class="swiper-lazy" data-src="./img/development/2.svg" alt="image"></div>
-                        <h4 class="development-slider__slide-title">Написание API для работы с внешними ресурсами</h4>
-                      </div>
-                      <!--slider-->
-                      <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">03</span>
-                        <div class="image development-slider__slide-image development-slider__slide-image_3"><img class="swiper-lazy" data-src="./img/development/3.png" alt="image"></div>
-                        <h4 class="development-slider__slide-title">Любые интеграции с внешними сервисами</h4>
-                      </div>
-                      <!--slider-->
-                      <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">04</span>
-                        <div class="image development-slider__slide-image development-slider__slide-image_4"><img class="swiper-lazy" data-src="./img/development/4.svg" alt="image"></div>
-                        <h4 class="development-slider__slide-title">Полный пакет документации по использованию CMS EngineX</h4>
-                      </div>
-                      <!--slider-->
-                      <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">05</span>
-                        <div class="image development-slider__slide-image development-slider__slide-image_5"><img class="swiper-lazy" data-src="./img/development/5.png" alt="image"></div>
-                        <h4 class="development-slider__slide-title">Настройка оборудования заказчика</h4>
-                      </div>
-                      <!--slider-->
-                      <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">06</span>
-                        <div class="image development-slider__slide-image development-slider__slide-image_6"><img class="swiper-lazy" data-src="./img/development/6.svg" alt="image"></div>
-                        <h4 class="development-slider__slide-title">Разработка мобильных приложений</h4>
-                      </div>
-                      <!--slider-->
-                      <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">07</span>
-                        <div class="image development-slider__slide-image development-slider__slide-image_7"><img class="swiper-lazy" data-src="./img/development/7.svg" alt="image"></div>
-                        <h4 class="development-slider__slide-title">Оптимизированная мобильная версия сайта + 100% поддержка </h4>
-                      </div>
-                      <!--slider-->
-                      <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">08</span>
-                        <div class="image development-slider__slide-image development-slider__slide-image_8"><img class="swiper-lazy" data-src="./img/development/8.svg" alt="image"></div>
-                        <h4 class="development-slider__slide-title">Поддержка обновлений ядра EngineX. Бесплатно, навсегда.</h4>
-                      </div>
-                    </div>
-                  </div>
-                  <button class="swiper-button swiper-button-prev">
-                    <svg class="icon">
-                      <use xlink:href="./img/icons/icons.svg#arrow-left"></use>
-                    </svg>
-                  </button>
-                  <button class="swiper-button swiper-button-next">
-                    <svg class="icon">
-                      <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
-                    </svg>
-                  </button>
-                  <div class="swiper-pagination"></div>
-                </div>
-              </div>
-              <div class="col-lg-7 development-components__text">
+            <div class="development-components__container">
+              <div class="development-components__head">
                 <h2 class="development-components__title">Что входит в разработку CMS-платформы для Вас</h2>
                 <p>Наша команда реализует проекты на собственном движке EngineX «под ключ», начиная от прототипирования идеи и концепции, и заканчивая настройкой серверов под максимальную эффективность и безопасность готовой системы.</p>
+              </div>
+              <div class="swiper development-slider development-components__slider">
+                <div class="swiper-container">
+                  <div class="swiper-wrapper">
+                    <!--slider-->
+                    <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">01</span>
+                      <div class="image development-slider__slide-image development-slider__slide-image_1"><img class="swiper-lazy" data-src="./img/development/1.svg" alt="image"></div>
+                      <h4 class="development-slider__slide-title">Разработка сайта на EngineX</h4>
+                    </div>
+                    <!--slider-->
+                    <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">02</span>
+                      <div class="image development-slider__slide-image development-slider__slide-image_2"><img class="swiper-lazy" data-src="./img/development/2.svg" alt="image"></div>
+                      <h4 class="development-slider__slide-title">Написание API для работы с внешними ресурсами</h4>
+                    </div>
+                    <!--slider-->
+                    <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">03</span>
+                      <div class="image development-slider__slide-image development-slider__slide-image_3"><img class="swiper-lazy" data-src="./img/development/3.png" alt="image"></div>
+                      <h4 class="development-slider__slide-title">Любые интеграции с внешними сервисами</h4>
+                    </div>
+                    <!--slider-->
+                    <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">04</span>
+                      <div class="image development-slider__slide-image development-slider__slide-image_4"><img class="swiper-lazy" data-src="./img/development/4.svg" alt="image"></div>
+                      <h4 class="development-slider__slide-title">Полный пакет документации по использованию CMS EngineX</h4>
+                    </div>
+                    <!--slider-->
+                    <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">05</span>
+                      <div class="image development-slider__slide-image development-slider__slide-image_5"><img class="swiper-lazy" data-src="./img/development/5.png" alt="image"></div>
+                      <h4 class="development-slider__slide-title">Настройка оборудования заказчика</h4>
+                    </div>
+                    <!--slider-->
+                    <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">06</span>
+                      <div class="image development-slider__slide-image development-slider__slide-image_6"><img class="swiper-lazy" data-src="./img/development/6.svg" alt="image"></div>
+                      <h4 class="development-slider__slide-title">Разработка мобильных приложений</h4>
+                    </div>
+                    <!--slider-->
+                    <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">07</span>
+                      <div class="image development-slider__slide-image development-slider__slide-image_7"><img class="swiper-lazy" data-src="./img/development/7.svg" alt="image"></div>
+                      <h4 class="development-slider__slide-title">Оптимизированная мобильная версия сайта + 100% поддержка </h4>
+                    </div>
+                    <!--slider-->
+                    <div class="swiper-slide development-slider__slide"> <span class="h2 development-slider__slide-index">08</span>
+                      <div class="image development-slider__slide-image development-slider__slide-image_8"><img class="swiper-lazy" data-src="./img/development/8.svg" alt="image"></div>
+                      <h4 class="development-slider__slide-title">Поддержка обновлений ядра EngineX. Бесплатно, навсегда.</h4>
+                    </div>
+                  </div>
+                </div>
+                <button class="swiper-button swiper-button-prev">
+                  <svg class="icon">
+                    <use xlink:href="./img/icons/icons.svg#arrow-left"></use>
+                  </svg>
+                </button>
+                <button class="swiper-button swiper-button-next">
+                  <svg class="icon">
+                    <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
+                  </svg>
+                </button>
+                <div class="swiper-pagination"></div>
+              </div>
+              <div class="development-components__text">
                 <p>Базовый минимум, который получает заказчик:</p>
                 <ol>
                   <li>Комплексная профессиональная разработка системы управления веб-проектом (CMS</li>
@@ -562,7 +574,7 @@
             <h2 class="section-team__title">Наша команда</h2>
             <div class="section-team__container row">
               <!--card-->
-              <div class="team-card col-lg-3">
+              <div class="team-card col-xl-3 col-sm-6">
                 <div class="team-card__container" data-touch-hover>
                   <div class="team-card__front">
                     <div class="image image_cover team-card__photo"> <img class="lazyload" data-src="./img/team/1.jpg" alt="image"></div>
@@ -581,7 +593,7 @@
                 </div>
               </div>
               <!--card-->
-              <div class="team-card col-lg-3">
+              <div class="team-card col-xl-3 col-sm-6">
                 <div class="team-card__container" data-touch-hover>
                   <div class="team-card__front">
                     <div class="image image_cover team-card__photo"> <img class="lazyload" data-src="./img/team/2.jpg" alt="image"></div>
@@ -600,7 +612,7 @@
                 </div>
               </div>
               <!--card-->
-              <div class="team-card col-lg-3">
+              <div class="team-card col-xl-3 col-sm-6">
                 <div class="team-card__container" data-touch-hover>
                   <div class="team-card__front">
                     <div class="image image_cover team-card__photo"> <img class="lazyload" data-src="./img/team/3.jpg" alt="image"></div>
@@ -619,7 +631,7 @@
                 </div>
               </div>
               <!--card-->
-              <div class="team-card col-lg-3">
+              <div class="team-card col-xl-3 col-sm-6">
                 <div class="team-card__container" data-touch-hover>
                   <div class="team-card__front">
                     <div class="image image_cover team-card__photo"> <img class="lazyload" data-src="./img/team/4.jpg" alt="image"></div>

@@ -79,9 +79,66 @@ img {
       width: 100%;
       height: 100%;
       display: block;
+      stroke-width: 2px;
     }
     &[data-touch], &[data-hover] {
       opacity: 0.8;
+    }
+  }
+  &-pagination {
+    display: flex;
+    justify-content: center;
+    --size: 16px;
+    --color: var(--color-accent-3);
+    --between: 24px;
+    &-bullet {
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      position: relative;
+      z-index: 2;
+      border: 2px solid var(--color);
+      transition: background-color $trs1, border-color $trs1;
+      &:not(:last-child) {
+        margin-right: var(--between);
+      }
+      &[data-touch], &[data-hover], &-active {
+        background-color: var(--color);
+        border-color: transparent;
+      }
+      &-active {
+        pointer-events: none;
+      }
+    }
+  }
+  @include media-breakpoint-down(lg) {
+    &-button {
+      --color: var(--color-text-light);
+      --bg: var(--gradient-2);
+      width: 36px;
+      height: 36px;
+      border-radius: 50px;
+      transition: opacity $trs1;
+      border: 2px solid var(--color);
+      background: var(--bg);
+      color: var(--color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .icon {
+        width: 20px;
+        height: 20px;
+        stroke-width: 3px;
+      }
+      &[data-touch], &[data-hover] {
+        opacity: 0.8;
+      }
+    }
+  }
+  @include media-breakpoint-down(md) {
+    &-pagination {
+      --between: 18px;
+      --size: 14px;
     }
   }
 }

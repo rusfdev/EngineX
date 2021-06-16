@@ -16,11 +16,20 @@
   overflow: hidden;
   &__dots {
     position: absolute;
-    width: 1336px;
-    height: auto;
-    top: 50%;
+    width: var(--dots-width);
+    height: 100%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    transform: translateX(-50%);
+    overflow: hidden;
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1336px;
+      height: auto;
+      transform: translate(-50%, -50%);
+    }
   }
   &_bg-light {
     background: var(--section-bg-light);
@@ -28,6 +37,14 @@
   &_bg-dark {
     background: var(--section-bg-dark);
     color: var(--color-text-light);
+  }
+  @include media-breakpoint-down(lg) {
+    padding: 70px 0;
+    &__dots {
+      img {
+        left: calc(50% - 18px);
+      }
+    }
   }
 }
 

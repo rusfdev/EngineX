@@ -4,7 +4,9 @@ block variables
   -var namespace = 'home'
 block content
 
-  section.section.page-head.home-screen.screen.home
+  section.section.page-head.home-screen.home
+    .section__dots.image
+      img(data-src="./img/dots.svg", alt="dots").lazyload
     .page-head__dots
       .page-head__dot
 
@@ -34,14 +36,14 @@ block content
               use(xlink:href='./img/icons/icons.svg#credit-card')
             span Крипто-<br>автоматизация
 
-      .home__image
-        .image 
+      .home__image.home-screen__image
+        .image.image_contain 
           img(data-src="./img/home.png", alt="image").lazyload
 
   section.section.section_bg-light.we-create-section
     .container
       .we-create-section__head
-        h2.we-create-section__title Создаем CMS-платформы ALL-in-ONE
+        h2.we-create-section__title Создаем CMS-платформы ALL&#8209;in&#8209;ONE
         p.we-create-section__sub-title для стартапов и SaaS-сервисов, объединяющие скорость, простоту и безопасность
       .we-create-section__text-content
         .row 
@@ -52,7 +54,7 @@ block content
           img(data-src="./img/lllds.png", alt="image").lazyload
       
       .swiper.scroll-slider.we-create-slider.row 
-        .col-lg-3
+        .col-lg-auto
           .scroll-slider__nav.we-create-slider__nav 
             button.swiper-button.swiper-button-prev.scroll-slider__button.we-create-slider__button
               svg.icon
@@ -69,37 +71,36 @@ block content
             button.swiper-button.swiper-button-next.scroll-slider__button.we-create-slider__button
               svg.icon
                 use(xlink:href='./img/icons/icons.svg#arrow-down')
-        .col-lg-9
+        .col-lg
           .swiper-container 
             .swiper-wrapper
               //slide
               .swiper-slide.scroll-slider__slide.we-create-slider__slide 
                 .row
-                  .we-create-slider__slide-image.col-lg-4
+                  .we-create-slider__slide-image.col-md-4.col-lg-0.col-xl-4
                     .image.image_contain 
                       img(data-src="./img/phone.png", alt="image").swiper-lazy
-                  .we-create-slider__slide-text.col-lg-8
+                  .we-create-slider__slide-text.col-md-8.col-lg-12.col-xl-8
                     h4 Быстрый и безопасный код, построенный на криптоалгоритмах
-                    p Наш приоритет - это безопасность системы, независимо от её масштабов.
-                    p Криптоалгоритмы хранения и системы шифрования данных дают гарантию защиты от кражи и утечки данных
+                    p Наш приоритет - это безопасность системы, независимо от её масштабов.<br> Криптоалгоритмы хранения и системы шифрования данных дают гарантию защиты от кражи и утечки данных
                     p Оптимизированность ядра EngineX, согласно проведенных тестов, позволяет получить скорость ответа CMS минимум x100 в сравнении со стандартными движками. Это влияет как на загрузку контента, его обработку и реализацию, так и на скорость онлайн-транзакций, особенно, в криптовалютах.
               //slide
               .swiper-slide.scroll-slider__slide.we-create-slider__slide 
                 .row
-                  .we-create-slider__slide-image.col-lg-4
+                  .we-create-slider__slide-image.col-md-4.col-lg-0.col-xl-4
                     .image.image_contain 
                       img(data-src="./img/phone.png", alt="image").swiper-lazy
-                  .we-create-slider__slide-text.col-lg-8
+                  .we-create-slider__slide-text.col-md-8.col-lg-12.col-xl-8
                     h4 Стабильность и отказоустойчивость системы
                     p Тысячи часов тестирования и оптимизации ядра EngineX перед релизом гарантированно дают возможность выдерживать отказоустойчивость на уровне 99,9%. Мы самостоятельно настраиваем серверы заказчиков для максимальной эффективности и стабильности работы CMS-платформы.
                     p Защита от DDoS реализована на программном уровне, но также мы можем реализовать комплексную безопасность от атак на уровне серверного оборудования и дополнительных hardware-шлюзов.
               //slide
               .swiper-slide.scroll-slider__slide.we-create-slider__slide 
                 .row
-                  .we-create-slider__slide-image.col-lg-4
+                  .we-create-slider__slide-image.col-md-4.col-lg-0.col-xl-4
                     .image.image_contain 
                       img(data-src="./img/phone.png", alt="image").swiper-lazy
-                  .we-create-slider__slide-text.col-lg-8
+                  .we-create-slider__slide-text.col-md-8.col-lg-12.col-xl-8
                     h4 Удобство системы администрирования
                     p Администрирование сайтов на стандартных движках зачастую вызывает большие проблемы ввиду неудобства реализации функционала, сложности структуры блоков и длительности процесса.
                     p Наше решение максимально нативно, удобно и быстро. Весь необходимый функционал изначально зашивается в движок под ТЗ заказчика, без каких-либо плагинов и лишнего кода, который нагружает ядро.
@@ -107,10 +108,10 @@ block content
               //slide
               .swiper-slide.scroll-slider__slide.we-create-slider__slide 
                 .row
-                  .we-create-slider__slide-image.col-lg-4
+                  .we-create-slider__slide-image.col-md-4.col-lg-0.col-xl-4
                     .image.image_contain 
                       img(data-src="./img/phone.png", alt="image").swiper-lazy
-                  .we-create-slider__slide-text.col-lg-8
+                  .we-create-slider__slide-text.col-md-8.col-lg-12.col-xl-8
                     h4 Поддержка всех возможных платежных систем на уровне API
                     p Ваша платформа на EngineX сможет принимать и проводить транзакции в любой валюте, включая все крипто-монеты. Вывод средств на любые кошельки, в любой стране мира - моментально.
                     p Все данные карт, платежных систем, а также крипто-кошельков НЕ сохраняются на сайте, так как все транзации проходят через внешних безопасных мировых платежных агрегаторов - Stripe, CoinPayments и прочих, которые гарантируют максимальную скорость и безопасность транзакций. Подключение и проведение оплат осуществляется через их APIorem ipsum dolor sit amet, consectetur adipisicing elit. Provident cumque ullam eligendi quae, reprehenderit harum molestiae quam culpa et? Vero aliquam repellendus eaque vitae dicta eos quasi officiis iure saepe.
@@ -118,8 +119,9 @@ block content
           .swiper-pagination
 
   section.section.section_bg-dark.additional-benefits
-    img(data-src="./img/dots.svg", alt="dots").lazyload.section__dots
-    .additional-benefits-slider-slider.swiper.scroll-slider
+    .image.section__dots
+      img(data-src="./img/dots.svg", alt="dots").lazyload
+    .additional-benefits-slider.swiper.scroll-slider
       .container
         .row 
           .col-lg-6 
@@ -231,70 +233,78 @@ block content
             .relevance-card__head 
               span.relevance-card__index.h4 01
               .relevance-card__title
-                h4 Финтех-стартапы
-            .relevance-card__content 
-              .image.image_cover 
-                img(data-src="./img/relevance/1.jpg", alt="image").lazyload
-              .relevance-card__text-content
-                p EngineX подойдет для реализации проектов, связанных с:
-                ol 
-                  li Инвестициями и трейдингом
-                  li Блокчейном
-                  li Кредитованием и другими банковскими услугами
-                  li Учетом личных финансов
-                  li Переводами личных средств и безналичными платежами для юр.лиц
-                  li Автоматизацией рабочих процессов
-                  li Автоматизацией бухгалтерского учета и аудита
+                h4.relevance-card__title-element Финтех-стартапы
+              span.relevance-card__icon
+            .relevance-card__content
+              .relevance-card__content-inner
+                .image.image_cover 
+                  img(data-src="./img/relevance/1.jpg", alt="image").lazyload
+                .relevance-card__text-content
+                  p EngineX подойдет для реализации проектов, связанных с:
+                  ol 
+                    li Инвестициями и трейдингом
+                    li Блокчейном
+                    li Кредитованием и другими банковскими услугами
+                    li Учетом личных финансов
+                    li Переводами личных средств и безналичными платежами для юр.лиц
+                    li Автоматизацией рабочих процессов
+                    li Автоматизацией бухгалтерского учета и аудита
         //card
         .relevance-card(data-touch-hover)
           .relevance-card__container
             .relevance-card__head 
               span.relevance-card__index.h4 02
               .relevance-card__title
-                h4 SaaS-платформы
-            .relevance-card__content 
-              .image.image_cover 
-                img(data-src="./img/relevance/2.jpg", alt="image").lazyload
-              .relevance-card__text-content
-                p SaaS — это модель обслуживания, при которой подписчикам предоставляется готовое прикладное программное обеспечение, полностью обслуживаемое провайдером.<br> Поставщик самостоятельно управляет приложением, предоставляя заказчикам доступ к функциям с клиентских устройств, как правило через мобильное приложение или веб-браузер.
-                p EngineX подойдет практически для любых SaaS-платформ, так как имеет весь необходимый функционал для реализации задач любой сложности, с перспективами неограниченного масштабирования функционала в любое время. Абсолютно любая тематика любого бизнеса!
+                h4.relevance-card__title-element SaaS-платформы
+              span.relevance-card__icon
+            .relevance-card__content
+              .relevance-card__content-inner 
+                .image.image_cover 
+                  img(data-src="./img/relevance/2.jpg", alt="image").lazyload
+                .relevance-card__text-content
+                  p SaaS — это модель обслуживания, при которой подписчикам предоставляется готовое прикладное программное обеспечение, полностью обслуживаемое провайдером.<br> Поставщик самостоятельно управляет приложением, предоставляя заказчикам доступ к функциям с клиентских устройств, как правило через мобильное приложение или веб-браузер.
+                  p EngineX подойдет практически для любых SaaS-платформ, так как имеет весь необходимый функционал для реализации задач любой сложности, с перспективами неограниченного масштабирования функционала в любое время. Абсолютно любая тематика любого бизнеса!
         //card
         .relevance-card(data-touch-hover)
           .relevance-card__container
             .relevance-card__head 
               span.relevance-card__index.h4 03
               .relevance-card__title
-                h4 Маркетплейсы
-            .relevance-card__content 
-              .image.image_cover 
-                img(data-src="./img/relevance/3.jpg", alt="image").lazyload
-              .relevance-card__text-content
-                p Маркетплейс — это сложный Интернет-магазин, где выставлены товары от разных продавцов. Он может предоставлять только место для размещения товаров на сайте или же брать на себя общение с покупателями и даже доставку, например, Wildberries, Ozon, Amazon и прочие.
-                p В текущий момент ниша развивается очень динамично, постепенно уводя конечных покупателей от мелких Интернет-магазинов в огромный рынок всевозможных товаров, которые можно приобрести по одному адресу. Маркетплейсы широкого профиля плотно забирают рынок, но это не мешает появлению небольших нишевых, узкоспециализированных маркетплейсов (например, авто, мебель, туризм), которые вполне можно реализовать на базе EngineX и неограниченно масштабировать функционально и ресурсно.
+                h4.relevance-card__title-element Маркетплейсы
+              span.relevance-card__icon
+            .relevance-card__content
+              .relevance-card__content-inner 
+                .image.image_cover 
+                  img(data-src="./img/relevance/3.jpg", alt="image").lazyload
+                .relevance-card__text-content
+                  p Маркетплейс — это сложный Интернет-магазин, где выставлены товары от разных продавцов. Он может предоставлять только место для размещения товаров на сайте или же брать на себя общение с покупателями и даже доставку, например, Wildberries, Ozon, Amazon и прочие.
+                  p В текущий момент ниша развивается очень динамично, постепенно уводя конечных покупателей от мелких Интернет-магазинов в огромный рынок всевозможных товаров, которые можно приобрести по одному адресу. Маркетплейсы широкого профиля плотно забирают рынок, но это не мешает появлению небольших нишевых, узкоспециализированных маркетплейсов (например, авто, мебель, туризм), которые вполне можно реализовать на базе EngineX и неограниченно масштабировать функционально и ресурсно.
         //card
         .relevance-card(data-touch-hover)
           .relevance-card__container
             .relevance-card__head 
               span.relevance-card__index.h4 04
               .relevance-card__title
-                h4 Крипто-сервисы
-            .relevance-card__content 
-              .image.image_cover 
-                img(data-src="./img/relevance/4.jpg", alt="image").lazyload
-              .relevance-card__text-content
-                p Крипто-сервис — это обобщенное понятие онлайн-сервиса по хранению и транзакциям в криптовалюте для любых целей, в первую очередь, для трейдинга и взаиморасчетов.
-                p EngineX позволит реализовать сложный проект для:
-                ol
-                  li Мобильного банкинга
-                  li Криптовалютного трейдинга
-                  li Онлайн-обменника электронных денег и криптовалюты
-                  li Автоматизации трейдинга
-                  li Биржевой аналитики
+                h4.relevance-card__title-element Крипто-сервисы
+              span.relevance-card__icon
+            .relevance-card__content
+              .relevance-card__content-inner
+                .image.image_cover 
+                  img(data-src="./img/relevance/4.jpg", alt="image").lazyload
+                .relevance-card__text-content
+                  p Крипто-сервис — это обобщенное понятие онлайн-сервиса по хранению и транзакциям в криптовалюте для любых целей, в первую очередь, для трейдинга и взаиморасчетов.
+                  p EngineX позволит реализовать сложный проект для:
+                  ol
+                    li Мобильного банкинга
+                    li Криптовалютного трейдинга
+                    li Онлайн-обменника электронных денег и криптовалюты
+                    li Автоматизации трейдинга
+                    li Биржевой аналитики
 
   section.section.section-warranty
     .container 
       .section-warranty__top.row 
-        .col-lg-6 
+        .col-xl-6 
           .text-block-bordered 
             h4 Наша платформа гарантирует 
               strong совместимость практически со всеми видами платежных сервисов, 
@@ -304,7 +314,7 @@ block content
             p Детальнее читайте на странице 
               a(href=technology) <strong>Технология</strong> 
               | .
-        .col-lg-6.section-warranty__content
+        .col-xl-6.section-warranty__content
           .section-warranty__text 
             h4 Онлайн-прием криптовалют
             ul 
@@ -313,103 +323,106 @@ block content
               li Формирование формы оплаты на сайте, без перехода на внешние ресурсы, с которыми мы интегрируем платежный функционал
           .payment-list.section-warranty__payment-list 
             .payment-list__container
-              img(src="./img/payment/1.svg", alt="img").payment-list__item
-              img(src="./img/payment/2.svg", alt="img").payment-list__item
-              img(src="./img/payment/3.svg", alt="img").payment-list__item
-              img(src="./img/payment/4.svg", alt="img").payment-list__item
-              img(src="./img/payment/5.svg", alt="img").payment-list__item
-              img(src="./img/payment/6.svg", alt="img").payment-list__item
-              img(src="./img/payment/7.svg", alt="img").payment-list__item
-              img(src="./img/payment/8.svg", alt="img").payment-list__item
-              img(src="./img/payment/GooglePay.svg", alt="img").payment-list__item
-              img(src="./img/payment/ApplePay.svg", alt="img").payment-list__item
-              img(src="./img/payment/Stripe.svg", alt="img").payment-list__item
-              img(src="./img/payment/Visa.svg", alt="img").payment-list__item
-              img(src="./img/payment/MasterCard.svg", alt="img").payment-list__item
-              img(src="./img/payment/Maestro.svg", alt="img").payment-list__item
+              .payment-list__top
+                img(src="./img/payment/1.svg", alt="img").payment-list__item
+                img(src="./img/payment/2.svg", alt="img").payment-list__item
+                img(src="./img/payment/3.svg", alt="img").payment-list__item
+                img(src="./img/payment/4.svg", alt="img").payment-list__item
+                img(src="./img/payment/5.svg", alt="img").payment-list__item
+                img(src="./img/payment/6.svg", alt="img").payment-list__item
+                img(src="./img/payment/7.svg", alt="img").payment-list__item
+                img(src="./img/payment/8.svg", alt="img").payment-list__item
+              .payment-list__last
+                img(src="./img/payment/GooglePay.svg", alt="img").payment-list__item
+                img(src="./img/payment/ApplePay.svg", alt="img").payment-list__item
+                img(src="./img/payment/Stripe.svg", alt="img").payment-list__item
+                img(src="./img/payment/Visa.svg", alt="img").payment-list__item
+                img(src="./img/payment/MasterCard.svg", alt="img").payment-list__item
+                img(src="./img/payment/Maestro.svg", alt="img").payment-list__item
       
       .section-warranty__cards 
         .section-warranty__card(data-touch-hover)
           .image.image_contain
             img(data-src="./img/llldls.png", alt="image").lazyload
-          h5 Никаких проверок и документов
+          h5.section-warranty__card-title Никаких проверок и документов
         .section-warranty__card(data-touch-hover)
           .image.image_contain
             img(data-src="./img/dsd.png", alt="image").lazyload
-          h5 Быстрый и безопасный вывод средств
+          h5.section-warranty__card-title Быстрый и безопасный вывод средств
         .section-warranty__card(data-touch-hover)
           .image.image_contain
             img(data-src="./img/llfld].png", alt="image").lazyload
-          h5 Выбор стороны, отвечающей за комиссию
+          h5.section-warranty__card-title Выбор стороны, отвечающей за комиссию
 
   section.section.section_bg-dark.development-components
     img(data-src="./img/dots.svg", alt="dots").lazyload.section__dots
     .container
-      .row.development-components__container
-        .col-lg-5
-          .swiper.development-slider 
-            .swiper-container 
-              .swiper-wrapper
-                //slider
-                .swiper-slide.development-slider__slide   
-                  span.h2.development-slider__slide-index 01
-                  .image.development-slider__slide-image.development-slider__slide-image_1
-                    img(data-src="./img/development/1.svg", alt="image").swiper-lazy
-                  h4.development-slider__slide-title Разработка сайта на EngineX
-                //slider
-                .swiper-slide.development-slider__slide   
-                  span.h2.development-slider__slide-index 02
-                  .image.development-slider__slide-image.development-slider__slide-image_2
-                    img(data-src="./img/development/2.svg", alt="image").swiper-lazy
-                  h4.development-slider__slide-title Написание API для работы с внешними ресурсами
-                //slider
-                .swiper-slide.development-slider__slide   
-                  span.h2.development-slider__slide-index 03
-                  .image.development-slider__slide-image.development-slider__slide-image_3
-                    img(data-src="./img/development/3.png", alt="image").swiper-lazy
-                  h4.development-slider__slide-title Любые интеграции с внешними сервисами
-                //slider
-                .swiper-slide.development-slider__slide   
-                  span.h2.development-slider__slide-index 04
-                  .image.development-slider__slide-image.development-slider__slide-image_4
-                    img(data-src="./img/development/4.svg", alt="image").swiper-lazy
-                  h4.development-slider__slide-title Полный пакет документации по использованию CMS EngineX
-                //slider
-                .swiper-slide.development-slider__slide   
-                  span.h2.development-slider__slide-index 05
-                  .image.development-slider__slide-image.development-slider__slide-image_5
-                    img(data-src="./img/development/5.png", alt="image").swiper-lazy
-                  h4.development-slider__slide-title Настройка оборудования заказчика
-                //slider
-                .swiper-slide.development-slider__slide   
-                  span.h2.development-slider__slide-index 06
-                  .image.development-slider__slide-image.development-slider__slide-image_6
-                    img(data-src="./img/development/6.svg", alt="image").swiper-lazy
-                  h4.development-slider__slide-title Разработка мобильных приложений
-                //slider
-                .swiper-slide.development-slider__slide   
-                  span.h2.development-slider__slide-index 07
-                  .image.development-slider__slide-image.development-slider__slide-image_7
-                    img(data-src="./img/development/7.svg", alt="image").swiper-lazy
-                  h4.development-slider__slide-title Оптимизированная мобильная версия сайта + 100% поддержка 
-                //slider
-                .swiper-slide.development-slider__slide   
-                  span.h2.development-slider__slide-index 08
-                  .image.development-slider__slide-image.development-slider__slide-image_8
-                    img(data-src="./img/development/8.svg", alt="image").swiper-lazy
-                  h4.development-slider__slide-title Поддержка обновлений ядра EngineX. Бесплатно, навсегда.
-
-            button.swiper-button.swiper-button-prev
-              svg.icon
-                use(xlink:href='./img/icons/icons.svg#arrow-left')
-            button.swiper-button.swiper-button-next
-              svg.icon
-                use(xlink:href='./img/icons/icons.svg#arrow-right')
-            .swiper-pagination
-
-        .col-lg-7.development-components__text 
+      .development-components__container
+        .development-components__head 
           h2.development-components__title Что входит в разработку CMS-платформы для Вас
           p Наша команда реализует проекты на собственном движке EngineX "под ключ", начиная от прототипирования идеи и концепции, и заканчивая настройкой серверов под максимальную эффективность и безопасность готовой системы.
+        
+        .swiper.development-slider.development-components__slider 
+          .swiper-container 
+            .swiper-wrapper
+              //slider
+              .swiper-slide.development-slider__slide   
+                span.h2.development-slider__slide-index 01
+                .image.development-slider__slide-image.development-slider__slide-image_1
+                  img(data-src="./img/development/1.svg", alt="image").swiper-lazy
+                h4.development-slider__slide-title Разработка сайта на EngineX
+              //slider
+              .swiper-slide.development-slider__slide   
+                span.h2.development-slider__slide-index 02
+                .image.development-slider__slide-image.development-slider__slide-image_2
+                  img(data-src="./img/development/2.svg", alt="image").swiper-lazy
+                h4.development-slider__slide-title Написание API для работы с внешними ресурсами
+              //slider
+              .swiper-slide.development-slider__slide   
+                span.h2.development-slider__slide-index 03
+                .image.development-slider__slide-image.development-slider__slide-image_3
+                  img(data-src="./img/development/3.png", alt="image").swiper-lazy
+                h4.development-slider__slide-title Любые интеграции с внешними сервисами
+              //slider
+              .swiper-slide.development-slider__slide   
+                span.h2.development-slider__slide-index 04
+                .image.development-slider__slide-image.development-slider__slide-image_4
+                  img(data-src="./img/development/4.svg", alt="image").swiper-lazy
+                h4.development-slider__slide-title Полный пакет документации по использованию CMS EngineX
+              //slider
+              .swiper-slide.development-slider__slide   
+                span.h2.development-slider__slide-index 05
+                .image.development-slider__slide-image.development-slider__slide-image_5
+                  img(data-src="./img/development/5.png", alt="image").swiper-lazy
+                h4.development-slider__slide-title Настройка оборудования заказчика
+              //slider
+              .swiper-slide.development-slider__slide   
+                span.h2.development-slider__slide-index 06
+                .image.development-slider__slide-image.development-slider__slide-image_6
+                  img(data-src="./img/development/6.svg", alt="image").swiper-lazy
+                h4.development-slider__slide-title Разработка мобильных приложений
+              //slider
+              .swiper-slide.development-slider__slide   
+                span.h2.development-slider__slide-index 07
+                .image.development-slider__slide-image.development-slider__slide-image_7
+                  img(data-src="./img/development/7.svg", alt="image").swiper-lazy
+                h4.development-slider__slide-title Оптимизированная мобильная версия сайта + 100% поддержка 
+              //slider
+              .swiper-slide.development-slider__slide   
+                span.h2.development-slider__slide-index 08
+                .image.development-slider__slide-image.development-slider__slide-image_8
+                  img(data-src="./img/development/8.svg", alt="image").swiper-lazy
+                h4.development-slider__slide-title Поддержка обновлений ядра EngineX. Бесплатно, навсегда.
+
+          button.swiper-button.swiper-button-prev
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#arrow-left')
+          button.swiper-button.swiper-button-next
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#arrow-right')
+          .swiper-pagination
+    
+        .development-components__text 
           p Базовый минимум, который получает заказчик:
           ol 
             li Комплексная профессиональная разработка системы управления веб-проектом (CMS
@@ -440,14 +453,12 @@ block content
           h4.work-with-us__block-title Закрываем все вопросы по онлайн-разработке
           p Вам не нужно искать несколько подрядчиков — наша команда реализует все задачи онлайн- проектов «под ключ» — не только сайт с самописной CMS, но и мобильные приложения, сервисы интеграции, системы аналитики, подключение к вашей CRM, техническая поддержка всей системы и серверов, обучение сотрудников и прочее
   
-  
-  
   section.section.section_bg-light.section-team
     .container
       h2.section-team__title Наша команда
       .section-team__container.row 
         //card
-        .team-card.col-lg-3
+        .team-card.col-xl-3.col-sm-6
           .team-card__container(data-touch-hover)
             .team-card__front 
               .image.image_cover.team-card__photo 
@@ -463,7 +474,7 @@ block content
                     use(xlink:href='./img/icons/icons.svg#telegram')
                   span @maxdesigner79
         //card
-        .team-card.col-lg-3
+        .team-card.col-xl-3.col-sm-6
           .team-card__container(data-touch-hover)
             .team-card__front 
               .image.image_cover.team-card__photo 
@@ -479,7 +490,7 @@ block content
                     use(xlink:href='./img/icons/icons.svg#telegram')
                   span @mikdeveloper778
         //card
-        .team-card.col-lg-3
+        .team-card.col-xl-3.col-sm-6
           .team-card__container(data-touch-hover)
             .team-card__front 
               .image.image_cover.team-card__photo 
@@ -495,7 +506,7 @@ block content
                     use(xlink:href='./img/icons/icons.svg#telegram')
                   span @IvanDevWarrior
         //card
-        .team-card.col-lg-3
+        .team-card.col-xl-3.col-sm-6
           .team-card__container(data-touch-hover)
             .team-card__front 
               .image.image_cover.team-card__photo 
