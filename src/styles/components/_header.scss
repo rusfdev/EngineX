@@ -25,7 +25,8 @@
   &_fixed:not(.header_nav-opened) {
     --color: var(--color-text-dark);
     --color-logo: #3D065F;
-    padding: 15px 0 !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
   &_fixed {
     background-color: var(--color-header-fixed-bg);
