@@ -5,6 +5,8 @@ block variables
 block content
 
   section.section.page-head.home-screen.technology-screen
+    .section__dots.image
+      img(data-src="./img/dots.svg", alt="dots").lazyload
     .page-head__dots
       .page-head__dot
 
@@ -34,7 +36,7 @@ block content
                 use(xlink:href='./img/icons/icons.svg#check')
               | Поддержка 135+ валют и систем платежей
 
-        a(href="#").button.button_style-1.home-screen__button.technology-screen__button.page-head__animate-item 
+        a(href="#about-technology" data-scroll).button.button_style-1.home-screen__button.technology-screen__button.page-head__animate-item 
           span Ознакомиться подробнее
           svg.icon
             use(xlink:href='./img/icons/icons.svg#right-down')
@@ -42,7 +44,7 @@ block content
       .home-screen__image.technology-screen__image.image 
         img(data-src="./img/technology.png", alt="image").lazyload
 
-  section.section.about-technology 
+  section.section.about-technology#about-technology
     .container 
       h2.about-technology__title Суть технологии EngineX
       .about-technology__text-content.row 
@@ -69,3 +71,33 @@ block content
           .image.image_contain 
             img(src="./img/stability.png", alt="icon").lazyload
           h5.about-technology__block-title Стабильность<br> системы
+
+
+  section.section.section_bg-dark.what-is-included
+    .container 
+      h2.what-is-included__title Что входит в разработку<br> уникальной CMS-платформы
+      .swiper 
+        .swiper-container 
+          .swiper-wrapper
+            mixin slide(index, image, title)
+              //item
+              .swiper-slide.what-is-included__slide
+                .what-is-included__slide-container(data-touch-hover)
+                  .what-is-included__slide-inner
+                    span.h2.what-is-included__slide-index 0#{index}
+                    .image.what-is-included__slide-image(class=`what-is-included__slide-image_${index}`)
+                      img(data-src=image, alt="image").lazyload
+                    h4.what-is-included__slide-title !{title}
+
+            +slide(1, "./img/development/1.svg", 'Разработка сайта на EngineX')
+            +slide(2, "./img/development/2.svg", 'Написание API для работы с внешними ресурсами')
+            +slide(3, "./img/development/3.png", 'Любые интеграции с внешними сервисами')
+            +slide(4, "./img/development/4.svg", `Полный пакет документации по использованию CMS&nbsp;EngineX`)
+            +slide(5, "./img/development/5.png", 'Настройка оборудования заказчика')
+            +slide(6, "./img/development/6.svg", 'Разработка мобильных приложений')
+            +slide(7, "./img/development/7.svg", 'Оптимизированная мобильная версия сайта + 100% поддержка')
+            +slide(8, "./img/development/8.svg", 'Поддержка обновлений ядра EngineX. Бесплатно, навсегда.')
+            
+          
+
+  section.section

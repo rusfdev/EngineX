@@ -2260,7 +2260,7 @@ html {
   font-size: 16px; }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: var(--color-text-dark);
   font-size: 1rem;
   line-height: 1.3;
@@ -2353,7 +2353,7 @@ ul:not([class]) li::before {
   position: absolute;
   left: 8px;
   display: inline-block;
-  transform: translateY(-2px) scale(2.5); }
+  transform: translateY(1px) scale(2); }
 
 ol:not([class]) {
   counter-reset: section; }
@@ -3153,6 +3153,7 @@ ol:not([class]) {
 .development-slider__slide-title {
   position: relative;
   z-index: 2;
+  margin: 0;
   margin: 0; }
 
 .development-slider__slide-image {
@@ -3224,7 +3225,9 @@ ol:not([class]) {
     right: -18px; }
   .development-slider__slide {
     height: 375px;
-    padding: 60px 40px 40px 40px; }
+    padding: 60px 20px 40px 40px; }
+  .development-slider__slide-index {
+    font-size: 2rem; }
   .development-slider__slide-title {
     font-size: 1.125rem;
     line-height: 1.3; }
@@ -3263,7 +3266,7 @@ ol:not([class]) {
 
 @media (max-width: 575.98px) {
   .development-slider__slide {
-    padding: 40px 30px 40px 30px; }
+    padding: 40px 20px 40px 30px; }
   .development-slider .swiper-button-prev {
     left: var(--container-gutter-x); }
   .development-slider .swiper-button-next {
@@ -3522,6 +3525,100 @@ ol:not([class]) {
     width: 100%; }
     .about-technology__block:nth-child(2), .about-technology__block:nth-child(3), .about-technology__block:nth-child(4), .about-technology__block:nth-child(5) {
       border-width: 0 1px 1px 1px; } }
+
+.what-is-included__title {
+  text-align: center;
+  margin-bottom: 40px; }
+
+.what-is-included__slide-container {
+  perspective: 1000px; }
+  .what-is-included__slide-container[data-hover] .what-is-included__slide-inner, .what-is-included__slide-container[data-touch] .what-is-included__slide-inner {
+    transform: rotateY(20deg); }
+
+.what-is-included__slide-inner {
+  background: var(--color-accent-3) var(--gradient-1);
+  color: var(--color-text-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 375px;
+  padding: 60px 20px 40px 40px;
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.23, 0.74, 0.35, 1);
+  will-change: transform;
+  overflow: hidden; }
+
+.what-is-included__slide-image {
+  position: absolute; }
+  .what-is-included__slide-image_1 {
+    width: 212px;
+    top: 50px;
+    right: -25px; }
+  .what-is-included__slide-image_2 {
+    width: 160px;
+    top: 50px;
+    right: -20px; }
+  .what-is-included__slide-image_3 {
+    width: 116px;
+    top: 15px;
+    right: 38px; }
+  .what-is-included__slide-image_4 {
+    width: 190px;
+    top: 50px;
+    right: -40px; }
+  .what-is-included__slide-image_5 {
+    width: 140px;
+    top: 50px;
+    right: 21px; }
+  .what-is-included__slide-image_6 {
+    width: 110px;
+    top: 50px;
+    right: 25px; }
+  .what-is-included__slide-image_7 {
+    width: 100px;
+    top: 50px;
+    right: 25px; }
+  .what-is-included__slide-image_8 {
+    width: 140px;
+    top: 50px;
+    right: 12px; }
+
+.what-is-included__slide-index {
+  font-size: 2rem;
+  margin: 0; }
+
+.what-is-included__slide-title {
+  font-size: 1.125rem;
+  line-height: 1.3;
+  margin: 0; }
+
+@media (min-width: 1024px) {
+  .what-is-included .swiper-container {
+    overflow: visible; }
+  .what-is-included .swiper-wrapper {
+    margin-bottom: calc(var(--bs-gutter-x) * -1);
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) / -2);
+    margin-left: calc(var(--bs-gutter-x) / -2); }
+  .what-is-included__slide {
+    margin-bottom: var(--bs-gutter-x);
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) / 2);
+    padding-left: calc(var(--bs-gutter-x) / 2);
+    margin-top: var(--bs-gutter-y);
+    flex: 0 0 auto;
+    width: 33.33333%; } }
+
+@media (min-width: 1280px) {
+  .what-is-included__slide {
+    flex: 0 0 auto;
+    width: 25%; } }
 
 /*========== Header ==========*/
 .header {

@@ -2,6 +2,8 @@ const Dev = false;
 
 import 'lazysizes';
 import {gsap} from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+gsap.registerPlugin(ScrollToPlugin);
 gsap.defaults({
   duration: 1,
   ease: 'power2.inOut'
@@ -41,6 +43,7 @@ const $overlay = document.querySelector('.overlay');
 
 
 document.addEventListener('DOMContentLoaded', function() {
+  scroll();
   TouchHoverEvents.init();
   Magic.init();
   Nav.init();
@@ -80,6 +83,17 @@ function mobile() {
   } else {
     return false;
   }
+}
+
+function scroll() {
+  document.addEventListener('click', (event) => {
+    let $target = event.target!==document?event.target.closest('[data-scroll]'):null;
+    if($target) {
+      event.preventDefault();
+      let id = $target.getAttribute('href');
+      gsap.to(window, {duration:1, scrollTo:id});
+    }
+  })
 }
 
 const Transitions = {
