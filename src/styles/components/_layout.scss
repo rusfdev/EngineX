@@ -38,12 +38,35 @@
     background: var(--section-bg-dark);
     color: var(--color-text-light);
   }
+  &__title {
+    margin-bottom: 40px;
+  }
   @include media-breakpoint-down(lg) {
     padding: 70px 0;
+    &__title {
+      margin-bottom: 30px;
+    }
     &__dots {
       img {
         left: calc(50% - 18px);
       }
+    }
+  }
+}
+
+.section-inner {
+  &:not(:last-child) {
+    margin-bottom: 110px;
+  }
+  &__title {
+    margin-bottom: 40px;
+  }
+  @include media-breakpoint-down(lg) {
+    &:not(:last-child) {
+      margin-bottom: 70px;
+    }
+    &__title {
+      margin-bottom: 30px;
     }
   }
 }

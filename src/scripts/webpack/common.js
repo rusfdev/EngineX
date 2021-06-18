@@ -37,7 +37,6 @@ const brakepoints = {
   xxl: 1600
 }
 
-const $body = document.body;
 const $wrapper = document.querySelector('.wrapper');
 const $overlay = document.querySelector('.overlay');
 
@@ -61,6 +60,7 @@ window.addEventListener('beforeEnter', function(event) {
   ActiveInstances.add(DevelopmentSlider, '.development-slider', event.detail.container);
   ActiveInstances.add(TeamCard, '.team-card', event.detail.container);
   ActiveInstances.add(WhatIsIncludedSlider, '.what-is-included__slider', event.detail.container);
+  ActiveInstances.add(SystemSpeedSlider, '.system-speed-section__slider', event.detail.container);
   
   ActiveInstances.init();
 
@@ -92,7 +92,7 @@ function scroll() {
     if($target) {
       event.preventDefault();
       let id = $target.getAttribute('href');
-      gsap.to(window, {duration:1, scrollTo:id});
+      gsap.to(window, {scrollTo:id});
     }
   })
 }
@@ -580,11 +580,17 @@ class ScrollSlider {
     });
 
     this.slider.on('slideChange', (swiper) => {
-      this.change(swiper.realIndex)
+      this.change(swiper.realIndex);
+      if(this.initialized) {
+        //scroll
+        let y = this.$slider.getBoundingClientRect().top + window.pageYOffset - 40;
+        gsap.to(window, {duration:0.5, scrollTo:y});
+      }
     });
 
     this.slider.on('init', (swiper) => {
-      this.change(swiper.realIndex)
+      this.change(swiper.realIndex);
+      this.initialized = true;
     });
 
     this.clickEvents = [];
@@ -622,6 +628,7 @@ class ScrollSlider {
     this.slider.destroy();
     this.$nav_elements[this.index].classList.remove('is-active');
     delete this.index;
+    delete this.initialized;
     this.$nav_elements.forEach(($this, index) => {
       $this.removeEventListener('click', this.clickEvents[index])
     })
@@ -929,3 +936,31 @@ class WhatIsIncludedSlider {
     for(let child in this) delete this[child];
   }
 }
+
+class SystemSpeedSlider {
+  constructor($parent) {
+    this.$parent = $parent;
+  }
+
+  init() {
+    this.$slider = this.$parent.querySelector('.swiper-container');
+    this.$prev = this.$parent.querySelector('.swiper-button-prev');
+    this.$next = this.$parent.querySelector('.swiper-button-next');
+
+    this.slider = new Swiper(this.$slider, {
+      loop: true,
+      speed: 300,
+      autoHeight: true,
+      navigation: {
+        prevEl: this.$prev,
+        nextEl: this.$next
+      }
+    });
+  }
+
+  destroy() {
+    this.slider.destroy();
+    for(let child in this) delete this[child];
+  }
+}
+

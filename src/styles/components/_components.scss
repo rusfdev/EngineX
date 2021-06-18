@@ -70,6 +70,9 @@ img {
     }
   }
   &-button {
+    --color: var(--color-text-light);
+    --bg: var(--gradient-2);
+    color: var(--color);
     width: 30px;
     height: 30px;
     transition: opacity $trs1;
@@ -118,15 +121,12 @@ img {
   }
   @include media-breakpoint-down(lg) {
     &-button {
-      --color: var(--color-text-light);
-      --bg: var(--gradient-2);
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 50px;
       transition: opacity $trs1;
       border: 2px solid var(--color);
       background: var(--bg);
-      color: var(--color);
       display: flex;
       justify-content: center;
       align-items: center;

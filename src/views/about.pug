@@ -11,4 +11,35 @@ block content
       h1.h2.page-head__title.page-head__animate-item О компании EngineX
 
 
+  section.section.we-solve-problems
+    .container 
+      h2.section__title.we-solve-problems__title Ключевые задачи, которые мы решаем
+      .wide-text-card-container
+      
+        mixin block(index, title, text, image)
+          .wide-text-card.wide-text-card_2.slide-bg-card(data-touch-hover)
+            .image.image_contain.wide-text-card__image.wide-text-card__image_2
+                img(data-src=image, alt="image").lazyload
+            .wide-text-card__content 
+              span.h2.wide-text-card__index 0#{index}
+              h4.wide-text-card__title.wide-text-card__title_2=title
+              p.wide-text-card__text=text
+            
+
+        +block(1, 
+          'Индивидуальный подход к каждой задаче', 
+          'У нас нет одного общего готового решения для всех. Мы не делаем коробочный продукт, а создаем уникальный проект в каждом отдельном случае, учитывая любые пожелания заказчика.',
+          './img/iivo.png'
+        )
+        +block(2, 
+          'Даем комплексное решение для WEB-инфраструктуры Вашего проекта', 
+          'Вам не нужно думать, как должен работать сайт, сервер, защита и прочее. Ваша задача - дать хороший продукт рынку и получать деньги. А мы позаботимся об инструментах для этого.',
+          './img/lldls.png'
+        )
+        +block(3, 
+          'Техническая поддержка 24/7 в любой точке мира', 
+          'Обеспечиваем пожизненное обновление нашей CMS - Вы автоматически будуте получать все апдейты безопасности и улучшения ядра системы. Кроме того, команда EngineX готова оказать любую техническую поддержку и ответить на все вопросы в любое время дня и ночи.',
+          './img/kdnt.png'
+        )
+
   include blocks/subscribe2
