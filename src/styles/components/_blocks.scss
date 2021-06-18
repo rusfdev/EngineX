@@ -298,6 +298,10 @@
   }
   &__button {
     margin-top: 45px;
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
   }
   &__image {
     &::before {
@@ -438,6 +442,15 @@
   @include media-breakpoint-down(lg) {
     &__nav {
       display: none;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    .swiper-container {
+      overflow: visible;
+      margin: 0 calc(var(--bs-gutter-x) / -2);
+    }
+    &__slide {
+      padding: 0 calc(var(--bs-gutter-x) / 2);
     }
   }
 }
@@ -906,7 +919,7 @@
     margin-bottom: 40px;
   }
   &__container {
-    align-items: flex-start;
+    align-items: center;
     display: grid;
     grid-template-columns: 488px 1fr;
     grid-template-rows: auto auto;
@@ -1459,14 +1472,6 @@
     text-align: center;
     margin-bottom: 40px;
   }
-  &__slide-container {
-    perspective: 1000px;
-    &[data-hover], &[data-touch] {
-      .what-is-included__slide-inner {
-        transform: rotateY(20deg);
-      }
-    }
-  }
   &__slide-inner {
     background: var(--color-accent-3) var(--gradient-1);
     color: var(--color-text-light);
@@ -1476,8 +1481,6 @@
     height: 375px;
     padding: 60px 20px 40px 40px;
     position: relative;
-    transition: transform .5s $out;
-    will-change: transform;
     overflow: hidden;
   }
   &__slide-image {
@@ -1535,6 +1538,21 @@
 
 
   @include media-breakpoint-up(lg) {
+    &__slide-container {
+      perspective: 1000px;
+      &[data-hover], &[data-touch] {
+        .what-is-included__slide-inner {
+          transform: rotateY(20deg);
+        }
+      }
+    }
+    &__slider-nav {
+      display: none;
+    }
+    &__slide-inner {
+      transition: transform .5s $out;
+      will-change: transform;
+    }
     .swiper-container {
       overflow: visible;
     }
@@ -1551,6 +1569,166 @@
   @include media-breakpoint-up(xl) {
     &__slide {
       @include make-col(3);
+    }
+  }
+  @include media-breakpoint-down(lg) {
+    &__title {
+      margin-bottom: 30px;
+    }
+    &__slider {
+      .swiper-container {
+        margin: 0 calc(var(--bs-gutter-x) / -2);
+        overflow: visible;
+      }
+    }
+    &__slide {
+      padding: 0 calc(var(--bs-gutter-x) / 2);
+      width: calc(282px + var(--bs-gutter-x));
+    }
+    &__slider-nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      .swiper-button {
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+.subscribe-form {
+  width: 690px;
+  @include media-breakpoint-up(sm) {
+    display: flex;
+    &__input {
+      border-radius: 4px 0 0 4px;
+      flex: 1 1 auto;
+    }
+    &__button {
+      border-radius: 0 4px 4px 0;
+      flex: 0 0 220px;
+    }
+  }
+  @include media-breakpoint-down(xl) {
+    width: 500px;
+  }
+  @include media-breakpoint-down(lg) {
+    width: 100%;
+    &__button {
+      flex: 0 0 240px;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    &__button {
+      flex: 0 0 auto;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    &__button {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+}
+
+.subscribe-section {
+  &__head {
+    margin-bottom: 40px;
+    position: relative;
+  }
+  &__text {
+    max-width: 690px;
+    margin-top: 10px;
+  }
+  &__title {
+    max-width: 792px;
+    margin: 0;
+  }
+  &__image {
+    &::before {
+      content: '';
+      display: block;
+      padding-top: 82%;
+    }
+  }
+  &__post-text {
+    display: block;
+    opacity: 0.7;
+    margin-top: 30px;
+  }
+  @include media-breakpoint-up(md) {
+    &__button {
+      position: absolute;
+      right: var(--container-gutter-x);
+      top: 24px;
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    &__button {
+      right: 85px;
+    }
+    &__image {
+      position: absolute;
+      width: 384px;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    &__button {
+      right: 112px;
+      top: 38px;
+    }
+  }
+  @include media-breakpoint-up(xxl) {
+    &__button {
+      top: 42px;
+    }
+  }
+  @include media-breakpoint-down(xl) {
+    &__title {
+      max-width: 500px;
+    }
+    &__text {
+      max-width: 500px;
+    }
+    &__head {
+      margin-bottom: 30px;
+    }
+  }
+  @include media-breakpoint-down(lg) {
+    &__title {
+      max-width: initial;
+      br {
+        display: none;
+      }
+      &_1 {
+        max-width: 461px;
+        padding-right: 20px;
+        margin-bottom: 40px;
+      }
+    }
+    &__image {
+      max-width: 384px;
+      margin: 30px auto 0 auto;
+    }
+    &__text {
+      max-width: initial;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    &__title {
+      &_1 {
+        padding: 0;
+        max-width: initial;
+        margin-bottom: 30px;
+      }
+    }
+    &__button {
+      margin-top: 40px;
     }
   }
 }

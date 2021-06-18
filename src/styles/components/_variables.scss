@@ -26,7 +26,7 @@
   @include media-breakpoint-up(md) {
     --bs-gutter-x: 24px !important;
   }
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     --bs-gutter-x: 16px !important;
   }
 }

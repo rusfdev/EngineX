@@ -1,0 +1,13 @@
+section.section.subscribe-section 
+  .container 
+    .subscribe-section__head 
+      h3.subscribe-section__title Подпишитесь на статьи<br> и новости техноблога
+      p.subscribe-section__text Получайте на почту самые новые статьи из блога, а также обновления по нашим разработкам на EngineX
+
+    form(action="").subscribe-form 
+      .input.subscribe-form__input 
+        input(type="email" name="email" placeholder='Ваш email' required).input__element
+      button.button.button_style-3.subscribe-form__button Подписаться
+
+    .image.image_contain.subscribe-section__image
+      img(data-src="./img/subscribe.png", alt="image").lazyload

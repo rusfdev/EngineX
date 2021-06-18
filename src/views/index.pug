@@ -152,7 +152,7 @@ block content
             .swiper-container 
               .swiper-wrapper
                 //slide
-                .swiper-slide.additional-benefits-slider__slide
+                .swiper-slide.scroll-slider__slide.additional-benefits-slider__slide
                   .image.image_cover
                     span.h4.additional-benefits-slider__slide-index 01
                     img(data-src="./img/benefits/1.jpg", alt="image").swiper-lazy
@@ -161,7 +161,7 @@ block content
                     p В нашей системе предусмотрена возможность предоставить максимальную приватность личных данных пользователя, а также проводить финансовые операции, не предоставляя данные вашему сайту.
                     p Благодаря этому, доверие к ресурсу будет высоким, а данные пользователей — в безопасности, о чем открыто можно указать на сайте.
                 //slide
-                .swiper-slide.additional-benefits-slider__slide
+                .swiper-slide.scroll-slider__slide.additional-benefits-slider__slide
                   .image.image_cover 
                     span.h4.additional-benefits-slider__slide-index 02
                     img(data-src="./img/benefits/2.jpg", alt="image").swiper-lazy
@@ -170,7 +170,7 @@ block content
                     p Наша система полностью оптимизирована и готова под любые дополнения и расширения без использования тяжелых плагинов — все делается с помощью простого кода API, который предоставляют все внешние сервисы интеграций, с которыми мы работаем. К ним относятся сервисы безопасности, платежные шлюзы, системы автоматизации процессов.
                     p По желанию заказчика, можем подключить и интегрировать в ядро платформы практически любой внешний сервис, предоставляющий свой API. А также, можем написать дополнительный сервис с интеграцией EngineX для вашей CRM-системы компании.
                 //slide
-                .swiper-slide.additional-benefits-slider__slide
+                .swiper-slide.scroll-slider__slide.additional-benefits-slider__slide
                   .image.image_cover 
                     span.h4.additional-benefits-slider__slide-index 03
                     img(data-src="./img/benefits/3.jpg", alt="image").swiper-lazy
@@ -180,7 +180,7 @@ block content
                     p Максимальная простота реализации нескольких языков на сайте обеспечена специальным разделом админки со всеми необходимыми полями и детальной пошаговой инструкцией.
                     p Автоматическое определение языка пользователя по географическому расположению включается при разрешенных настройках приватности.
                 //slide
-                .swiper-slide.additional-benefits-slider__slide
+                .swiper-slide.scroll-slider__slide.additional-benefits-slider__slide
                   .image.image_cover 
                     span.h4.additional-benefits-slider__slide-index 04
                     img(data-src="./img/benefits/4.jpg", alt="image").swiper-lazy
@@ -190,7 +190,7 @@ block content
                     p SEO-специалисту предоставлен широкий функционал для настройки всех необходимых параметров для эффективного продвижения ресурса.
                     p В большинстве случаев, простота и удобство SEO-блока админки, а также детальная инструкция, позволяют владельцу сайта выполнить оптимизацию без привлечения сеошника.
                 //slide
-                .swiper-slide.additional-benefits-slider__slide
+                .swiper-slide.scroll-slider__slide.additional-benefits-slider__slide
                   .image.image_cover 
                     span.h4.additional-benefits-slider__slide-index 05
                     img(data-src="./img/benefits/5.jpg", alt="image").swiper-lazy
@@ -199,7 +199,7 @@ block content
                     p Ядро EngineX имеет в себе максимальный набор функций и средств, которые позволят реализовать практически любые стандартные задачи сайта для любой тематики бизнеса.
                     p Но ключевое преимущество — неограниченные возможности по расширению функционала под любой запрос заказчика: любые скрипты, интеграции с системами аналитики и CRM, калькуляторы, cloud-технологии, собственный VPN-шлюз, собственные чат-комнаты и видеоконференции, чат-боты, разработка мобильных приложений, защищенные протоколы безопасности и крипто-шифрование.
                 //slide
-                .swiper-slide.additional-benefits-slider__slide
+                .swiper-slide.scroll-slider__slide.additional-benefits-slider__slide
                   .image.image_cover 
                     span.h4.additional-benefits-slider__slide-index 06
                     img(data-src="./img/benefits/6.jpg", alt="image").swiper-lazy
@@ -209,7 +209,7 @@ block content
                     p Система администрирования создана таким образом, чтобы максимально упростить управление любым разделом сайта, без необходимости копаться в сложных вложенных меню. Все упаковано в удобные понятные разделы и сопровождается wiki-инструкцией.
                     p Полностью автоматизированы на старте: платежи, система безопасности и fraud-фильтры, передача, хранение и шифрование данных, мультиязычность.
                 //slide
-                .swiper-slide.additional-benefits-slider__slide
+                .swiper-slide.scroll-slider__slide.additional-benefits-slider__slide
                   .image.image_cover 
                     span.h4.additional-benefits-slider__slide-index 07
                     img(data-src="./img/benefits/7.jpg", alt="image").swiper-lazy
@@ -414,10 +414,10 @@ block content
                   img(data-src="./img/development/8.svg", alt="image").swiper-lazy
                 h4.development-slider__slide-title Поддержка обновлений ядра EngineX. Бесплатно, навсегда.
 
-          button.swiper-button.swiper-button-prev
+          .swiper-button.swiper-button-prev(data-touch-hover)
             svg.icon
               use(xlink:href='./img/icons/icons.svg#arrow-left')
-          button.swiper-button.swiper-button-next
+          .swiper-button.swiper-button-next(data-touch-hover)
             svg.icon
               use(xlink:href='./img/icons/icons.svg#arrow-right')
           .swiper-pagination

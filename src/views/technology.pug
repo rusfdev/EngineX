@@ -74,9 +74,11 @@ block content
 
 
   section.section.section_bg-dark.what-is-included
+    .image.section__dots
+      img(data-src="./img/dots.svg", alt="dots").lazyload
     .container 
       h2.what-is-included__title Что входит в разработку<br> уникальной CMS-платформы
-      .swiper 
+      .swiper.what-is-included__slider
         .swiper-container 
           .swiper-wrapper
             mixin slide(index, image, title)
@@ -97,7 +99,27 @@ block content
             +slide(6, "./img/development/6.svg", 'Разработка мобильных приложений')
             +slide(7, "./img/development/7.svg", 'Оптимизированная мобильная версия сайта + 100% поддержка')
             +slide(8, "./img/development/8.svg", 'Поддержка обновлений ядра EngineX. Бесплатно, навсегда.')
-            
+        
+        .what-is-included__slider-nav
+          .swiper-button.swiper-button-prev(data-touch-hover)
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#arrow-left')
+          .swiper-button.swiper-button-next(data-touch-hover)
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#arrow-right')
           
 
-  section.section
+  section.section.subscribe-section 
+    .container 
+      .subscribe-section__head
+        h3.subscribe-section__title.subscribe-section__title_1 Подпишитесь на статьи<br> нашего блога, чтобы быть<br> в курсе обновлений EngineX
+
+      form(action="").subscribe-form 
+        .input.subscribe-form__input 
+          input(type="email" name="email" placeholder='Ваш email' required).input__element
+        button.button.button_style-3.subscribe-form__button Подписаться
+
+      a(href=blog).button.button_style-2.subscribe-section__button
+        span Перейти в блог
+        svg.icon
+          use(xlink:href='./img/icons/icons.svg#arrow-right-long')

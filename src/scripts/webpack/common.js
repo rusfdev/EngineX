@@ -60,6 +60,7 @@ window.addEventListener('beforeEnter', function(event) {
   ActiveInstances.add(RelevanceCards, '.relevance-cards', event.detail.container);
   ActiveInstances.add(DevelopmentSlider, '.development-slider', event.detail.container);
   ActiveInstances.add(TeamCard, '.team-card', event.detail.container);
+  ActiveInstances.add(WhatIsIncludedSlider, '.what-is-included__slider', event.detail.container);
   
   ActiveInstances.init();
 
@@ -349,7 +350,7 @@ const Magic = {
     this.$trigger = document.querySelector('.button-magic');
 
     this.$trigger.addEventListener('click', () => {
-      let independent_elements = 'h1, h2, h3, h4, h5, h6, li, p, button, .button, .image, .logo',
+      let independent_elements = 'h1, h2, h3, h4, h5, h6, li, p, button, .button, .image, .logo, .input',
           $independent_elements = document.querySelectorAll(independent_elements),
           $else_elements = document.querySelectorAll('strong, a, span, .icon');
 
@@ -632,7 +633,7 @@ class ScrollSlider {
 
   destroy() {
     if(this.flag) this.destroyDesktop();
-
+    else this.destroyMobile();
     window.removeEventListener('resize', this.check);
     for(let child in this) delete this[child];
   }
@@ -873,5 +874,58 @@ class TeamCard {
 
   destroy() {
     this.$container.removeEventListener('click', this.clickEvent)
+  }
+}
+
+class WhatIsIncludedSlider {
+  constructor($parent) {
+    this.$parent = $parent;
+  }
+  init() {
+    this.check = ()=> {
+      if(window.innerWidth >= brakepoints.lg && (!this.initialized || !this.flag)) {
+        if(this.initialized) {
+          this.destroyMobile();
+        }
+        this.flag = true;
+      } 
+      else if(window.innerWidth<brakepoints.lg && (!this.initialized || this.flag)) {
+        this.initMobile();
+        this.flag = false;
+      }
+    }
+    this.check();
+    window.addEventListener('resize', this.check);
+    this.initialized = true;
+  }
+
+  initMobile() {
+    this.$slider = this.$parent.querySelector('.swiper-container');
+    this.$prev = this.$parent.querySelector('.swiper-button-prev');
+    this.$next = this.$parent.querySelector('.swiper-button-next');
+
+    this.slider = new Swiper(this.$slider, {
+      speed: 300,
+      slidesPerView: 1,
+      navigation: {
+        prevEl: this.$prev,
+        nextEl: this.$next
+      },
+      breakpoints: {
+        [brakepoints.sm]: {
+          slidesPerView: "auto"
+        }
+      }
+    });
+  }
+
+  destroyMobile() {
+    this.slider.destroy();
+  }
+
+  destroy() {
+    if(!this.flag) this.destroyMobile();
+    window.removeEventListener('resize', this.check);
+    for(let child in this) delete this[child];
   }
 }

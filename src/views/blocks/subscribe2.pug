@@ -1,0 +1,14 @@
+section.section.subscribe-section 
+  .container 
+    .subscribe-section__head 
+      h3.subscribe-section__title Подпишитесь на новости<br> компании и новые статьи в блоге
+      
+    form(action="").subscribe-form 
+      .input.subscribe-form__input 
+        input(type="email" name="email" placeholder='Ваш email' required).input__element
+      button.button.button_style-3.subscribe-form__button Подписаться
+    
+    span.subscribe-section__post-text Вы сможете отписаться в любой момент
+
+    .image.image_contain.subscribe-section__image
+      img(data-src="./img/subscribe.png", alt="image").lazyload

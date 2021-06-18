@@ -2,32 +2,67 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  &_style-1 {
+  text-align: center;
+  justify-content: center;
+  &_style-1, &_style-2, &_style-3 {
     font-size: 20px;
     line-height: 24px;
-    padding: 20px 32px;
     border-radius: 4px;
-    color: var(--color-text-light);
-    background-color: var(--color-btn-1-background);
-    transition: background-color $trs1;
-    &[data-touch], &[data-hover] {
-      background-color: var(--color-btn-1-hover-background);
-    }
-    &[data-click] {
-      background-color: var(--color-btn-1-click-background);
-    }
     .icon {
-      width: 16px;
-      height: 16px;
+      width: 24px;
+      height: 24px;
+      stroke-width: 2px;
       &:last-child {
         margin-left: 8px;
       }
     }
   }
+  &_style-1, &_style-3 {
+    padding: 20px 32px;
+    transition: background-color $trs1;
+  }
+
+  &_style-1 {
+    color: var(--color-btn-1);
+    background-color: var(--color-btn-1-bg);
+    &[data-touch], &[data-hover] {
+      background-color: var(--color-btn-1-hover-bg);
+    }
+    &[data-click] {
+      background-color: var(--color-btn-1-click-bg);
+    }
+  }
+  &_style-2 {
+    color: var(--color-btn-2);
+    border: 1px solid var(--color-btn-2);
+    transition: background-color $trs1, border-color $trs1;
+    padding: 19px 31px;
+    &[data-touch], &[data-hover] {
+      background-color: var(--color-btn-2-hover-bg);
+    }
+    &[data-click] {
+      border-color: var(--color-btn-2-click-border);
+    }
+  }
+  &_style-3 {
+    color: var(--color-btn-3);
+    background-color: var(--color-btn-3-bg);
+    &[data-touch], &[data-hover] {
+      background-color: var(--color-btn-3-hover-bg);
+    }
+    &[data-click] {
+      background-color: var(--color-btn-3-click-bg);
+    }
+  }
   @include media-breakpoint-down(sm) {
-    &_style-1 {
-      padding: 16px 32px;
+    &_style-1, &_style-2, &_style-3 {
       font-size: 1.125rem;
+    }
+    &_style-1, &_style-3 {
+      padding: 16px 32px;
+    }
+    &_style-2 {
+      padding: 15px 31px;
     }
   }
 }

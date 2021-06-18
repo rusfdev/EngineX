@@ -11,13 +11,23 @@
   --section-bg-light: #F6F9FC;
   --section-bg-dark: var(--gradient-2);
   --color-border: #CED3D9;
+  --color-input-bg: #F6F9FC;
   --color-btn-magic: #fff;
   --color-btn-magic-background: #F72585;
   --color-btn-magic-hover-background: #de2176;
   --color-btn-magic-click-background: #db1b71;
-  --color-btn-1-background: #4361EE;
-  --color-btn-1-hover-background: #3D3ACE;
-  --color-btn-1-click-background: #23209F;
+  --color-btn-1: #fff;
+  --color-btn-1-bg: #4361EE;
+  --color-btn-1-hover-bg: #3D3ACE;
+  --color-btn-1-click-bg: #23209F;
+  --color-btn-2: #4361EE;
+  --color-btn-2-border: #4361EE;
+  --color-btn-2-hover-bg: #F6F5FF;
+  --color-btn-2-click-border: transparent;
+  --color-btn-3: #fff;
+  --color-btn-3-bg: #F72585;
+  --color-btn-3-hover-bg: #e32078;
+  --color-btn-3-click-bg: #d11d6e;
   --color-header-fixed-bg: #fff; }
 
 /*# sourceMappingURL=maps/theme.css.map */
