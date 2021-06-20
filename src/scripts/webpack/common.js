@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
   Magic.init();
   Nav.init();
   Header.init();
+  Modal.init();
 })
 
 window.onload = function() {
@@ -1022,5 +1023,63 @@ class FunctionalitySlider {
     if(!this.flag) this.destroySlider();
     window.removeEventListener('resize', this.check);
     for(let child in this) delete this[child];
+  }
+}
+
+const Modal = {
+  init: function () {
+    gsap.registerEffect({
+      name: "modal",
+      effect: ($modal, $content) => {
+        let anim = gsap.timeline({paused: true})
+          .fromTo($modal, {autoAlpha: 0}, {autoAlpha:1, duration:0.5})
+          .fromTo($content, {y: 20}, {y:0, duration:1, ease:'power2.out'}, `-=0.5`)
+        return anim;
+      },
+      extendTimeline: true
+    });
+
+    document.addEventListener('click', (event) => {
+      let $open = event.target.closest('[data-modal="open"]'),
+        $close = event.target.closest('[data-modal="close"]'),
+        $wrap = event.target.closest('.modal'),
+        $block = event.target.closest('.modal-block');
+
+      //open
+      if ($open) {
+        event.preventDefault();
+        let $modal = document.querySelector(`${$open.getAttribute('href')}`);
+        this.open($modal);
+      }
+      //close 
+      else if ($close || (!$block && $wrap)) {
+        this.close();
+      }
+    })
+  },
+  open: function ($modal) {
+    let open = ()=> {
+      disablePageScroll();
+      $modal.classList.add('active');
+      //animation
+      let $content = $modal.querySelector('.modal-block')
+      this.animation = gsap.effects.modal($modal, $content);
+      this.animation.play();
+      this.$active = $modal;
+    }
+    if($modal) {
+      if(this.$active) this.close(open);
+      else open();
+    }
+  },
+  close: function (callback) {
+    if(this.$active) {
+      this.animation.timeScale(2).reverse().eventCallback('onReverseComplete', ()=> {
+        delete this.animation;
+        enablePageScroll();
+        this.$active.classList.remove('active');
+      })
+      delete this.$active;
+    }
   }
 }

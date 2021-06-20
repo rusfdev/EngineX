@@ -1,0 +1,90 @@
+.modal {
+  position: fixed;
+  z-index: 10000;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: var(--color-modal-overlay);
+  display: none;
+  &.active {
+    display: block;
+  }
+  &__wrapper {
+    position: relative;
+    z-index: 1;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: var(--container-gutter-x);
+  }
+  &-close {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    z-index: 2;
+    cursor: pointer;
+    right: 40px;
+    top: 40px;
+    &:before, &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 3px;
+      width: 38px;
+      background-color: var(--color-border);
+      transition: background-color $trs1;
+    }
+    &:before {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    &:after {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    &[data-touch], &[data-hover] {
+      &:before, &:after {
+        background-color: var(--color-text-dark);
+      }
+    }
+  }
+  &-block {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 700px;
+    padding: 120px 100px 90px 100px;
+    background-color: #fff;
+    margin: auto;
+    border-radius: 4px;
+  }
+  @include media-breakpoint-down(md) {
+    &-block {
+      padding: 80px 40px 60px 40px;
+    }
+    &-close {
+      right: 30px;
+      top: 30px;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    &-block {
+      padding: 68px var(--container-gutter-x) 30px var(--container-gutter-x)
+    }
+    &-close {
+      right: 5px;
+      top: 12px;
+      &:before, &:after {
+        width: 34px;
+      }
+    }
+  }
+}
+
+.modal-block {
+  &__button {
+    min-width: 220px;
+  }
+}

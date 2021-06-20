@@ -7,3 +7,13 @@
     padding-left: var(--text-content-margin);
   }
 }
+
+.text-large {
+  font-size: 1.75rem;
+  @include media-breakpoint-down(lg) {
+    font-size: 1.5rem;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 1.25rem;
+  }
+}

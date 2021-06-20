@@ -1663,12 +1663,6 @@
   }
 }
 
-.we-solve-problems {
-  &__title {
-    text-align: center;
-  }
-}
-
 .wide-text-card-container {
   @include media-breakpoint-up(xl) {
     display: grid;
