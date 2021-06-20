@@ -124,10 +124,14 @@
         </section>
         <section class="section about-technology" id="about-technology">
           <div class="container">
-            <h2 class="section__title about-technology__title">Суть технологии EngineX</h2>
-            <div class="about-technology__text-content row">
-              <p class="col-lg-6">Технологически рынок меняется очень динамично и то, что было актуально вчера — завтра уже будет забыто либо просто неэффективно.<br> Но есть определенные факторы, которые будут актуальны всегда — безопасность + скорость + стабильность + удобство.</p>
-              <p class="col-lg-6">Они нужны всем и всегда. В итоге это и стало ключевым звеном нашей инновации — объединить технически эти факторы и дать рабочий инструмент, в первую очередь, для стартапов и Saas-платформ.</p>
+            <h2 class="section__title">Суть технологии EngineX</h2>
+            <div class="row mb-3 mb-lg-5">
+              <div class="col-lg-6 mb-2 mb-lg-0">
+                <p>Технологически рынок меняется очень динамично и то, что было актуально вчера — завтра уже будет забыто либо просто неэффективно.<br> Но есть определенные факторы, которые будут актуальны всегда — безопасность + скорость + стабильность + удобство.</p>
+              </div>
+              <div class="col-lg-6">
+                <p>Они нужны всем и всегда. В итоге это и стало ключевым звеном нашей инновации — объединить технически эти факторы и дать рабочий инструмент, в первую очередь, для стартапов и Saas-платформ.</p>
+              </div>
             </div>
             <div class="about-technology__container">
               <div class="about-technology__large-block slide-bg-card" data-touch-hover>
@@ -153,17 +157,29 @@
             </div>
           </div>
         </section>
-        <section class="section section_bg-dark functional-benefits">
+        <section class="section section_bg-dark">
           <div class="container">
-            <h2 class="functional-benefits__title">Функциональные преимущества<br> и удобство</h2>
+            <h2 class="section__title text-center">Функциональные преимущества<br> и удобство</h2>
             <section class="section-inner system-speed-section">
               <h3 class="section-inner__title">Безопасность<br> и скорость системы</h3>
               <div class="row">
-                <div class="col-lg-5 system-speed-section__image">
+                <div class="col-lg-5 system-speed-section__image mb-3 mb-lg-0">
                   <div class="image image_cover"><img class="lazyload" data-src="./img/uufl.jpg" alt="image"></div>
                 </div>
                 <div class="col-lg-7">
                   <div class="swiper system-speed-section__slider">
+                    <div class="swiper-navigation">
+                      <div class="swiper-button swiper-button-prev" data-touch-hover>
+                        <svg class="icon">
+                          <use xlink:href="./img/icons/icons.svg#arrow-left"></use>
+                        </svg>
+                      </div>
+                      <div class="swiper-button swiper-button-next" data-touch-hover>
+                        <svg class="icon">
+                          <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
+                        </svg>
+                      </div>
+                    </div>
                     <div class="swiper-container">
                       <div class="swiper-wrapper">
                         <!--slide-->
@@ -240,26 +256,14 @@
                         </div>
                       </div>
                     </div>
-                    <div class="system-speed-section__navigation">
-                      <div class="swiper-button swiper-button-prev" data-touch-hover>
-                        <svg class="icon">
-                          <use xlink:href="./img/icons/icons.svg#arrow-left"></use>
-                        </svg>
-                      </div>
-                      <div class="swiper-button swiper-button-next" data-touch-hover>
-                        <svg class="icon">
-                          <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
-                        </svg>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
             </section>
             <section class="section-inner stability-and-resiliency">
               <h3 class="section-inner__title">Стабильность<br> и отказоустойчивость</h3>
-              <div class="stability-and-resiliency__content row">
-                <div class="col-lg-5">
+              <div class="row align-items-center mb-3 mb-xl-4">
+                <div class="col-lg-5 mb-2 mb-lg-0">
                   <div class="image image_cover stability-and-resiliency__image"> <img class="lazyload" data-src="./img/ffd.jpg" alt="image"></div>
                 </div>
                 <div class="col-lg-7">
@@ -269,8 +273,8 @@
                   <p>Мы готовы к любым непредвиденным проблемам и гарантируем их решение за свой счет, если это касается эффективности работы CMS EngineX.</p>
                 </div>
               </div>
-              <div class="stability-and-resiliency__content row">
-                <div class="col-lg-5 order-lg-2">
+              <div class="row align-items-center">
+                <div class="col-lg-5 mb-2 mb-lg-0 order-lg-2">
                   <div class="image image_cover stability-and-resiliency__image"> <img class="lazyload" data-src="./img/llfd.jpg" alt="image"></div>
                 </div>
                 <div class="col-lg-7 order-lg-1">
@@ -305,175 +309,296 @@
                   </div>
                 </div>
                 <div class="col-lg-8">
-                  <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                      <!--slide-->
-                      <div class="swiper-slide scroll-slider__slide c-a-f-slide">
-                        <h4 class="c-a-f-slide__title">Управление контентом</h4>
-                        <div class="text-box-element">
-                          <p>Система управления контентом максимально удобна и нативна для контент-менеджера или администратора CMS.<br>Все разделы и функции размещены в соответствующих разделах, без сложных вложенных меню и непонятной связки между темой и скриптами.<br>Всё управление наполнением, редактированием и удалением контента построено на принципе WYSIWIG (то что видишь — то и получаешь).<br>Не нужно прыгать по папкам, вкладкам и меню, тратя время на обновление данных. Создание страницы и её наполнение происходит в удобном простом конструкторе с анимированными элементами, а также детальной инструкцией и примерами реализации. И всё это — в одном окне.<br>Раздел «Эффекты» позволяет анимировать блоки страницы без применения кода и дополнительной верстки. Создать красивый и быстрый контент может даже начинающий пользователь EngineX. </p>
-                          <p>Адаптив под мобильные устройства реализован автоматически, в учетом всех популярных разрешений экранов. Система сама предложит подходящий формат файлов, с учетом их адаптации под мобайл, а также самостоятельно оптимизирует тяжеловесный контент (например, большие фото и видео-файлы) с целью ускорения закрузки. Сайты, работающие на EngineX, в большинстве случаев показывают более 80% оптимизированности по Google PageSpeed — и это в авторежиме. Вручную можно добиться еще лучших показателей.<br>SEO-оптимизация контента также автоматизирована, насколько это возможно. Но в некоторых случаях рекомендована периодическая ревизия сео-специалистом.</p>
-                        </div>
+                  <div class="scroll-slider__slider">
+                    <div class="swiper-navigation">
+                      <div class="swiper-button swiper-button-prev" data-touch-hover>
+                        <svg class="icon">
+                          <use xlink:href="./img/icons/icons.svg#arrow-left"></use>
+                        </svg>
                       </div>
-                      <!--slide-->
-                      <div class="swiper-slide scroll-slider__slide c-a-f-slide">
-                        <h4 class="c-a-f-slide__title">Доступ к данным</h4>
-                        <div class="text-box-grid row">
-                          <div class="col-md-6">
-                            <div class="text-box-element text-box-grid__element">
-                              <div class="text-box-element__head">
-                                <svg class="icon">
-                                  <use xlink:href="./img/icons/icons.svg#users"></use>
-                                </svg>
-                                <h6 class="text-box-element__head-title">Права и роли</h6>
-                              </div>
-                              <p>EngineX позволяет администратору разделять доступы сотрудников на 5 уровней, обеспечивая конфиденциальность различных разделов сайта, безопасность контента и данных.</p>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="text-box-element text-box-grid__element">
-                              <div class="text-box-element__head">
-                                <svg class="icon">
-                                  <use xlink:href="./img/icons/icons.svg#monitor"></use>
-                                </svg>
-                                <h6 class="text-box-element__head-title">Все операции в одном окне</h6>
-                              </div>
-                              <p>EngineX — это эффективная и удобная реализация администрирования всей системы в пределах одного окна. Загрузка разделов занимает доли секунды, независимо от сложности проекта.</p>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="text-box-element text-box-grid__element">
-                              <div class="text-box-element__head">
-                                <svg class="icon">
-                                  <use xlink:href="./img/icons/icons.svg#user"></use>
-                                </svg>
-                                <h6 class="text-box-element__head-title">Авторизация</h6>
-                              </div>
-                              <p>Авторизацию пользователей сайта можно настроить, в зависимости от задач проекта — обычная полноценная регистрация либо анонимный доступ с предоставлением только e-mail. При полноценной регистрации авторизоваться на сайте можно будет любым известным стандартным способом — почта, телефон, произвольный логин, AppleId, Google.</p>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="text-box-element text-box-grid__element">
-                              <div class="text-box-element__head">
-                                <svg class="icon">
-                                  <use xlink:href="./img/icons/icons.svg#locked"></use>
-                                </svg>
-                                <h6 class="text-box-element__head-title">Безопасность данных</h6>
-                              </div>
-                              <p>Полный доступ к данным сайта имеет только Администратор, что снижает шанс потери данных. Тем не менее, для гарантии сохранности и работоспособности сайта, предусмотрена автоматическая система создания зашифрованных резервных копий и контроль версий обновлений. Частота бэкапа астраивается системным администратором</p>
+                      <div class="swiper-button swiper-button-next" data-touch-hover>
+                        <svg class="icon">
+                          <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="swiper-container">
+                      <div class="swiper-wrapper">
+                        <!--slide-->
+                        <div class="swiper-slide scroll-slider__slide">
+                          <h4>Управление контентом</h4>
+                          <div class="text-box-grid">
+                            <div class="text-box-element">
+                              <p>Система управления контентом максимально удобна и нативна для контент-менеджера или администратора CMS.<br>Все разделы и функции размещены в соответствующих разделах, без сложных вложенных меню и непонятной связки между темой и скриптами.<br>Всё управление наполнением, редактированием и удалением контента построено на принципе WYSIWIG (то что видишь — то и получаешь).<br>Не нужно прыгать по папкам, вкладкам и меню, тратя время на обновление данных. Создание страницы и её наполнение происходит в удобном простом конструкторе с анимированными элементами, а также детальной инструкцией и примерами реализации. И всё это — в одном окне.<br>Раздел «Эффекты» позволяет анимировать блоки страницы без применения кода и дополнительной верстки. Создать красивый и быстрый контент может даже начинающий пользователь EngineX. </p>
+                              <p>Адаптив под мобильные устройства реализован автоматически, в учетом всех популярных разрешений экранов. Система сама предложит подходящий формат файлов, с учетом их адаптации под мобайл, а также самостоятельно оптимизирует тяжеловесный контент (например, большие фото и видео-файлы) с целью ускорения закрузки. Сайты, работающие на EngineX, в большинстве случаев показывают более 80% оптимизированности по Google PageSpeed — и это в авторежиме. Вручную можно добиться еще лучших показателей.<br>SEO-оптимизация контента также автоматизирована, насколько это возможно. Но в некоторых случаях рекомендована периодическая ревизия сео-специалистом.</p>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <!--slide-->
-                      <div class="swiper-slide scroll-slider__slide c-a-f-slide">
-                        <h4 class="c-a-f-slide__title">Управление пользователями</h4>
-                        <div class="text-box-grid row">
-                          <div class="col-12">
-                            <div class="text-box-element text-box-grid__element">
-                              <div class="text-box-element__head">
-                                <svg class="icon">
-                                  <use xlink:href="./img/icons/icons.svg#users"></use>
-                                </svg>
-                                <h6 class="text-box-element__head-title">Профили пользователей</h6>
-                              </div>
-                              <p>Настраивайте профили пользователей сайта и сотрудников компании, в зависимости от необходимых задач</p>
-                            </div>
-                          </div>
-                          <div class="col-xl-4">
-                            <div class="text-box-element text-box-grid__element">
-                              <div class="text-box-element__head">
-                                <h6 class="text-box-element__head-title">Синхронизация с CRM (сотрудники)</h6>
-                              </div>
-                              <p>В EngineX доступна настройка синхронизации данных с большинством популярных CRM, что позволяет предоставлять идентичные права доступа в CRM и на сайт</p>
-                            </div>
-                          </div>
-                          <div class="col-xl-4">
-                            <div class="text-box-element text-box-grid__element">
-                              <div class="text-box-element__head">
-                                <h6 class="text-box-element__head-title">Синхронизация с CRM (пользователи)</h6>
-                              </div>
-                              <p>Синхронизация сайта с большинством популярных CRM позволяет полностью автоматизировать получение данных от пользовательской активности на сайте — регистрации, заявки, звонки, обращения, чаты и прочее</p>
-                            </div>
-                          </div>
-                          <div class="col-xl-4">
-                            <div class="text-box-element text-box-grid__element">
-                              <div class="text-box-element__head">
-                                <h6 class="text-box-element__head-title">Приватные профили пользователей</h6>
-                              </div>
-                              <p>Для некоторых проектов критично важна приватность, поэтому предусмотрена настройка анонимного доступа к функционалу сайта. Детализация возможностей таких пользователей доступна Администратору</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!--slide-->
-                      <div class="swiper-slide scroll-slider__slide c-a-f-slide">
-                        <h4 class="c-a-f-slide__title">Система статистики и аналитики</h4>
-                        <div class="text-box-grid row">
-                          <div class="col-lg-6">
-                            <div class="text-box-element text-box-grid__element">
-                              <div class="image image_cover text-box-element__image text-box-element__image_1"><img class="lazyload" data-src="./img/pppe.jpg" alt="image"></div>
-                              <div class="text-box-element__head">
-                                <h6 class="text-box-element__head-title">Встроенная система статистики и аналитики сайта</h6>
-                              </div>
-                              <p>Система показывает все ключевые данные о трафике с фильтрацией по датам и времени: количество пользователей, время на сайте, заявки, звонки, клики, отказы, гео и прочее.</p>
-                            </div>
-                          </div>
-                          <div class="col-lg-6">
-                            <div class="text-box-element text-box-grid__element">
-                              <div class="image image_cover text-box-element__image text-box-element__image_1"><img class="lazyload" data-src="./img/pppr.jpg" alt="image"></div>
-                              <div class="text-box-element__head">
-                                <h6 class="text-box-element__head-title">Интеграция с Яндекс, Google и Facebook</h6>
-                              </div>
-                              <p>Интеграция с Яндекс, Google и Facebook заложена изначально и достаточно вставить коды счетчиков для полноценной работы. Скрипты форм для конверсий также автоматизированы и настраиваются через админ-панель.</p>
-                            </div>
-                          </div>
-                          <div class="col-12">
-                            <div class="text-box-element text-box-element_flex text-box-grid__element">
-                              <div class="text-box-element__flex-image">
-                                <div class="image image_cover text-box-element__image text-box-element__image_2"><img class="lazyload" data-src="./img/ddp.jpg" alt="image"></div>
-                              </div>
-                              <div class="text-box-element__flex-content">
+                        <!--slide-->
+                        <div class="swiper-slide scroll-slider__slide">
+                          <h4>Доступ к данным</h4>
+                          <div class="text-box-grid row">
+                            <div class="col-md-6">
+                              <div class="text-box-element text-box-grid__element">
                                 <div class="text-box-element__head">
-                                  <h6 class="text-box-element__head-title">Интеграция с системами сквозной аналитики</h6>
+                                  <svg class="icon">
+                                    <use xlink:href="./img/icons/icons.svg#users"></use>
+                                  </svg>
+                                  <h6 class="text-box-element__head-title">Права и роли</h6>
                                 </div>
-                                <p>Для более детальной аналитики трафика и воронки продаж предусмотрена полноценная интеграция с большинством популярных систем сквозной аналитики. Детализация по подключению прилагается в инструкции админи-панели. Работа скриптов оптимизирована, что практически никак не сказывается на быстродействии передачи информации и синхронизации данных.</p>
+                                <p>EngineX позволяет администратору разделять доступы сотрудников на 5 уровней, обеспечивая конфиденциальность различных разделов сайта, безопасность контента и данных.</p>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="text-box-element text-box-grid__element">
+                                <div class="text-box-element__head">
+                                  <svg class="icon">
+                                    <use xlink:href="./img/icons/icons.svg#monitor"></use>
+                                  </svg>
+                                  <h6 class="text-box-element__head-title">Все операции в одном окне</h6>
+                                </div>
+                                <p>EngineX — это эффективная и удобная реализация администрирования всей системы в пределах одного окна. Загрузка разделов занимает доли секунды, независимо от сложности проекта.</p>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="text-box-element text-box-grid__element">
+                                <div class="text-box-element__head">
+                                  <svg class="icon">
+                                    <use xlink:href="./img/icons/icons.svg#user"></use>
+                                  </svg>
+                                  <h6 class="text-box-element__head-title">Авторизация</h6>
+                                </div>
+                                <p>Авторизацию пользователей сайта можно настроить, в зависимости от задач проекта — обычная полноценная регистрация либо анонимный доступ с предоставлением только e-mail. При полноценной регистрации авторизоваться на сайте можно будет любым известным стандартным способом — почта, телефон, произвольный логин, AppleId, Google.</p>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="text-box-element text-box-grid__element">
+                                <div class="text-box-element__head">
+                                  <svg class="icon">
+                                    <use xlink:href="./img/icons/icons.svg#locked"></use>
+                                  </svg>
+                                  <h6 class="text-box-element__head-title">Безопасность данных</h6>
+                                </div>
+                                <p>Полный доступ к данным сайта имеет только Администратор, что снижает шанс потери данных. Тем не менее, для гарантии сохранности и работоспособности сайта, предусмотрена автоматическая система создания зашифрованных резервных копий и контроль версий обновлений. Частота бэкапа астраивается системным администратором</p>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <!--slide-->
-                      <div class="swiper-slide scroll-slider__slide c-a-f-slide">
-                        <h4 class="c-a-f-slide__title">Расширения и API</h4>
-                        <div class="text-box-grid row">
-                          <div class="col-lg-6">
-                            <div class="text-box-element text-box-grid__element">
-                              <div class="image image_cover text-box-element__image text-box-element__image_3"><img class="lazyload" data-src="./img/qqwo.jpg" alt="image"></div>
-                              <p>Расширение функционала CMS EngineX предусмотрено на базе стандартных самописных функций, которые добавляются через админ-панель администратором по мере необходимости. В библиотеке движка заложено более 50 дополнительных функциональных модулей для большинства задач платформы. Но, при необходимости, наши разработчики могут написать уникальную функцию по отдельному техзаданию.</p>
+                        <!--slide-->
+                        <div class="swiper-slide scroll-slider__slide">
+                          <h4>Управление пользователями</h4>
+                          <div class="text-box-grid row">
+                            <div class="col-12">
+                              <div class="text-box-element text-box-grid__element">
+                                <div class="text-box-element__head">
+                                  <svg class="icon">
+                                    <use xlink:href="./img/icons/icons.svg#users"></use>
+                                  </svg>
+                                  <h6 class="text-box-element__head-title">Профили пользователей</h6>
+                                </div>
+                                <p>Настраивайте профили пользователей сайта и сотрудников компании, в зависимости от необходимых задач</p>
+                              </div>
+                            </div>
+                            <div class="col-xl-4">
+                              <div class="text-box-element text-box-grid__element">
+                                <div class="text-box-element__head">
+                                  <h6 class="text-box-element__head-title">Синхронизация с CRM (сотрудники)</h6>
+                                </div>
+                                <p>В EngineX доступна настройка синхронизации данных с большинством популярных CRM, что позволяет предоставлять идентичные права доступа в CRM и на сайт</p>
+                              </div>
+                            </div>
+                            <div class="col-xl-4">
+                              <div class="text-box-element text-box-grid__element">
+                                <div class="text-box-element__head">
+                                  <h6 class="text-box-element__head-title">Синхронизация с CRM (пользователи)</h6>
+                                </div>
+                                <p>Синхронизация сайта с большинством популярных CRM позволяет полностью автоматизировать получение данных от пользовательской активности на сайте — регистрации, заявки, звонки, обращения, чаты и прочее</p>
+                              </div>
+                            </div>
+                            <div class="col-xl-4">
+                              <div class="text-box-element text-box-grid__element">
+                                <div class="text-box-element__head">
+                                  <h6 class="text-box-element__head-title">Приватные профили пользователей</h6>
+                                </div>
+                                <p>Для некоторых проектов критично важна приватность, поэтому предусмотрена настройка анонимного доступа к функционалу сайта. Детализация возможностей таких пользователей доступна Администратору</p>
+                              </div>
                             </div>
                           </div>
-                          <div class="col-lg-6">
-                            <div class="text-box-element text-box-grid__element">
-                              <div class="image image_cover text-box-element__image text-box-element__image_3"><img class="lazyload" data-src="./img/bjf.png" alt="image"></div>
-                              <p>Наша команда располагает базой API-протоколов от более чем 100 различных программ и сервисов, с которыми мы проводим интеграции для автоматизации определенных процессов на сайте.<br>При необходимости, по задаче заказчика, можем написать уникальный API для подключения к самописной CRM-системе либо использовать внешний API, не добавленный пока в общую билиотеку ядра EngineX.</p>
+                        </div>
+                        <!--slide-->
+                        <div class="swiper-slide scroll-slider__slide">
+                          <h4>Система статистики и аналитики</h4>
+                          <div class="text-box-grid row">
+                            <div class="col-md-6">
+                              <div class="text-box-element text-box-grid__element">
+                                <div class="image image_cover text-box-element__image text-box-element__image_1"><img class="lazyload" data-src="./img/pppe.jpg" alt="image"></div>
+                                <div class="text-box-element__head">
+                                  <h6 class="text-box-element__head-title">Встроенная система статистики и аналитики сайта</h6>
+                                </div>
+                                <p>Система показывает все ключевые данные о трафике с фильтрацией по датам и времени: количество пользователей, время на сайте, заявки, звонки, клики, отказы, гео и прочее.</p>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="text-box-element text-box-grid__element">
+                                <div class="image image_cover text-box-element__image text-box-element__image_1"><img class="lazyload" data-src="./img/pppr.jpg" alt="image"></div>
+                                <div class="text-box-element__head">
+                                  <h6 class="text-box-element__head-title">Интеграция с Яндекс, Google и Facebook</h6>
+                                </div>
+                                <p>Интеграция с Яндекс, Google и Facebook заложена изначально и достаточно вставить коды счетчиков для полноценной работы. Скрипты форм для конверсий также автоматизированы и настраиваются через админ-панель.</p>
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <div class="text-box-element text-box-element_flex text-box-grid__element">
+                                <div class="text-box-element__flex-image">
+                                  <div class="image image_cover text-box-element__image text-box-element__image_2"><img class="lazyload" data-src="./img/ddp.jpg" alt="image"></div>
+                                </div>
+                                <div class="text-box-element__flex-content">
+                                  <div class="text-box-element__head">
+                                    <h6 class="text-box-element__head-title">Интеграция с системами сквозной аналитики</h6>
+                                  </div>
+                                  <p>Для более детальной аналитики трафика и воронки продаж предусмотрена полноценная интеграция с большинством популярных систем сквозной аналитики. Детализация по подключению прилагается в инструкции админи-панели. Работа скриптов оптимизирована, что практически никак не сказывается на быстродействии передачи информации и синхронизации данных.</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--slide-->
+                        <div class="swiper-slide scroll-slider__slide">
+                          <h4>Расширения и API</h4>
+                          <div class="text-box-grid row">
+                            <div class="col-md-6">
+                              <div class="text-box-element text-box-grid__element">
+                                <div class="image image_cover text-box-element__image text-box-element__image_3"><img class="lazyload" data-src="./img/qqwo.jpg" alt="image"></div>
+                                <p>Расширение функционала CMS EngineX предусмотрено на базе стандартных самописных функций, которые добавляются через админ-панель администратором по мере необходимости. В библиотеке движка заложено более 50 дополнительных функциональных модулей для большинства задач платформы. Но, при необходимости, наши разработчики могут написать уникальную функцию по отдельному техзаданию.</p>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="text-box-element text-box-grid__element">
+                                <div class="image image_cover text-box-element__image text-box-element__image_3"><img class="lazyload" data-src="./img/bjf.png" alt="image"></div>
+                                <p>Наша команда располагает базой API-протоколов от более чем 100 различных программ и сервисов, с которыми мы проводим интеграции для автоматизации определенных процессов на сайте.<br>При необходимости, по задаче заказчика, можем написать уникальный API для подключения к самописной CRM-системе либо использовать внешний API, не добавленный пока в общую билиотеку ядра EngineX.</p>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="swiper-pagination"></div>
+                </div>
+              </div>
+            </section>
+            <section class="section-inner">
+              <h3 class="section-inner__title">Платежный<br> защищенный шлюз</h3>
+              <div class="row mb-4 mb-xl-5">
+                <div class="col-lg-6 mb-2 mb-lg-0">
+                  <p>Вся система платежей и транзакций построена на интеграции с внешними API на базе всемирно известных платформ. </p>
+                  <p>Это позволяет создавать с сайта защищенные безопасные туннели к платежным шлюзам международных сервисов, таким как, Stripe, CoinPayments, Enot.io, Block.io, PayCassa и десятков других.</p>
+                </div>
+                <div class="col-lg-6">
+                  <p>Это позволяет сохранять максимальную безопасность персональных платежных данных ваших пользователей, так как сайт не обрабатывает эти данные, а по зашифрованному каналу передает сразу на процессинговые центры интегрированного сервиса.</p>
+                </div>
+              </div>
+              <div class="row align-items-center justify-content-center mb-5">
+                <div class="col-xl-6 mb-4 mb-xl-0">
+                  <div class="text-block-bordered">
+                    <h4><strong>Интеграция</strong> с сервисами <strong>позволит подключить для оплат</strong> ваших товаров/услуг <strong>135 валют и кошельков</strong></h4>
+                    <p>Позвольте вашим международным клиентам платить предпочтительным способом оплаты и повысить конверсию. Система поддерживает более 135 валют и предлагает единый API для карт, кошельков, банковских дебетов и многого другого.</p>
+                  </div>
+                </div>
+                <div class="col-md-auto col-xl-6 content-pl-xl">
+                  <ul class="large-check-list mb-4">
+                    <li class="large-check-list__item">
+                      <svg class="icon">
+                        <use xlink:href="./img/icons/icons.svg#check"> </use>
+                      </svg>Стандартные платежные системы
+                    </li>
+                    <li class="large-check-list__item">
+                      <svg class="icon">
+                        <use xlink:href="./img/icons/icons.svg#check"> </use>
+                      </svg>Криптовалюты
+                    </li>
+                    <li class="large-check-list__item">
+                      <svg class="icon">
+                        <use xlink:href="./img/icons/icons.svg#check"> </use>
+                      </svg>Электронные кошельки
+                    </li>
+                  </ul>
+                  <div class="payment-list">
+                    <div class="payment-list__container">
+                      <div class="payment-list__top"><img class="payment-list__item" src="./img/payment/1_light.svg" alt="img"><img class="payment-list__item" src="./img/payment/2_light.svg" alt="img"><img class="payment-list__item" src="./img/payment/3_light.svg" alt="img"><img class="payment-list__item" src="./img/payment/4_light.svg" alt="img"><img class="payment-list__item" src="./img/payment/5_light.svg" alt="img"><img class="payment-list__item" src="./img/payment/6_light.svg" alt="img"><img class="payment-list__item" src="./img/payment/7_light.svg" alt="img"><img class="payment-list__item" src="./img/payment/8_light.svg" alt="img"></div>
+                      <div class="payment-list__last"><img class="payment-list__item" src="./img/payment/GooglePay.svg" alt="img"><img class="payment-list__item" src="./img/payment/ApplePay.svg" alt="img"><img class="payment-list__item" src="./img/payment/Stripe.svg" alt="img"><img class="payment-list__item" src="./img/payment/Visa.svg" alt="img"><img class="payment-list__item" src="./img/payment/MasterCard.svg" alt="img"><img class="payment-list__item" src="./img/payment/Maestro.svg" alt="img"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4 class="section-inner__title text-center">Функционал платежей, который мы интегрируем</h4>
+              <div class="swiper functionality-slider">
+                <div class="swiper-container">
+                  <div class="swiper-wrapper">
+                                        <div class="swiper-slide functionality-slider__slide">
+                                          <div class="functionality-slider__slide-container">
+                                            <div class="image image_contain"><img class="lazyload" data-src="./img/functionality/1.png" alt="image"></div>
+                                            <p class="functionality-slider__slide-text">Автоматический вывод. Мгновенная оплата. Массовая оплата</p>
+                                          </div>
+                                        </div>
+                                        <div class="swiper-slide functionality-slider__slide">
+                                          <div class="functionality-slider__slide-container">
+                                            <div class="image image_contain"><img class="lazyload" data-src="./img/functionality/2.png" alt="image"></div>
+                                            <p class="functionality-slider__slide-text">Обмен электронных валют в личном кабинете пользователя</p>
+                                          </div>
+                                        </div>
+                                        <div class="swiper-slide functionality-slider__slide">
+                                          <div class="functionality-slider__slide-container">
+                                            <div class="image image_contain"><img class="lazyload" data-src="./img/functionality/3.png" alt="image"></div>
+                                            <p class="functionality-slider__slide-text">Автоматизация подписок и прочих периодических платежей</p>
+                                          </div>
+                                        </div>
+                                        <div class="swiper-slide functionality-slider__slide">
+                                          <div class="functionality-slider__slide-container">
+                                            <div class="image image_contain"><img class="lazyload" data-src="./img/functionality/4.png" alt="image"></div>
+                                            <p class="functionality-slider__slide-text">Оплата товаров и услуг в любой валюте любого магазина в мире</p>
+                                          </div>
+                                        </div>
+                                        <div class="swiper-slide functionality-slider__slide">
+                                          <div class="functionality-slider__slide-container">
+                                            <div class="image image_contain"><img class="lazyload" data-src="./img/functionality/5.png" alt="image"></div>
+                                            <p class="functionality-slider__slide-text">Открытие онлайн-кошельков и электронных счетов</p>
+                                          </div>
+                                        </div>
+                                        <div class="swiper-slide functionality-slider__slide">
+                                          <div class="functionality-slider__slide-container">
+                                            <div class="image image_contain"><img class="lazyload" data-src="./img/functionality/6.png" alt="image"></div>
+                                            <p class="functionality-slider__slide-text">Покупка, продажа, обмен криптовалюты</p>
+                                          </div>
+                                        </div>
+                                        <div class="swiper-slide functionality-slider__slide">
+                                          <div class="functionality-slider__slide-container">
+                                            <div class="image image_contain"><img class="lazyload" data-src="./img/functionality/7.png" alt="image"></div>
+                                            <p class="functionality-slider__slide-text">Накопительные счета и вклады в любой валюте, включая крипту</p>
+                                          </div>
+                                        </div>
+                  </div>
+                </div>
+                <div class="swiper-navigation">
+                  <div class="swiper-button swiper-button-prev" data-touch-hover>
+                    <svg class="icon">
+                      <use xlink:href="./img/icons/icons.svg#arrow-left"></use>
+                    </svg>
+                  </div>
+                  <div class="swiper-button swiper-button-next" data-touch-hover>
+                    <svg class="icon">
+                      <use xlink:href="./img/icons/icons.svg#arrow-right"></use>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </section>
           </div>
         </section>
-        <section class="section perspective-technology">
+        <section class="section">
           <div class="container">
-            <h2 class="perspective-technology__title section__title">Перспективность нашей технологии</h2>
-            <div class="perspective-technology__text-content row">
-              <div class="col-lg-6">
+            <h2 class="section__title">Перспективность нашей технологии</h2>
+            <div class="row mb-3 mb-lg-4">
+              <div class="col-lg-6 mb-2 mb-lg-0">
                 <p>Наша команда занимается разработкой самописных CMS уже 10 лет и практика показывает, что спрос на уникальные разработки будет только расти из года в год. </p>
                 <p>Рынок перенасыщен шаблонными идентичными решениями, скопированными по функционалу друг у друга. </p>
                 <p>В некоторых случаях эта шаблонность удобна для конечного пользователя, привычна и не её стоит усложнять, но выделиться в таком формате практически невозможно.</p>
@@ -507,88 +632,88 @@
             </div>
           </div>
         </section>
-        <section class="section section_bg-dark what-is-included">
+        <section class="section section_bg-dark">
           <div class="image section__dots"><img class="lazyload" data-src="./img/dots.svg" alt="dots"></div>
           <div class="container">
-            <h2 class="what-is-included__title">Что входит в разработку<br> уникальной CMS-платформы</h2>
-            <div class="swiper what-is-included__slider">
+            <h2 class="section__title text-center">Что входит в разработку<br> уникальной CMS-платформы</h2>
+            <div class="swiper what-is-included-slider">
               <div class="swiper-container">
                 <div class="swiper-wrapper">
                                     <!--item-->
-                                    <div class="swiper-slide what-is-included__slide">
-                                      <div class="what-is-included__slide-container" data-touch-hover>
-                                        <div class="what-is-included__slide-inner"><span class="h2 what-is-included__slide-index">01</span>
-                                          <div class="image what-is-included__slide-image what-is-included__slide-image_1"><img class="lazyload" data-src="./img/development/1.svg" alt="image"></div>
-                                          <h4 class="what-is-included__slide-title">Разработка сайта на EngineX</h4>
+                                    <div class="swiper-slide what-is-included-slider__slide">
+                                      <div class="what-is-included-slider__slide-container" data-touch-hover>
+                                        <div class="what-is-included-slider__slide-inner"><span class="h2 what-is-included-slider__slide-index">01</span>
+                                          <div class="image what-is-included-slider__slide-image what-is-included-slider__slide-image_1"><img class="lazyload" data-src="./img/development/1.svg" alt="image"></div>
+                                          <h4 class="what-is-included-slider__slide-title">Разработка сайта на EngineX</h4>
                                         </div>
                                       </div>
                                     </div>
                                     <!--item-->
-                                    <div class="swiper-slide what-is-included__slide">
-                                      <div class="what-is-included__slide-container" data-touch-hover>
-                                        <div class="what-is-included__slide-inner"><span class="h2 what-is-included__slide-index">02</span>
-                                          <div class="image what-is-included__slide-image what-is-included__slide-image_2"><img class="lazyload" data-src="./img/development/2.svg" alt="image"></div>
-                                          <h4 class="what-is-included__slide-title">Написание API для работы с внешними ресурсами</h4>
+                                    <div class="swiper-slide what-is-included-slider__slide">
+                                      <div class="what-is-included-slider__slide-container" data-touch-hover>
+                                        <div class="what-is-included-slider__slide-inner"><span class="h2 what-is-included-slider__slide-index">02</span>
+                                          <div class="image what-is-included-slider__slide-image what-is-included-slider__slide-image_2"><img class="lazyload" data-src="./img/development/2.svg" alt="image"></div>
+                                          <h4 class="what-is-included-slider__slide-title">Написание API для работы с внешними ресурсами</h4>
                                         </div>
                                       </div>
                                     </div>
                                     <!--item-->
-                                    <div class="swiper-slide what-is-included__slide">
-                                      <div class="what-is-included__slide-container" data-touch-hover>
-                                        <div class="what-is-included__slide-inner"><span class="h2 what-is-included__slide-index">03</span>
-                                          <div class="image what-is-included__slide-image what-is-included__slide-image_3"><img class="lazyload" data-src="./img/development/3.png" alt="image"></div>
-                                          <h4 class="what-is-included__slide-title">Любые интеграции с внешними сервисами</h4>
+                                    <div class="swiper-slide what-is-included-slider__slide">
+                                      <div class="what-is-included-slider__slide-container" data-touch-hover>
+                                        <div class="what-is-included-slider__slide-inner"><span class="h2 what-is-included-slider__slide-index">03</span>
+                                          <div class="image what-is-included-slider__slide-image what-is-included-slider__slide-image_3"><img class="lazyload" data-src="./img/development/3.png" alt="image"></div>
+                                          <h4 class="what-is-included-slider__slide-title">Любые интеграции с внешними сервисами</h4>
                                         </div>
                                       </div>
                                     </div>
                                     <!--item-->
-                                    <div class="swiper-slide what-is-included__slide">
-                                      <div class="what-is-included__slide-container" data-touch-hover>
-                                        <div class="what-is-included__slide-inner"><span class="h2 what-is-included__slide-index">04</span>
-                                          <div class="image what-is-included__slide-image what-is-included__slide-image_4"><img class="lazyload" data-src="./img/development/4.svg" alt="image"></div>
-                                          <h4 class="what-is-included__slide-title">Полный пакет документации по использованию CMS EngineX</h4>
+                                    <div class="swiper-slide what-is-included-slider__slide">
+                                      <div class="what-is-included-slider__slide-container" data-touch-hover>
+                                        <div class="what-is-included-slider__slide-inner"><span class="h2 what-is-included-slider__slide-index">04</span>
+                                          <div class="image what-is-included-slider__slide-image what-is-included-slider__slide-image_4"><img class="lazyload" data-src="./img/development/4.svg" alt="image"></div>
+                                          <h4 class="what-is-included-slider__slide-title">Полный пакет документации по использованию CMS EngineX</h4>
                                         </div>
                                       </div>
                                     </div>
                                     <!--item-->
-                                    <div class="swiper-slide what-is-included__slide">
-                                      <div class="what-is-included__slide-container" data-touch-hover>
-                                        <div class="what-is-included__slide-inner"><span class="h2 what-is-included__slide-index">05</span>
-                                          <div class="image what-is-included__slide-image what-is-included__slide-image_5"><img class="lazyload" data-src="./img/development/5.png" alt="image"></div>
-                                          <h4 class="what-is-included__slide-title">Настройка оборудования заказчика</h4>
+                                    <div class="swiper-slide what-is-included-slider__slide">
+                                      <div class="what-is-included-slider__slide-container" data-touch-hover>
+                                        <div class="what-is-included-slider__slide-inner"><span class="h2 what-is-included-slider__slide-index">05</span>
+                                          <div class="image what-is-included-slider__slide-image what-is-included-slider__slide-image_5"><img class="lazyload" data-src="./img/development/5.png" alt="image"></div>
+                                          <h4 class="what-is-included-slider__slide-title">Настройка оборудования заказчика</h4>
                                         </div>
                                       </div>
                                     </div>
                                     <!--item-->
-                                    <div class="swiper-slide what-is-included__slide">
-                                      <div class="what-is-included__slide-container" data-touch-hover>
-                                        <div class="what-is-included__slide-inner"><span class="h2 what-is-included__slide-index">06</span>
-                                          <div class="image what-is-included__slide-image what-is-included__slide-image_6"><img class="lazyload" data-src="./img/development/6.svg" alt="image"></div>
-                                          <h4 class="what-is-included__slide-title">Разработка мобильных приложений</h4>
+                                    <div class="swiper-slide what-is-included-slider__slide">
+                                      <div class="what-is-included-slider__slide-container" data-touch-hover>
+                                        <div class="what-is-included-slider__slide-inner"><span class="h2 what-is-included-slider__slide-index">06</span>
+                                          <div class="image what-is-included-slider__slide-image what-is-included-slider__slide-image_6"><img class="lazyload" data-src="./img/development/6.svg" alt="image"></div>
+                                          <h4 class="what-is-included-slider__slide-title">Разработка мобильных приложений</h4>
                                         </div>
                                       </div>
                                     </div>
                                     <!--item-->
-                                    <div class="swiper-slide what-is-included__slide">
-                                      <div class="what-is-included__slide-container" data-touch-hover>
-                                        <div class="what-is-included__slide-inner"><span class="h2 what-is-included__slide-index">07</span>
-                                          <div class="image what-is-included__slide-image what-is-included__slide-image_7"><img class="lazyload" data-src="./img/development/7.svg" alt="image"></div>
-                                          <h4 class="what-is-included__slide-title">Оптимизированная мобильная версия сайта + 100% поддержка</h4>
+                                    <div class="swiper-slide what-is-included-slider__slide">
+                                      <div class="what-is-included-slider__slide-container" data-touch-hover>
+                                        <div class="what-is-included-slider__slide-inner"><span class="h2 what-is-included-slider__slide-index">07</span>
+                                          <div class="image what-is-included-slider__slide-image what-is-included-slider__slide-image_7"><img class="lazyload" data-src="./img/development/7.svg" alt="image"></div>
+                                          <h4 class="what-is-included-slider__slide-title">Оптимизированная мобильная версия сайта + 100% поддержка</h4>
                                         </div>
                                       </div>
                                     </div>
                                     <!--item-->
-                                    <div class="swiper-slide what-is-included__slide">
-                                      <div class="what-is-included__slide-container" data-touch-hover>
-                                        <div class="what-is-included__slide-inner"><span class="h2 what-is-included__slide-index">08</span>
-                                          <div class="image what-is-included__slide-image what-is-included__slide-image_8"><img class="lazyload" data-src="./img/development/8.svg" alt="image"></div>
-                                          <h4 class="what-is-included__slide-title">Поддержка обновлений ядра EngineX. Бесплатно, навсегда.</h4>
+                                    <div class="swiper-slide what-is-included-slider__slide">
+                                      <div class="what-is-included-slider__slide-container" data-touch-hover>
+                                        <div class="what-is-included-slider__slide-inner"><span class="h2 what-is-included-slider__slide-index">08</span>
+                                          <div class="image what-is-included-slider__slide-image what-is-included-slider__slide-image_8"><img class="lazyload" data-src="./img/development/8.svg" alt="image"></div>
+                                          <h4 class="what-is-included-slider__slide-title">Поддержка обновлений ядра EngineX. Бесплатно, навсегда.</h4>
                                         </div>
                                       </div>
                                     </div>
                 </div>
               </div>
-              <div class="what-is-included__slider-nav">
+              <div class="swiper-navigation">
                 <div class="swiper-button swiper-button-prev" data-touch-hover>
                   <svg class="icon">
                     <use xlink:href="./img/icons/icons.svg#arrow-left"></use>

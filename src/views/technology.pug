@@ -46,10 +46,13 @@ block content
 
   section.section.about-technology#about-technology
     .container 
-      h2.section__title.about-technology__title Суть технологии EngineX
-      .about-technology__text-content.row 
-        p.col-lg-6 Технологически рынок меняется очень динамично и то, что было актуально вчера — завтра уже будет забыто либо просто неэффективно.<br> Но есть определенные факторы, которые будут актуальны всегда — безопасность + скорость + стабильность + удобство.
-        p.col-lg-6 Они нужны всем и всегда. В итоге это и стало ключевым звеном нашей инновации — объединить технически эти факторы и дать рабочий инструмент, в первую очередь, для стартапов и Saas-платформ.
+      h2.section__title Суть технологии EngineX
+      .row.mb-3.mb-lg-5
+        .col-lg-6.mb-2.mb-lg-0
+          p Технологически рынок меняется очень динамично и то, что было актуально вчера — завтра уже будет забыто либо просто неэффективно.<br> Но есть определенные факторы, которые будут актуальны всегда — безопасность + скорость + стабильность + удобство.
+        .col-lg-6
+          p Они нужны всем и всегда. В итоге это и стало ключевым звеном нашей инновации — объединить технически эти факторы и дать рабочий инструмент, в первую очередь, для стартапов и Saas-платформ.
+      
       .about-technology__container 
         .about-technology__large-block.slide-bg-card(data-touch-hover) 
           .image.image_contain 
@@ -72,18 +75,25 @@ block content
             img(src="./img/stability.png", alt="icon").lazyload
           h5.about-technology__block-title Стабильность<br> системы
 
-  section.section.section_bg-dark.functional-benefits
+  section.section.section_bg-dark
     .container 
-      h2.functional-benefits__title Функциональные преимущества<br> и удобство
+      h2.section__title.text-center Функциональные преимущества<br> и удобство
 
       section.section-inner.system-speed-section
         h3.section-inner__title Безопасность<br> и скорость системы
         .row 
-          .col-lg-5.system-speed-section__image 
+          .col-lg-5.system-speed-section__image.mb-3.mb-lg-0 
             .image.image_cover
               img(data-src="./img/uufl.jpg", alt="image").lazyload
           .col-lg-7
             .swiper.system-speed-section__slider 
+              .swiper-navigation
+                .swiper-button.swiper-button-prev(data-touch-hover)
+                  svg.icon
+                    use(xlink:href='./img/icons/icons.svg#arrow-left')
+                .swiper-button.swiper-button-next(data-touch-hover)
+                  svg.icon
+                    use(xlink:href='./img/icons/icons.svg#arrow-right')
               .swiper-container 
                 .swiper-wrapper 
                   //slide
@@ -134,18 +144,11 @@ block content
                         .text-box-element__head
                           h6 Настраиваем ваше оборудование под нашу систему
                         p В каждом отдельном случае, скорость работы ядра может варьироваться в зависимости от масштабов проекта, а также вашего оборудования. Поэтому мы самостоятельно настраиваем оптимальную конфигурацию вашего сервера под максимальное быстродействие с сайтом на EngineX.
-              .system-speed-section__navigation
-                .swiper-button.swiper-button-prev(data-touch-hover)
-                  svg.icon
-                    use(xlink:href='./img/icons/icons.svg#arrow-left')
-                .swiper-button.swiper-button-next(data-touch-hover)
-                  svg.icon
-                    use(xlink:href='./img/icons/icons.svg#arrow-right')
-
+              
       section.section-inner.stability-and-resiliency
         h3.section-inner__title Стабильность<br> и отказоустойчивость
-        .stability-and-resiliency__content.row 
-          .col-lg-5 
+        .row.align-items-center.mb-3.mb-xl-4
+          .col-lg-5.mb-2.mb-lg-0 
             .image.image_cover.stability-and-resiliency__image 
               img(data-src="./img/ffd.jpg", alt="image").lazyload
           .col-lg-7 
@@ -153,8 +156,8 @@ block content
             p Наши специалисты гарантируют максимальную эффективность работы сайта под EngineX при соблюдении рекомендаций по настройке серверов и firewall-систем. При необходимости, мы самостоятельно, настраиваем ваше оборудование для максимального быстродействия, а также безопасности и отказоустойчивости. Устанавливаем все необходимые протоколы и сервисы.
             p Даем рекомендации по программному и аппаратному обеспечению, увеличению процессорной мощности и объема памяти, распределению ресурсов. В период тестирования, наш системный администратор постоянно на связи, чтобы помочь оптимизировать все процессы после полного разворачивания рабочей среды.
             p Мы готовы к любым непредвиденным проблемам и гарантируем их решение за свой счет, если это касается эффективности работы CMS EngineX.
-        .stability-and-resiliency__content.row 
-          .col-lg-5.order-lg-2
+        .row.align-items-center 
+          .col-lg-5.mb-2.mb-lg-0.order-lg-2
             .image.image_cover.stability-and-resiliency__image 
               img(data-src="./img/llfd.jpg", alt="image").lazyload
           .col-lg-7.order-lg-1 
@@ -185,134 +188,212 @@ block content
                 svg.icon
                   use(xlink:href='./img/icons/icons.svg#arrow-down')
           .col-lg-8
-            .swiper-container 
-              .swiper-wrapper
-                //slide
-                .swiper-slide.scroll-slider__slide.c-a-f-slide
-                  h4.c-a-f-slide__title Управление контентом
-                  .text-box-element
-                    p Система управления контентом максимально удобна и нативна для контент-менеджера или администратора CMS.
-                      br 
-                      | Все разделы и функции размещены в соответствующих разделах, без сложных вложенных меню и непонятной связки между темой и скриптами.
-                      br 
-                      | Всё управление наполнением, редактированием и удалением контента построено на принципе WYSIWIG (то что видишь — то и получаешь).
-                      br 
-                      | Не нужно прыгать по папкам, вкладкам и меню, тратя время на обновление данных. Создание страницы и её наполнение происходит в удобном простом конструкторе с анимированными элементами, а также детальной инструкцией и примерами реализации. И всё это — в одном окне.
-                      br 
-                      | Раздел «Эффекты» позволяет анимировать блоки страницы без применения кода и дополнительной верстки. Создать красивый и быстрый контент может даже начинающий пользователь EngineX. 
-                    p Адаптив под мобильные устройства реализован автоматически, в учетом всех популярных разрешений экранов. Система сама предложит подходящий формат файлов, с учетом их адаптации под мобайл, а также самостоятельно оптимизирует тяжеловесный контент (например, большие фото и видео-файлы) с целью ускорения закрузки. Сайты, работающие на EngineX, в большинстве случаев показывают более 80% оптимизированности по Google PageSpeed — и это в авторежиме. Вручную можно добиться еще лучших показателей.
-                      br 
-                      | SEO-оптимизация контента также автоматизирована, насколько это возможно. Но в некоторых случаях рекомендована периодическая ревизия сео-специалистом.
-                //slide
-                .swiper-slide.scroll-slider__slide.c-a-f-slide
-                  h4.c-a-f-slide__title Доступ к данным
-                  .text-box-grid.row 
-                    .col-md-6
-                      .text-box-element.text-box-grid__element
-                        .text-box-element__head
-                          svg.icon
-                            use(xlink:href='./img/icons/icons.svg#users')
-                          h6.text-box-element__head-title Права и роли
-                        p EngineX позволяет администратору разделять доступы сотрудников на 5 уровней, обеспечивая конфиденциальность различных разделов сайта, безопасность контента и данных.
-                    .col-md-6
-                      .text-box-element.text-box-grid__element
-                        .text-box-element__head
-                          svg.icon
-                            use(xlink:href='./img/icons/icons.svg#monitor')
-                          h6.text-box-element__head-title Все операции в одном окне
-                        p EngineX — это эффективная и удобная реализация администрирования всей системы в пределах одного окна. Загрузка разделов занимает доли секунды, независимо от сложности проекта.
-                    .col-md-6
-                      .text-box-element.text-box-grid__element
-                        .text-box-element__head
-                          svg.icon
-                            use(xlink:href='./img/icons/icons.svg#user')
-                          h6.text-box-element__head-title Авторизация
-                        p Авторизацию пользователей сайта можно настроить, в зависимости от задач проекта — обычная полноценная регистрация либо анонимный доступ с предоставлением только e-mail. При полноценной регистрации авторизоваться на сайте можно будет любым известным стандартным способом — почта, телефон, произвольный логин, AppleId, Google.
-                    .col-md-6
-                      .text-box-element.text-box-grid__element
-                        .text-box-element__head
-                          svg.icon
-                            use(xlink:href='./img/icons/icons.svg#locked')
-                          h6.text-box-element__head-title Безопасность данных
-                        p Полный доступ к данным сайта имеет только Администратор, что снижает шанс потери данных. Тем не менее, для гарантии сохранности и работоспособности сайта, предусмотрена автоматическая система создания зашифрованных резервных копий и контроль версий обновлений. Частота бэкапа астраивается системным администратором
-                //slide
-                .swiper-slide.scroll-slider__slide.c-a-f-slide
-                  h4.c-a-f-slide__title Управление пользователями
-                  .text-box-grid.row
-                    .col-12
-                      .text-box-element.text-box-grid__element
-                        .text-box-element__head
-                          svg.icon
-                            use(xlink:href='./img/icons/icons.svg#users')
-                          h6.text-box-element__head-title Профили пользователей
-                        p Настраивайте профили пользователей сайта и сотрудников компании, в зависимости от необходимых задач
-                    .col-xl-4
-                      .text-box-element.text-box-grid__element
-                        .text-box-element__head
-                          h6.text-box-element__head-title Синхронизация с CRM (сотрудники)
-                        p В EngineX доступна настройка синхронизации данных с большинством популярных CRM, что позволяет предоставлять идентичные права доступа в CRM и на сайт
-                    .col-xl-4
-                      .text-box-element.text-box-grid__element
-                        .text-box-element__head
-                          h6.text-box-element__head-title Синхронизация с CRM (пользователи)
-                        p Синхронизация сайта с большинством популярных CRM позволяет полностью автоматизировать получение данных от пользовательской активности на сайте — регистрации, заявки, звонки, обращения, чаты и прочее
-                    .col-xl-4
-                      .text-box-element.text-box-grid__element
-                        .text-box-element__head
-                          h6.text-box-element__head-title Приватные профили пользователей
-                        p Для некоторых проектов критично важна приватность, поэтому предусмотрена настройка анонимного доступа к функционалу сайта. Детализация возможностей таких пользователей доступна Администратору
-                //slide
-                .swiper-slide.scroll-slider__slide.c-a-f-slide
-                  h4.c-a-f-slide__title Система статистики и аналитики
-                  .text-box-grid.row
-                    .col-lg-6 
-                      .text-box-element.text-box-grid__element
-                        .image.image_cover.text-box-element__image.text-box-element__image_1
-                          img(data-src="./img/pppe.jpg", alt="image").lazyload
-                        .text-box-element__head
-                          h6.text-box-element__head-title Встроенная система статистики и аналитики сайта
-                        p Система показывает все ключевые данные о трафике с фильтрацией по датам и времени: количество пользователей, время на сайте, заявки, звонки, клики, отказы, гео и прочее.
-                    .col-lg-6 
-                      .text-box-element.text-box-grid__element
-                        .image.image_cover.text-box-element__image.text-box-element__image_1
-                          img(data-src="./img/pppr.jpg", alt="image").lazyload
-                        .text-box-element__head
-                          h6.text-box-element__head-title Интеграция с Яндекс, Google и Facebook
-                        p Интеграция с Яндекс, Google и Facebook заложена изначально и достаточно вставить коды счетчиков для полноценной работы. Скрипты форм для конверсий также автоматизированы и настраиваются через админ-панель.
-                    .col-12 
-                      .text-box-element.text-box-element_flex.text-box-grid__element
-                        .text-box-element__flex-image 
-                          .image.image_cover.text-box-element__image.text-box-element__image_2
-                            img(data-src="./img/ddp.jpg", alt="image").lazyload
-                        .text-box-element__flex-content
-                          .text-box-element__head
-                            h6.text-box-element__head-title Интеграция с системами сквозной аналитики
-                          p Для более детальной аналитики трафика и воронки продаж предусмотрена полноценная интеграция с большинством популярных систем сквозной аналитики. Детализация по подключению прилагается в инструкции админи-панели. Работа скриптов оптимизирована, что практически никак не сказывается на быстродействии передачи информации и синхронизации данных.
-                //slide
-                .swiper-slide.scroll-slider__slide.c-a-f-slide
-                  h4.c-a-f-slide__title Расширения и API
-                  .text-box-grid.row
-                    .col-lg-6 
-                      .text-box-element.text-box-grid__element
-                        .image.image_cover.text-box-element__image.text-box-element__image_3
-                          img(data-src='./img/qqwo.jpg', alt="image").lazyload
-                        p Расширение функционала CMS EngineX предусмотрено на базе стандартных самописных функций, которые добавляются через админ-панель администратором по мере необходимости. В библиотеке движка заложено более 50 дополнительных функциональных модулей для большинства задач платформы. Но, при необходимости, наши разработчики могут написать уникальную функцию по отдельному техзаданию.
-                    .col-lg-6 
-                      .text-box-element.text-box-grid__element
-                        .image.image_cover.text-box-element__image.text-box-element__image_3
-                          img(data-src='./img/bjf.png', alt="image").lazyload
-                        p Наша команда располагает базой API-протоколов от более чем 100 различных программ и сервисов, с которыми мы проводим интеграции для автоматизации определенных процессов на сайте.
+            .scroll-slider__slider
+              .swiper-navigation 
+                .swiper-button.swiper-button-prev(data-touch-hover)
+                  svg.icon
+                    use(xlink:href='./img/icons/icons.svg#arrow-left')
+                .swiper-button.swiper-button-next(data-touch-hover)
+                  svg.icon
+                    use(xlink:href='./img/icons/icons.svg#arrow-right')
+              .swiper-container 
+                .swiper-wrapper
+                  //slide
+                  .swiper-slide.scroll-slider__slide
+                    h4 Управление контентом
+                    .text-box-grid
+                      .text-box-element
+                        p Система управления контентом максимально удобна и нативна для контент-менеджера или администратора CMS.
                           br 
-                          | При необходимости, по задаче заказчика, можем написать уникальный API для подключения к самописной CRM-системе либо использовать внешний API, не добавленный пока в общую билиотеку ядра EngineX.
-            
-            .swiper-pagination
+                          | Все разделы и функции размещены в соответствующих разделах, без сложных вложенных меню и непонятной связки между темой и скриптами.
+                          br 
+                          | Всё управление наполнением, редактированием и удалением контента построено на принципе WYSIWIG (то что видишь — то и получаешь).
+                          br 
+                          | Не нужно прыгать по папкам, вкладкам и меню, тратя время на обновление данных. Создание страницы и её наполнение происходит в удобном простом конструкторе с анимированными элементами, а также детальной инструкцией и примерами реализации. И всё это — в одном окне.
+                          br 
+                          | Раздел «Эффекты» позволяет анимировать блоки страницы без применения кода и дополнительной верстки. Создать красивый и быстрый контент может даже начинающий пользователь EngineX. 
+                        p Адаптив под мобильные устройства реализован автоматически, в учетом всех популярных разрешений экранов. Система сама предложит подходящий формат файлов, с учетом их адаптации под мобайл, а также самостоятельно оптимизирует тяжеловесный контент (например, большие фото и видео-файлы) с целью ускорения закрузки. Сайты, работающие на EngineX, в большинстве случаев показывают более 80% оптимизированности по Google PageSpeed — и это в авторежиме. Вручную можно добиться еще лучших показателей.
+                          br 
+                          | SEO-оптимизация контента также автоматизирована, насколько это возможно. Но в некоторых случаях рекомендована периодическая ревизия сео-специалистом.
+                  //slide
+                  .swiper-slide.scroll-slider__slide
+                    h4 Доступ к данным
+                    .text-box-grid.row 
+                      .col-md-6
+                        .text-box-element.text-box-grid__element
+                          .text-box-element__head
+                            svg.icon
+                              use(xlink:href='./img/icons/icons.svg#users')
+                            h6.text-box-element__head-title Права и роли
+                          p EngineX позволяет администратору разделять доступы сотрудников на 5 уровней, обеспечивая конфиденциальность различных разделов сайта, безопасность контента и данных.
+                      .col-md-6
+                        .text-box-element.text-box-grid__element
+                          .text-box-element__head
+                            svg.icon
+                              use(xlink:href='./img/icons/icons.svg#monitor')
+                            h6.text-box-element__head-title Все операции в одном окне
+                          p EngineX — это эффективная и удобная реализация администрирования всей системы в пределах одного окна. Загрузка разделов занимает доли секунды, независимо от сложности проекта.
+                      .col-md-6
+                        .text-box-element.text-box-grid__element
+                          .text-box-element__head
+                            svg.icon
+                              use(xlink:href='./img/icons/icons.svg#user')
+                            h6.text-box-element__head-title Авторизация
+                          p Авторизацию пользователей сайта можно настроить, в зависимости от задач проекта — обычная полноценная регистрация либо анонимный доступ с предоставлением только e-mail. При полноценной регистрации авторизоваться на сайте можно будет любым известным стандартным способом — почта, телефон, произвольный логин, AppleId, Google.
+                      .col-md-6
+                        .text-box-element.text-box-grid__element
+                          .text-box-element__head
+                            svg.icon
+                              use(xlink:href='./img/icons/icons.svg#locked')
+                            h6.text-box-element__head-title Безопасность данных
+                          p Полный доступ к данным сайта имеет только Администратор, что снижает шанс потери данных. Тем не менее, для гарантии сохранности и работоспособности сайта, предусмотрена автоматическая система создания зашифрованных резервных копий и контроль версий обновлений. Частота бэкапа астраивается системным администратором
+                  //slide
+                  .swiper-slide.scroll-slider__slide
+                    h4 Управление пользователями
+                    .text-box-grid.row
+                      .col-12
+                        .text-box-element.text-box-grid__element
+                          .text-box-element__head
+                            svg.icon
+                              use(xlink:href='./img/icons/icons.svg#users')
+                            h6.text-box-element__head-title Профили пользователей
+                          p Настраивайте профили пользователей сайта и сотрудников компании, в зависимости от необходимых задач
+                      .col-xl-4
+                        .text-box-element.text-box-grid__element
+                          .text-box-element__head
+                            h6.text-box-element__head-title Синхронизация с CRM (сотрудники)
+                          p В EngineX доступна настройка синхронизации данных с большинством популярных CRM, что позволяет предоставлять идентичные права доступа в CRM и на сайт
+                      .col-xl-4
+                        .text-box-element.text-box-grid__element
+                          .text-box-element__head
+                            h6.text-box-element__head-title Синхронизация с CRM (пользователи)
+                          p Синхронизация сайта с большинством популярных CRM позволяет полностью автоматизировать получение данных от пользовательской активности на сайте — регистрации, заявки, звонки, обращения, чаты и прочее
+                      .col-xl-4
+                        .text-box-element.text-box-grid__element
+                          .text-box-element__head
+                            h6.text-box-element__head-title Приватные профили пользователей
+                          p Для некоторых проектов критично важна приватность, поэтому предусмотрена настройка анонимного доступа к функционалу сайта. Детализация возможностей таких пользователей доступна Администратору
+                  //slide
+                  .swiper-slide.scroll-slider__slide
+                    h4 Система статистики и аналитики
+                    .text-box-grid.row
+                      .col-md-6 
+                        .text-box-element.text-box-grid__element
+                          .image.image_cover.text-box-element__image.text-box-element__image_1
+                            img(data-src="./img/pppe.jpg", alt="image").lazyload
+                          .text-box-element__head
+                            h6.text-box-element__head-title Встроенная система статистики и аналитики сайта
+                          p Система показывает все ключевые данные о трафике с фильтрацией по датам и времени: количество пользователей, время на сайте, заявки, звонки, клики, отказы, гео и прочее.
+                      .col-md-6 
+                        .text-box-element.text-box-grid__element
+                          .image.image_cover.text-box-element__image.text-box-element__image_1
+                            img(data-src="./img/pppr.jpg", alt="image").lazyload
+                          .text-box-element__head
+                            h6.text-box-element__head-title Интеграция с Яндекс, Google и Facebook
+                          p Интеграция с Яндекс, Google и Facebook заложена изначально и достаточно вставить коды счетчиков для полноценной работы. Скрипты форм для конверсий также автоматизированы и настраиваются через админ-панель.
+                      .col-12 
+                        .text-box-element.text-box-element_flex.text-box-grid__element
+                          .text-box-element__flex-image 
+                            .image.image_cover.text-box-element__image.text-box-element__image_2
+                              img(data-src="./img/ddp.jpg", alt="image").lazyload
+                          .text-box-element__flex-content
+                            .text-box-element__head
+                              h6.text-box-element__head-title Интеграция с системами сквозной аналитики
+                            p Для более детальной аналитики трафика и воронки продаж предусмотрена полноценная интеграция с большинством популярных систем сквозной аналитики. Детализация по подключению прилагается в инструкции админи-панели. Работа скриптов оптимизирована, что практически никак не сказывается на быстродействии передачи информации и синхронизации данных.
+                  //slide
+                  .swiper-slide.scroll-slider__slide
+                    h4 Расширения и API
+                    .text-box-grid.row
+                      .col-md-6 
+                        .text-box-element.text-box-grid__element
+                          .image.image_cover.text-box-element__image.text-box-element__image_3
+                            img(data-src='./img/qqwo.jpg', alt="image").lazyload
+                          p Расширение функционала CMS EngineX предусмотрено на базе стандартных самописных функций, которые добавляются через админ-панель администратором по мере необходимости. В библиотеке движка заложено более 50 дополнительных функциональных модулей для большинства задач платформы. Но, при необходимости, наши разработчики могут написать уникальную функцию по отдельному техзаданию.
+                      .col-md-6 
+                        .text-box-element.text-box-grid__element
+                          .image.image_cover.text-box-element__image.text-box-element__image_3
+                            img(data-src='./img/bjf.png', alt="image").lazyload
+                          p Наша команда располагает базой API-протоколов от более чем 100 различных программ и сервисов, с которыми мы проводим интеграции для автоматизации определенных процессов на сайте.
+                            br 
+                            | При необходимости, по задаче заказчика, можем написать уникальный API для подключения к самописной CRM-системе либо использовать внешний API, не добавленный пока в общую билиотеку ядра EngineX.
+                      
+      section.section-inner
+        h3.section-inner__title Платежный<br> защищенный шлюз
+        .row.mb-4.mb-xl-5
+          .col-lg-6.mb-2.mb-lg-0
+            p Вся система платежей и транзакций построена на интеграции с внешними API на базе всемирно известных платформ. 
+            p Это позволяет создавать с сайта защищенные безопасные туннели к платежным шлюзам международных сервисов, таким как, Stripe, CoinPayments, Enot.io, Block.io, PayCassa и десятков других.
+          .col-lg-6
+            p Это позволяет сохранять максимальную безопасность персональных платежных данных ваших пользователей, так как сайт не обрабатывает эти данные, а по зашифрованному каналу передает сразу на процессинговые центры интегрированного сервиса.
+        .row.align-items-center.justify-content-center.mb-5
+          .col-xl-6.mb-4.mb-xl-0 
+            .text-block-bordered 
+              h4 <strong>Интеграция</strong> с сервисами <strong>позволит подключить для оплат</strong> ваших товаров/услуг <strong>135 валют и кошельков</strong>
+              p Позвольте вашим международным клиентам платить предпочтительным способом оплаты и повысить конверсию. Система поддерживает более 135 валют и предлагает единый API для карт, кошельков, банковских дебетов и многого другого.
+          .col-md-auto.col-xl-6.content-pl-xl
+            ul.large-check-list.mb-4 
+              li.large-check-list__item
+                svg.icon
+                  use(xlink:href='./img/icons/icons.svg#check') 
+                | Стандартные платежные системы
+              li.large-check-list__item 
+                svg.icon
+                  use(xlink:href='./img/icons/icons.svg#check')   
+                | Криптовалюты
+              li.large-check-list__item 
+                svg.icon
+                  use(xlink:href='./img/icons/icons.svg#check')   
+                | Электронные кошельки    
+            .payment-list 
+              .payment-list__container
+                .payment-list__top
+                  img(src="./img/payment/1_light.svg", alt="img").payment-list__item
+                  img(src="./img/payment/2_light.svg", alt="img").payment-list__item
+                  img(src="./img/payment/3_light.svg", alt="img").payment-list__item
+                  img(src="./img/payment/4_light.svg", alt="img").payment-list__item
+                  img(src="./img/payment/5_light.svg", alt="img").payment-list__item
+                  img(src="./img/payment/6_light.svg", alt="img").payment-list__item
+                  img(src="./img/payment/7_light.svg", alt="img").payment-list__item
+                  img(src="./img/payment/8_light.svg", alt="img").payment-list__item
+                .payment-list__last
+                  img(src="./img/payment/GooglePay.svg", alt="img").payment-list__item
+                  img(src="./img/payment/ApplePay.svg", alt="img").payment-list__item
+                  img(src="./img/payment/Stripe.svg", alt="img").payment-list__item
+                  img(src="./img/payment/Visa.svg", alt="img").payment-list__item
+                  img(src="./img/payment/MasterCard.svg", alt="img").payment-list__item
+                  img(src="./img/payment/Maestro.svg", alt="img").payment-list__item
 
+        h4.section-inner__title.text-center Функционал платежей, который мы интегрируем
+        .swiper.functionality-slider 
+          .swiper-container 
+            .swiper-wrapper
+              mixin slide(text, image)
+                .swiper-slide.functionality-slider__slide
+                  .functionality-slider__slide-container
+                    .image.image_contain
+                      img(data-src=image, alt="image").lazyload
+                    p.functionality-slider__slide-text=text
+              
+              +slide('Автоматический вывод. Мгновенная оплата. Массовая оплата', './img/functionality/1.png')
+              +slide('Обмен электронных валют в личном кабинете пользователя', './img/functionality/2.png')
+              +slide('Автоматизация подписок и прочих периодических платежей', './img/functionality/3.png')
+              +slide('Оплата товаров и услуг в любой валюте любого магазина в мире', './img/functionality/4.png')
+              +slide('Открытие онлайн-кошельков и электронных счетов', './img/functionality/5.png')
+              +slide('Покупка, продажа, обмен криптовалюты', './img/functionality/6.png')
+              +slide('Накопительные счета и вклады в любой валюте, включая крипту', './img/functionality/7.png')
+          .swiper-navigation 
+            .swiper-button.swiper-button-prev(data-touch-hover)
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#arrow-left')
+            .swiper-button.swiper-button-next(data-touch-hover)
+              svg.icon
+                use(xlink:href='./img/icons/icons.svg#arrow-right')
 
-  section.section.perspective-technology 
+  section.section
     .container 
-      h2.perspective-technology__title.section__title Перспективность нашей технологии
-      .perspective-technology__text-content.row
-        .col-lg-6 
+      h2.section__title Перспективность нашей технологии
+      .row.mb-3.mb-lg-4
+        .col-lg-6.mb-2.mb-lg-0
           p Наша команда занимается разработкой самописных CMS уже 10 лет и практика показывает, что спрос на уникальные разработки будет только расти из года в год. 
           p Рынок перенасыщен шаблонными идентичными решениями, скопированными по функционалу друг у друга. 
           p В некоторых случаях эта шаблонность удобна для конечного пользователя, привычна и не её стоит усложнять, но выделиться в таком формате практически невозможно.
@@ -328,28 +409,27 @@ block content
               span.h2.wide-text-card__index 0#{index}
               h4.wide-text-card__title.wide-text-card__title_1=title
             
-
         +block(1, 'Защищенные от копирования технологии, сохраняющие инновацию уникальной', './img/jjtm.png')
         +block(2, 'Неограниченная масштабируемость. Внедряем в движок все новейшие технологические разработки. Пожизненная гарантия бесплатных обновлений EngineX', './img/dlld.png')
         +block(3, 'Машинное обучение + искусственный интеллект — уже в отделе разработки для будущего внедрения', './img/llcp.png')
 
-  section.section.section_bg-dark.what-is-included
+  section.section.section_bg-dark
     .image.section__dots
       img(data-src="./img/dots.svg", alt="dots").lazyload
     .container 
-      h2.what-is-included__title Что входит в разработку<br> уникальной CMS-платформы
-      .swiper.what-is-included__slider
+      h2.section__title.text-center Что входит в разработку<br> уникальной CMS-платформы
+      .swiper.what-is-included-slider
         .swiper-container 
           .swiper-wrapper
             mixin slide(index, image, title)
               //item
-              .swiper-slide.what-is-included__slide
-                .what-is-included__slide-container(data-touch-hover)
-                  .what-is-included__slide-inner
-                    span.h2.what-is-included__slide-index 0#{index}
-                    .image.what-is-included__slide-image(class=`what-is-included__slide-image_${index}`)
+              .swiper-slide.what-is-included-slider__slide
+                .what-is-included-slider__slide-container(data-touch-hover)
+                  .what-is-included-slider__slide-inner
+                    span.h2.what-is-included-slider__slide-index 0#{index}
+                    .image.what-is-included-slider__slide-image(class=`what-is-included-slider__slide-image_${index}`)
                       img(data-src=image, alt="image").lazyload
-                    h4.what-is-included__slide-title !{title}
+                    h4.what-is-included-slider__slide-title !{title}
 
             +slide(1, "./img/development/1.svg", 'Разработка сайта на EngineX')
             +slide(2, "./img/development/2.svg", 'Написание API для работы с внешними ресурсами')
@@ -360,7 +440,7 @@ block content
             +slide(7, "./img/development/7.svg", 'Оптимизированная мобильная версия сайта + 100% поддержка')
             +slide(8, "./img/development/8.svg", 'Поддержка обновлений ядра EngineX. Бесплатно, навсегда.')
         
-        .what-is-included__slider-nav
+        .swiper-navigation 
           .swiper-button.swiper-button-prev(data-touch-hover)
             svg.icon
               use(xlink:href='./img/icons/icons.svg#arrow-left')

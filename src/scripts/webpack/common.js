@@ -59,8 +59,10 @@ window.addEventListener('beforeEnter', function(event) {
   ActiveInstances.add(RelevanceCards, '.relevance-cards', event.detail.container);
   ActiveInstances.add(DevelopmentSlider, '.development-slider', event.detail.container);
   ActiveInstances.add(TeamCard, '.team-card', event.detail.container);
-  ActiveInstances.add(WhatIsIncludedSlider, '.what-is-included__slider', event.detail.container);
+  ActiveInstances.add(WhatIsIncludedSlider, '.what-is-included-slider', event.detail.container);
   ActiveInstances.add(SystemSpeedSlider, '.system-speed-section__slider', event.detail.container);
+  ActiveInstances.add(FunctionalitySlider, '.functionality-slider', event.detail.container);
+
   
   ActiveInstances.init();
 
@@ -546,8 +548,8 @@ class ScrollSlider {
   initDesktop() {
     this.$slider = this.$parent.querySelector('.swiper-container')
     this.$nav_elements = this.$parent.querySelectorAll('.scroll-slider__nav-element');
-    this.$prev = this.$parent.querySelector('.swiper-button-prev');
-    this.$next = this.$parent.querySelector('.swiper-button-next');
+    this.$prev = this.$parent.querySelector('.scroll-slider__nav .swiper-button-prev');
+    this.$next = this.$parent.querySelector('.scroll-slider__nav .swiper-button-next');
 
     this.change = (index) => {
       if(this.index!==index) {
@@ -581,7 +583,7 @@ class ScrollSlider {
 
     this.slider.on('slideChange', (swiper) => {
       this.change(swiper.realIndex);
-      if(this.initialized) {
+      if(this.sliderInitialized) {
         //scroll
         let y = this.$slider.getBoundingClientRect().top + window.pageYOffset - 40;
         gsap.to(window, {duration:0.5, scrollTo:y});
@@ -590,7 +592,7 @@ class ScrollSlider {
 
     this.slider.on('init', (swiper) => {
       this.change(swiper.realIndex);
-      this.initialized = true;
+      this.sliderInitialized = true;
     });
 
     this.clickEvents = [];
@@ -607,15 +609,20 @@ class ScrollSlider {
   initMobile() {
     this.$slider = this.$parent.querySelector('.swiper-container');
     this.$pagination = this.$parent.querySelector('.swiper-pagination');
+    this.$prev = this.$parent.querySelector('.swiper-navigation .swiper-button-prev');
+    this.$next = this.$parent.querySelector('.swiper-navigation .swiper-button-next');
 
     this.slider = new Swiper(this.$slider, {
-      loop: true,
       speed: 300,
       autoHeight: true,
       pagination: {
         el: this.$pagination,
         clickable: true,
         bulletElement: 'button'
+      },
+      navigation: {
+        prevEl: this.$prev,
+        nextEl: this.$next
       },
       lazy: {
         loadOnTransitionStart: true,
@@ -628,7 +635,7 @@ class ScrollSlider {
     this.slider.destroy();
     this.$nav_elements[this.index].classList.remove('is-active');
     delete this.index;
-    delete this.initialized;
+    delete this.sliderInitialized;
     this.$nav_elements.forEach(($this, index) => {
       $this.removeEventListener('click', this.clickEvents[index])
     })
@@ -888,16 +895,17 @@ class WhatIsIncludedSlider {
   constructor($parent) {
     this.$parent = $parent;
   }
+
   init() {
     this.check = ()=> {
-      if(window.innerWidth >= brakepoints.lg && (!this.initialized || !this.flag)) {
+      if(window.innerWidth >= brakepoints.xl && (!this.initialized || !this.flag)) {
         if(this.initialized) {
-          this.destroyMobile();
+          this.destroySlider();
         }
         this.flag = true;
       } 
-      else if(window.innerWidth<brakepoints.lg && (!this.initialized || this.flag)) {
-        this.initMobile();
+      else if(window.innerWidth<brakepoints.xl && (!this.initialized || this.flag)) {
+        this.initSlider();
         this.flag = false;
       }
     }
@@ -906,7 +914,7 @@ class WhatIsIncludedSlider {
     this.initialized = true;
   }
 
-  initMobile() {
+  initSlider() {
     this.$slider = this.$parent.querySelector('.swiper-container');
     this.$prev = this.$parent.querySelector('.swiper-button-prev');
     this.$next = this.$parent.querySelector('.swiper-button-next');
@@ -926,12 +934,12 @@ class WhatIsIncludedSlider {
     });
   }
 
-  destroyMobile() {
+  destroySlider() {
     this.slider.destroy();
   }
 
   destroy() {
-    if(!this.flag) this.destroyMobile();
+    if(!this.flag) this.destroySlider();
     window.removeEventListener('resize', this.check);
     for(let child in this) delete this[child];
   }
@@ -948,7 +956,6 @@ class SystemSpeedSlider {
     this.$next = this.$parent.querySelector('.swiper-button-next');
 
     this.slider = new Swiper(this.$slider, {
-      loop: true,
       speed: 300,
       autoHeight: true,
       navigation: {
@@ -964,3 +971,56 @@ class SystemSpeedSlider {
   }
 }
 
+class FunctionalitySlider {
+  constructor($parent) {
+    this.$parent = $parent;
+  }
+
+  init() {
+    this.check = ()=> {
+      if(window.innerWidth >= brakepoints.xl && (!this.initialized || !this.flag)) {
+        if(this.initialized) {
+          this.destroySlider();
+        }
+        this.flag = true;
+      } 
+      else if(window.innerWidth<brakepoints.xl && (!this.initialized || this.flag)) {
+        this.initSlider();
+        this.flag = false;
+      }
+    }
+    this.check();
+    window.addEventListener('resize', this.check);
+    this.initialized = true;
+  }
+
+  initSlider() {
+    this.$slider = this.$parent.querySelector('.swiper-container');
+    this.$prev = this.$parent.querySelector('.swiper-button-prev');
+    this.$next = this.$parent.querySelector('.swiper-button-next');
+
+    this.slider = new Swiper(this.$slider, {
+      speed: 300,
+      slidesPerView: 1,
+      navigation: {
+        prevEl: this.$prev,
+        nextEl: this.$next
+      },
+      breakpoints: {
+        [brakepoints.sm]: {
+          slidesPerView: "auto"
+        }
+      }
+    });
+  }
+
+  destroySlider() {
+    this.slider.destroy();
+  }
+
+  destroy() {
+    if(!this.flag) this.destroySlider();
+    window.removeEventListener('resize', this.check);
+    for(let child in this) delete this[child];
+  }
+}
