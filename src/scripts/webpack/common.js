@@ -24,7 +24,6 @@ barba.init({
     }
   }]
 });
-
 import Swiper, {Navigation, Pagination, Lazy, Autoplay, EffectFade, Mousewheel} from 'swiper/core';
 Swiper.use([Navigation, Pagination, Lazy, Autoplay, EffectFade, Mousewheel]);
 
@@ -77,6 +76,11 @@ window.addEventListener('afterExit', function() {
   ActiveInstances.destroy();
   ActiveLinks.reset();
 })
+
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+
 
 
 //check device
@@ -281,17 +285,25 @@ const Header = {
     if(this.old_scroll<y) {
       this.old_flag = y;
       if(y>h && !hidden) {
-        this.$element.classList.add('header_hidden');
+        this.hide();
       }
     }
     //листаем вверх
     else if(this.old_scroll>y) {
-      if(hidden && (y<h || y+200<this.old_flag)) {
-        this.$element.classList.remove('header_hidden');
+      if(hidden && ((y<h || y+200<this.old_flag) && !this.inScroll)) {
+        this.show();
       }
     } 
 
     this.old_scroll = y;
+  },
+
+  hide: function() {
+    this.$element.classList.add('header_hidden');
+  },
+
+  show: function() {
+    this.$element.classList.remove('header_hidden');
   }
 }
 
@@ -596,7 +608,11 @@ class ScrollSlider {
       if(this.sliderInitialized) {
         //scroll
         let y = this.$slider.getBoundingClientRect().top + window.pageYOffset - 40;
-        gsap.to(window, {duration:0.5, scrollTo:y});
+        Header.inScroll = true;
+        Header.hide();
+        gsap.to(window, {duration:0.5, scrollTo:y, onComplete: () => {
+          Header.inScroll = false;
+        }});
       }
     });
 
