@@ -77,7 +77,7 @@ window.addEventListener('afterExit', function() {
   ActiveLinks.reset();
 })
 
-if (history.scrollRestoration) {
+if(history.scrollRestoration) {
   history.scrollRestoration = 'manual';
 }
 
@@ -377,7 +377,7 @@ const Magic = {
     this.$trigger = document.querySelector('.button-magic');
 
     this.$trigger.addEventListener('click', () => {
-      let independent_elements = 'h1, h2, h3, h4, h5, h6, li, p, button, .button, .image, .logo, .input',
+      let independent_elements = 'h1, h2, h3, h4, h5, h6, li, p, button, .button, .image, .logo, .input, .news-v-card, .news-card',
           $independent_elements = document.querySelectorAll(independent_elements),
           $else_elements = document.querySelectorAll('strong, a, span, .icon, img');
 

@@ -12,6 +12,104 @@ block content
       h1.h2.page-head__title.page-head__animate-item Техноблог о современных технологиях, системах безопасности и криптовалютах
       p.page-head__text.page-head__animate-item Актуальное о популярном из мира финтеха, CMS, электронных средствах платежей и крипте
 
+  section.section.section_bg-light.subscribe-line
+    .container
+      .row.align-items-center 
+        .col-lg-5.col-xl-6
+          h4.subscribe-line__title.mb-2.mb-lg-0 Подпишитесь на актуальные статьи
+        .col-lg-7.col-xl-6
+          form(action="").subscribe-form 
+            .input.subscribe-form__input 
+              input(type="email" name="email" placeholder='Ваш email' required).input__element
+            button.button.button_style-1.subscribe-form__button Подписаться
+
+  section.section.section_bg-dark 
+    .section__dots(style='background-image:url("./img/ellipse.svg");')
+    .container  
+      .news-grid.mb-4.mb-lg-5
+        //block
+        a(href=article).news-card.news-card_large.news-grid__element.news-grid__element_1
+          .image.image_cover 
+            img(data-src="./img/qds.jpg", alt="image").lazyload
+          .news-card__content
+            span.news-card__date September 22, 2019
+            h3.news-card__title Proven Health & Lifestyle Hacks That Will Boost Your Energy at Home and Work
+        //block
+        a(href=article).news-card.news-card_small.news-grid__element.news-grid__element_2
+          .image.image_cover 
+            img(data-src="./img/qjf.jpg", alt="image").lazyload
+          .news-card__content
+            span.news-card__date November 13, 2019
+            h6.news-card__title Enjoy the Little Things
+        //block
+        a(href=article).news-card.news-card_small.news-grid__element.news-grid__element_3
+          .image.image_cover 
+            img(data-src="./img/qod.jpg", alt="image").lazyload
+          .news-card__content
+            span.news-card__date May 10, 2019
+            h6.news-card__title 3 Easy Steps To Create a Blog Article
+        //block
+        .news-v-card.news-v-card_dark.news-grid__element
+          a(href=article).image.image_cover
+            img(data-src="./img/qlk.jpg", alt="image").lazyload
+          .news-v-card__content
+            h4.news-v-card__title 7 Air-Cleaning Tropicals You Need in Your Space
+            p Here's where you can provide a short except or summary of the article to tease the reader to click your link... 
+              a(href=article).news-v-card__more Read&nbsp;more 
+        //block
+        .news-v-card.news-v-card_dark.news-grid__element
+          .news-v-card__content
+            h4.news-v-card__title Why Wireframing is an Essential Skill for More Than Just Designers!
+            p Here's where you can provide a short except or summary of the article to tease the reader to click your link... 
+              a(href=article).news-v-card__more Read&nbsp;more 
+          a(href=article).image.image_cover
+            img(data-src="./img/qpo.jpg", alt="image").lazyload
+      .row.justify-content-center
+        .col-auto
+          a(href="javascript:void(0);").button.button_style-1 Загрузить больше
+
+  section.section
+    .container 
+      h2.section__title.text-center Самое популярное
+      .news-grid.mb-4.mb-lg-5
+        //block
+        .news-v-card.news-v-card_light.news-grid__element
+          a(href=article).image.image_cover
+            img(data-src="./img/qkf.jpg", alt="image").lazyload
+          .news-v-card__content
+            h4.news-v-card__title Proven Health & Lifestyle Hacks That Will Boost Your Energy at Home
+            span.news-v-card__autor By 
+              a(href="#") Steven Donovan 
+              | on December 29, 2019
+            p Pellentesque in erat id felis colestie finibus nec at massa. Nam et urna vel dolor euismod blandit. sapien neque... 
+              a(href=article).news-v-card__more Read&nbsp;more 
+        //block
+        .news-v-card.news-v-card_light.news-grid__element
+          a(href=article).image.image_cover
+            img(data-src="./img/qlf.jpg", alt="image").lazyload
+          .news-v-card__content
+            h4.news-v-card__title Why Wireframing is an Essential Skill for More Than Just Designers!
+            span.news-v-card__autor By 
+              a(href="#") Steven Donovan 
+              | on December 29, 2019
+            p Pellentesque in erat id felis colestie finibus nec at massa. Nam et urna vel dolor euismod blandit. sapien neque... 
+              a(href=article).news-v-card__more Read&nbsp;more 
+        //block
+        .news-v-card.news-v-card_light.news-grid__element
+          a(href=article).image.image_cover
+            img(data-src="./img/qls.jpg", alt="image").lazyload
+          .news-v-card__content
+            h4.news-v-card__title W7 Air-Cleaning Tropicals You Need in Your Space
+            span.news-v-card__autor By 
+              a(href="#") Steven Donovan 
+              | on December 29, 2019
+            p Pellentesque in erat id felis colestie finibus nec at massa. Nam et urna vel dolor euismod blandit. sapien neque... 
+              a(href=article).news-v-card__more Read&nbsp;more 
+
+      .row.justify-content-center
+        .col-auto
+          a(href="javascript:void(0);").button.button_style-1 Открыть все посты
+
   section.section.section_bg-light.articles-slider
     .container 
       h2.section__title.articles-slider__title Самое новое по 
@@ -44,7 +142,7 @@ block content
                         span.article-card__date=date
                         h6.article-card__title=title
                       .article-card__link 
-                        span Read more
+                        span Read&nbsp;more
                         svg.icon
                           use(xlink:href='./img/icons/icons.svg#arrow-right')
               

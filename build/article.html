@@ -18,15 +18,7 @@
     <meta property="og:url" content="#">
     <meta property="og:description" content="Комплексное IT-решение для проектов, где важнейшим является безопасность и скорость транзакций с мультиплатформенной системой платежей в любой валюте, включая все крипто-монеты">
     <meta property="og:image" content="#">
-    <!--fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
-    <link rel="preload" href="./fonts/Qanelas-Bold/Qanelas-Bold.woff2" as="font" crossorigin="anonymous">
-    <link rel="stylesheet" href="./fonts/Qanelas-Bold/style.css">
-    <!--styles-->
-    <link rel="stylesheet" href="./styles/theme.css">
-    <link rel="stylesheet" href="./styles/common.css">
   </head>
   <body>
     <div class="preloader" style="opacity:0;visibility:hidden;">
@@ -73,7 +65,7 @@
                       <use xlink:href="./img/icons/icons.svg#telegram"> </use>
                     </svg></a></li>
               </ul>
-            </div><a class="button button_style-1 mobile-nav__button mobile-nav__animate-item" href="javascript:void(0);">Связаться с нами</a>
+            </div><a class="button button_style-1 mobile-nav__button mobile-nav__animate-item" href="#modal-form" data-modal="open">Связаться с нами</a>
           </div>
         </div>
       </nav>
@@ -179,7 +171,7 @@
               <h3 class="subscribe-section__title">Подпишитесь на статьи<br> и новости техноблога</h3>
               <p class="subscribe-section__text">Получайте на почту самые новые статьи из блога, а также обновления по нашим разработкам на EngineX</p>
             </div>
-            <form class="subscribe-form" action="">
+            <form class="subscribe-form subscribe-section__form" action="">
               <div class="input subscribe-form__input">
                 <input class="input__element" type="email" name="email" placeholder="Ваш email" required>
               </div>
@@ -217,8 +209,15 @@
         </div>
       </footer>
     </div>
+    <!--fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+    <link rel="preload" href="./fonts/Qanelas-Bold/Qanelas-Bold.woff2" as="font" crossorigin="anonymous">
+    <link rel="stylesheet" href="./fonts/Qanelas-Bold/style.css">
+    <!--styles-->
+    <link rel="stylesheet" href="./styles/theme.min.css">
+    <link rel="stylesheet" href="./styles/common.min.css">
     <!--scripts-->
-    <script src="./scripts/common.js"></script>
+    <script src="./scripts/common.min.js"></script>
     <!--preview only-->
     <link rel="stylesheet" href="./styles/helper.css">
     <div class="helper"><a class="helper__trigger" href="javascript:void(0);">
