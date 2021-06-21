@@ -367,16 +367,14 @@ const Magic = {
     this.$trigger.addEventListener('click', () => {
       let independent_elements = 'h1, h2, h3, h4, h5, h6, li, p, button, .button, .image, .logo, .input',
           $independent_elements = document.querySelectorAll(independent_elements),
-          $else_elements = document.querySelectorAll('strong, a, span, .icon');
+          $else_elements = document.querySelectorAll('strong, a, span, .icon, img');
 
       let $suitable_items = [],
           $animate_group_1 = [],
           $animate_group_2 = [];
 
       $else_elements.forEach(($this) => {
-        if($this.tagName=='A' || $this.tagName=='SPAN' || $this.tagName=='STRONG' || $this.classList.contains('icon')) {
-          if(!$this.closest(independent_elements)) $suitable_items.push($this);
-        }
+        if(!$this.closest(independent_elements)) $suitable_items.push($this);
       })
 
       $independent_elements.forEach(($this) => {
