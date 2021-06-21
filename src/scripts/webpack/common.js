@@ -9,7 +9,6 @@ gsap.defaults({
   ease: 'power2.inOut'
 });
 import { disablePageScroll, enablePageScroll } from 'scroll-lock';
-import Inputmask from "inputmask";
 //barba
 import barba from '@barba/core';
 barba.init({
@@ -63,7 +62,7 @@ window.addEventListener('beforeEnter', function(event) {
   ActiveInstances.add(WhatIsIncludedSlider, '.what-is-included-slider', event.detail.container);
   ActiveInstances.add(SystemSpeedSlider, '.system-speed-section__slider', event.detail.container);
   ActiveInstances.add(FunctionalitySlider, '.functionality-slider', event.detail.container);
-
+  ActiveInstances.add(ArticlesSlider, '.articles-slider', event.detail.container);
   
   ActiveInstances.init();
 
@@ -103,37 +102,40 @@ function scroll() {
 const Transitions = {
   enter: function(container, namespace) {
 
-    this.enterAnimation = gsap.timeline({
-      onStart: ()=> {
+    this.enterAnimation = gsap.timeline()
+      .fromTo($overlay, {yPercent:0}, {yPercent:-100, duration:0.5, ease:'power2.out'})
+      .fromTo(container, {autoAlpha:0}, {autoAlpha:1, duration:0.5}, '-=0.5')
+
+      .eventCallback('onStart', () => {
         window.dispatchEvent(new CustomEvent("beforeEnter", {
           detail:{
             container: container,
             namespace: namespace
           }
         }));
-      },
-      onComplete: ()=> {
+      })
+      .eventCallback('onComplete', () => {
         window.dispatchEvent(new CustomEvent("afterEnter", {
           detail:{
             container: container,
             namespace: namespace
           }
         }));
-      }
-    }).fromTo($overlay, {yPercent:0}, {yPercent:-100, duration:0.5, ease:'power2.out'}) 
+      })
 
   }, 
   exit: function(container) {
 
-    this.exitAnimation = gsap.timeline({
-      onStart: ()=> {
+    this.exitAnimation = gsap.timeline()
+      .fromTo($overlay, {yPercent:100}, {yPercent:0, duration:0.5, ease:'power2.out'})
+      
+      .eventCallback('onStart', () => {
         window.dispatchEvent(new CustomEvent("beforeExit", {detail:{container:container}}));
-      },
-      onComplete: ()=> {
+      })
+      .eventCallback('onComplete', () => {
         window.dispatchEvent(new CustomEvent("afterExit", {detail:{container:container}}));
         barba.done();
-      }
-    }).fromTo($overlay, {yPercent:100}, {yPercent:0, duration:0.5, ease:'power2.out'})
+      })
     
   }
 }
@@ -313,9 +315,9 @@ const Nav = {
       .to(this.$toggle_items[0], {rotate:45, duration:0.5, ease:'power2.out'}, '-=0.5')
       .to(this.$toggle_items[2], {rotate:135, duration:0.5, ease:'power2.out'}, '-=0.5')
 
-    window.addEventListener('beforeExit', () => {
+    window.addEventListener('afterExit', () => {
       if(this.state) {
-        this.close();
+        this.close(true);
       }
     })
     
@@ -336,15 +338,25 @@ const Nav = {
     this.animation.timeScale(1).play();
     disablePageScroll();
   },
-  close: function() {
-    this.animation.timeScale(1.5).reverse();
-    this.animation.eventCallback('onReverseComplete', () => {
+  close: function(fast) {
+    let final = () => {
       this.state = false;
       enablePageScroll();
       Header.$element.classList.remove('header_nav-opened');
       this.$element.classList.remove('mobile-nav_opened');
       this.$toggle.classList.remove('nav-toggle_active');
-    })
+    }
+
+    if(fast) {
+      this.animation.play(0).pause();
+      gsap.set(this.$element, {autoAlpha:0})
+      final();
+    } else {
+      this.animation.timeScale(1.5).reverse();
+      this.animation.eventCallback('onReverseComplete', () => {
+        final();
+      })
+    }
   }
 }
 
@@ -478,7 +490,6 @@ class HeadAnimation {
           .eventCallback('onComplete', () => {
             this.dots_animation.kill();
             delete this.dots_animation;
-            gsap.set(this.$dots, {clearProps:'all'});
           })
       
       }
@@ -1022,6 +1033,45 @@ class FunctionalitySlider {
   destroy() {
     if(!this.flag) this.destroySlider();
     window.removeEventListener('resize', this.check);
+    for(let child in this) delete this[child];
+  }
+}
+
+class ArticlesSlider {
+  constructor($parent) {
+    this.$parent = $parent;
+  }
+
+  init() {
+    this.$slider = this.$parent.querySelector('.swiper-container');
+    this.$prev = this.$parent.querySelector('.swiper-button-prev');
+    this.$next = this.$parent.querySelector('.swiper-button-next');
+
+    this.slider = new Swiper(this.$slider, {
+      speed: 300,
+      slidesPerView: 1,
+      lazy: {
+        loadOnTransitionStart: true,
+        loadPrevNext: true
+      },
+      navigation: {
+        prevEl: this.$prev,
+        nextEl: this.$next
+      },
+      breakpoints: {
+        [brakepoints.sm]: {
+          slidesPerView: "auto"
+        },
+        [brakepoints.xl]: {
+          slidesPerView: 3
+        }
+      }
+    });
+
+  }
+
+  destroy() {
+    this.slider.destroy();
     for(let child in this) delete this[child];
   }
 }

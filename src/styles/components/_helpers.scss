@@ -8,6 +8,10 @@
   }
 }
 
+.text-medium {
+  font-size: 1.125rem;
+}
+
 .text-large {
   font-size: 1.75rem;
   @include media-breakpoint-down(lg) {

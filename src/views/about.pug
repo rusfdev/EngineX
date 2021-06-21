@@ -5,6 +5,7 @@ block variables
 block content
 
   section.section.page-head
+    .section__dots(style='background-image:url("./img/ellipse.svg");')
     .page-head__dots
       .page-head__dot
     .container.page-head__container
@@ -46,5 +47,25 @@ block content
           'Обеспечиваем пожизненное обновление нашей CMS - Вы автоматически будуте получать все апдейты безопасности и улучшения ядра системы. Кроме того, команда EngineX готова оказать любую техническую поддержку и ответить на все вопросы в любое время дня и ночи.',
           './img/kdnt.png'
         )
+
+  section.section.section_bg-dark.about-us   
+    .container
+      .text-center.mb-3.mb-xl-5
+        h2 Немного о нас
+        p.text-medium Почему Вы можете доверять EngineX и что мы гарантируем
+      .about-us__container 
+        mixin block(title, image)
+          .about-us__block.slide-bg-card(data-touch-hover)  
+            .image.image_contain 
+              img(src=image, alt="image").lazyload
+            h6.about-us__block-title !{title}
+        
+        +block('Более 10 лет<br> в разработке CMS', './img/about/1.png')
+        +block('Только узкопрофильные специалисты', './img/about/2.png')
+        +block('Больше 50 реализованных проектов', './img/about/3.png')
+        +block('Одновременно<br> в разработке<br> только 1 проект', './img/about/4.png')
+        +block('Всегда закрываем проект в срок либо выплачиваем неустойку', './img/about/5.png')
+        +block('Команда на связи<br> всегда, 24/7', './img/about/6.png')
+
 
   include blocks/subscribe2

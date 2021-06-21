@@ -89,7 +89,6 @@ img {
       opacity: 0.8;
     }
     &-disabled {
-      opacity: 0.5;
       pointer-events: none;
     }
   }
@@ -129,6 +128,13 @@ img {
       }
     }
   }
+  @include media-breakpoint-up(lg) {
+    &-button {
+      &-disabled {
+        opacity: 0.2;
+      }
+    }
+  }
   @include media-breakpoint-down(lg) {
     &-button {
       width: 34px;
@@ -145,8 +151,8 @@ img {
         height: 20px;
         stroke-width: 3px;
       }
-      &[data-touch], &[data-hover] {
-        opacity: 0.8;
+      &-disabled {
+        opacity: 0.5;
       }
     }
   }
@@ -206,6 +212,28 @@ img {
       .icon {
         top: 3px;
       }
+    }
+  }
+}
+
+.select-link {
+  color: inherit;
+  display: inline-flex;
+  transition: color $trs1;
+  .icon {
+    width: 1em;
+    height: 1em;
+    margin-left: 0.1em;
+    margin-top: 0.15em;
+  }
+  span {
+    border-bottom: 2px solid currentColor;
+    transition: border-color $trs1;
+  }
+  &[data-touch], &[data-hover] {
+    color: var(--color-accent-2);
+    span {
+      border-color: transparent;
     }
   }
 }

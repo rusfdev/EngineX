@@ -2,23 +2,23 @@
   --content-width: #{map-get($container-max-widths, xxl)};
   --container-gutter-x: 24px;
   --text-content-margin: 50px;
-  --dots-width: 1336px;
+  --dots-width: 1368px;
   
   @include media-breakpoint-down(xxl) {
     --content-width: #{map-get($container-max-widths, xl)};
   }
   @include media-breakpoint-down(xl) {
     --content-width: #{map-get($container-max-widths, lg)};
-    --dots-width: 976px;
+    --dots-width: 1008px;
   }
   @include media-breakpoint-down(lg) {
     --content-width: #{map-get($container-max-widths, md)};
-    --dots-width: 652px;
+    --dots-width: 684px;
   }
   @include media-breakpoint-down(sm) {
     --content-width: #{map-get($container-max-widths, sm)};
     --container-gutter-x: 16px;
-    --dots-width: 544px;
+    --dots-width: 576px;
   }
 }
 

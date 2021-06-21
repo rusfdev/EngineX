@@ -5,8 +5,7 @@ block variables
 block content
 
   section.section.page-head.home-screen.technology-screen
-    .section__dots.image
-      img(data-src="./img/dots.svg", alt="dots").lazyload
+    .section__dots(style='background-image:url("./img/ellipse.svg");')
     .page-head__dots
       .page-head__dot
 
@@ -76,6 +75,7 @@ block content
           h5.about-technology__block-title Стабильность<br> системы
 
   section.section.section_bg-dark
+    .section__dots(style='background-image:url("./img/ellipse.svg");')
     .container 
       h2.section__title.text-center Функциональные преимущества<br> и удобство
 
@@ -369,7 +369,7 @@ block content
             .swiper-wrapper
               mixin slide(text, image)
                 .swiper-slide.functionality-slider__slide
-                  .functionality-slider__slide-container
+                  .functionality-slider__slide-container.slide-bg-card(data-touch-hover)
                     .image.image_contain
                       img(data-src=image, alt="image").lazyload
                     p.functionality-slider__slide-text=text
@@ -414,8 +414,7 @@ block content
         +block(3, 'Машинное обучение + искусственный интеллект — уже в отделе разработки для будущего внедрения', './img/llcp.png')
 
   section.section.section_bg-dark
-    .image.section__dots
-      img(data-src="./img/dots.svg", alt="dots").lazyload
+    .section__dots(style='background-image:url("./img/ellipse.svg");')
     .container 
       h2.section__title.text-center Что входит в разработку<br> уникальной CMS-платформы
       .swiper.what-is-included-slider

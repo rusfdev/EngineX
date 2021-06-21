@@ -5,12 +5,53 @@ block variables
 block content
 
   section.section.page-head
+    .section__dots(style='background-image:url("./img/ellipse.svg");')
     .page-head__dots
       .page-head__dot
     .container.page-head__container
       h1.h2.page-head__title.page-head__animate-item Техноблог о современных технологиях, системах безопасности и криптовалютах
       p.page-head__text.page-head__animate-item Актуальное о популярном из мира финтеха, CMS, электронных средствах платежей и крипте
 
+  section.section.section_bg-light.articles-slider
+    .container 
+      h2.section__title.articles-slider__title Самое новое по 
+        a(href="javascript:void(0)").select-link 
+          span Категориям 
+          svg.icon
+            use(xlink:href='./img/icons/icons.svg#down')
+      
+      .swiper
+        .swiper-navigation 
+          .swiper-button.swiper-button-prev(data-touch-hover)
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#arrow-left')
+          .swiper-button.swiper-button-next(data-touch-hover)
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#arrow-right')
+        
+        .articles-slider__slider
+          .swiper-container 
+            .swiper-wrapper 
+              mixin block(image, date, title, label)
+                //slide
+                .swiper-slide.article-card
+                  a(href=article).article-card__container
+                    .article-card__image.image.image_cover 
+                      img(data-src=image, alt="image").swiper-lazy
+                      span.article-card__label=label
+                    .article-card__content 
+                      .article-card__top
+                        span.article-card__date=date
+                        h6.article-card__title=title
+                      .article-card__link 
+                        span Read more
+                        svg.icon
+                          use(xlink:href='./img/icons/icons.svg#arrow-right')
+              
+              +block('./img/kfk.jpg', 'December 29, 2019', 'Proven Health & Lifestyle Hacks That Will Boost Your Energy at Home and Work', 'ENGINEX')
+              +block('./img/lds.jpg', 'November 13, 2019', 'Why Wireframing is an Essential Skill for More Than Just Designers!', 'КРИПТА')
+              +block('./img/pl.jpg', 'September 22, 2019', '7 Air-Cleaning Tropicals You Need in Your Space', 'CMS')
+              +block('./img/lds.jpg', 'November 13, 2019', 'Why Wireframing is an Essential Skill for More Than Just Designers!', 'КРИПТА')
 
   include blocks/subscribe
   

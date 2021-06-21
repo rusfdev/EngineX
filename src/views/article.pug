@@ -11,5 +11,63 @@ block content
       h1.h2.page-head__title.page-head__animate-item European payment methods available worldwide in minutes, not months
       p.page-head__text.page-head__animate-item November 13, 2019
 
+  section.section
+    .container 
+      .row 
+        .col-lg-10.col-xl-8.offset-lg-1.offset-xl-2
+          p A great promise of the internet is to eliminate the impact of physical distance on our lives. But 35+ years after the internet’s founding, selling cross-border remains shockingly difficult. Why?
+          p Online commerce is fragmented. The top 50 ecommerce markets have over 75 popular payment methods—including wallets, bank methods, and even cash at convenience stores. Accepting more payment methods is important: buyers often abandon checkout if they can’t use their preferred way to pay. But it can take months to add local payment options. Before engineering work can even begin, you need to register foreign corporate entities, open new bank accounts, pay local taxes, and fill out reams of compliance forms. It shouldn’t be this hard.
+          h4(style='text-align:center;') Reach more European customers in minutes
+          p Starting today, Stripe businesses around the world can accept payments from more European buyers in minutes. Whether you’re a retailer in Hong Kong or a subscription service in Mexico, you can boost revenue from European buyers, who drive nearly 20% of the world’s ecommerce. No matter where you are in the world, there’s now no foreign incorporation, no new bank accounts, and no manual activation steps to get started with Bancontact, EPS, giropay, iDEAL, Przelewy24, and Sofort.
+          picture
+            source(data-srcset='./img/JrjhtBJ-pGU.jpg')
+            img(data-src='./img/JrjhtBJ-pGU.jpg' alt='img').lazyload
+          h4(style='text-align:center;') Winning more sellers for platforms and marketplaces
+          p Businesses are increasingly relying on platforms and marketplaces to grow globally. Offering European payment methods is a great way for marketplaces and platforms to win and retain businesses. Now, platforms like BigCommerce can make payment methods available by default, with no extra verification requirements, incorporation hassle, or activation steps for their users.
+          p This is just the beginning. Over the next year, we’ll be making more payment methods available worldwide. Our goal is to make it seamless for customers to pay how they want and help more businesses sell globally in minutes.
+          p Visit your Dashboard to see the payment methods available for your business and read our docs to get started. Let us know how we can help your business grow globally.
+
+  section.section.section_bg-light.articles-slider
+    .container 
+      h2.section__title.articles-slider__title Самое новое по 
+        a(href="javascript:void(0)").select-link 
+          span Категориям 
+          svg.icon
+            use(xlink:href='./img/icons/icons.svg#down')
+      
+      .swiper
+        .swiper-navigation 
+          .swiper-button.swiper-button-prev(data-touch-hover)
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#arrow-left')
+          .swiper-button.swiper-button-next(data-touch-hover)
+            svg.icon
+              use(xlink:href='./img/icons/icons.svg#arrow-right')
+        
+        .articles-slider__slider
+          .swiper-container 
+            .swiper-wrapper 
+              mixin block(image, date, title, label)
+                //slide
+                .swiper-slide.article-card
+                  a(href=article).article-card__container
+                    .article-card__image.image.image_cover 
+                      img(data-src=image, alt="image").swiper-lazy
+                      span.article-card__label=label
+                    .article-card__content 
+                      .article-card__top
+                        span.article-card__date=date
+                        h6.article-card__title=title
+                      .article-card__link 
+                        span Read more
+                        svg.icon
+                          use(xlink:href='./img/icons/icons.svg#arrow-right')
+              
+              +block('./img/kfk.jpg', 'December 29, 2019', 'Proven Health & Lifestyle Hacks That Will Boost Your Energy at Home and Work', 'ENGINEX')
+              +block('./img/lds.jpg', 'November 13, 2019', 'Why Wireframing is an Essential Skill for More Than Just Designers!', 'КРИПТА')
+              +block('./img/pl.jpg', 'September 22, 2019', '7 Air-Cleaning Tropicals You Need in Your Space', 'CMS')
+          
+
+
 
   include blocks/subscribe
