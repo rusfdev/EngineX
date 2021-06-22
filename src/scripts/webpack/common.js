@@ -42,7 +42,7 @@ const $overlay = document.querySelector('.overlay');
 document.addEventListener('DOMContentLoaded', function() {
   scroll();
   TouchHoverEvents.init();
-  Magic.init();
+  //Magic.init();
   Nav.init();
   Header.init();
   Modal.init();
@@ -269,7 +269,7 @@ const Header = {
 
   check: function () {
     let y = window.pageYOffset,
-        h = window.innerHeight,
+        h = window.innerHeight - 1,
         fixed = this.$element.classList.contains('header_fixed'),
         hidden = this.$element.classList.contains('header_hidden');
 
@@ -1142,8 +1142,8 @@ const Modal = {
         delete this.animation;
         enablePageScroll();
         this.$active.classList.remove('active');
+        delete this.$active;
       })
-      delete this.$active;
     }
   }
 }

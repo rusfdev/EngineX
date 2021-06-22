@@ -58,7 +58,7 @@
 .slide-bg-card {
   position: relative;
   overflow: hidden;
-  transition: color .5s ease-in-out;
+  transition: color $trs3;
   &::before {
     content: '';
     display: block;
@@ -68,9 +68,9 @@
     top: 0;
     left: 0;
     background: var(--gradient-1);
-    transform: scale(0.8) rotate(5deg);
+    transform: translateY(100%);
     opacity: 0;
-    transition: transform .5s $out, opacity .5s ease-in-out;
+    transition: transform $trs3, opacity $trs3;
     will-change: transform, opacity;
     pointer-events: none;
   }
@@ -82,7 +82,7 @@
     color: var(--color-text-light);
     &::before {
       opacity: 1;
-      transform: none;
+      transform: translateY(0);
     }
   }
 }
@@ -361,9 +361,6 @@
     font-size: 1.75rem;
     max-width: 792px;
   }
-  &__head {
-    margin-bottom: 40px;
-  }
   &__text-content {
     position: relative;
     margin-bottom: 85px;
@@ -391,9 +388,6 @@
   @include media-breakpoint-down(lg) {
     &__title {
       margin-bottom: 10px;
-    }
-    &__head {
-      margin-bottom: 20px;
     }
     &__image {
       max-width: 514px;
@@ -2304,11 +2298,13 @@
     position: relative;
     z-index: 2;
     transition: transform $trs2;
+    will-change: transform;
   }
   &__title {
     margin-top: 0;
   }
   &__date {
+    display: block;
     margin-bottom: 10px;
   }
   .image {
@@ -2329,6 +2325,7 @@
       background: var(--image-overlay);
     }
     img {
+      will-change: transform;
       transition: opacity $trs3, visibility $trs3, transform $trs2;
     }
   }

@@ -46,7 +46,7 @@
             </ul>
           </nav>
           <div class="header__button">
-            <button class="button button-magic" type="button">Кнопка, которую<br> НЕ надо нажимать</button>
+            <!--button(type='button').button.button-magic Кнопка, которую<br> НЕ надо нажимать--><a class="button button_style-1" href="#modal-form" data-modal="open">Связаться с нами</a>
           </div>
           <div class="nav-toggle"><span></span><span></span><span></span></div>
         </div>
@@ -325,7 +325,7 @@
                       <div class="swiper-wrapper">
                         <!--slide-->
                         <div class="swiper-slide scroll-slider__slide">
-                          <h4>Управление контентом</h4>
+                          <h4 class="mb-2">Управление контентом</h4>
                           <div class="text-box-grid">
                             <div class="text-box-element">
                               <p>Система управления контентом максимально удобна и нативна для контент-менеджера или администратора CMS.<br>Все разделы и функции размещены в соответствующих разделах, без сложных вложенных меню и непонятной связки между темой и скриптами.<br>Всё управление наполнением, редактированием и удалением контента построено на принципе WYSIWIG (то что видишь — то и получаешь).<br>Не нужно прыгать по папкам, вкладкам и меню, тратя время на обновление данных. Создание страницы и её наполнение происходит в удобном простом конструкторе с анимированными элементами, а также детальной инструкцией и примерами реализации. И всё это — в одном окне.<br>Раздел «Эффекты» позволяет анимировать блоки страницы без применения кода и дополнительной верстки. Создать красивый и быстрый контент может даже начинающий пользователь EngineX. </p>
@@ -335,7 +335,7 @@
                         </div>
                         <!--slide-->
                         <div class="swiper-slide scroll-slider__slide">
-                          <h4>Доступ к данным</h4>
+                          <h4 class="mb-2">Доступ к данным</h4>
                           <div class="text-box-grid row">
                             <div class="col-md-6">
                               <div class="text-box-element text-box-grid__element">
@@ -385,7 +385,7 @@
                         </div>
                         <!--slide-->
                         <div class="swiper-slide scroll-slider__slide">
-                          <h4>Управление пользователями</h4>
+                          <h4 class="mb-2">Управление пользователями</h4>
                           <div class="text-box-grid row">
                             <div class="col-12">
                               <div class="text-box-element text-box-grid__element">
@@ -426,7 +426,7 @@
                         </div>
                         <!--slide-->
                         <div class="swiper-slide scroll-slider__slide">
-                          <h4>Система статистики и аналитики</h4>
+                          <h4 class="mb-2">Система статистики и аналитики</h4>
                           <div class="text-box-grid row">
                             <div class="col-md-6">
                               <div class="text-box-element text-box-grid__element">
@@ -463,7 +463,7 @@
                         </div>
                         <!--slide-->
                         <div class="swiper-slide scroll-slider__slide">
-                          <h4>Расширения и API</h4>
+                          <h4 class="mb-2">Расширения и API</h4>
                           <div class="text-box-grid row">
                             <div class="col-md-6">
                               <div class="text-box-element text-box-grid__element">
@@ -772,10 +772,58 @@
         </div>
       </footer>
     </div>
+    <div class="modal modal-form" id="modal-request">
+      <div class="modal__wrapper" data-scroll-lock-scrollable>
+        <div class="modal-block">
+          <button class="modal-close" data-modal="close"></button>
+          <div class="modal-block__head mb-3">
+            <h3 class="mb-1">Оставьте контакты ниже</h3>
+            <p>чтобы получить расширенное предложение по EngineX</p>
+          </div>
+          <form class="modal-block__form" action="#">
+            <div class="input mb-2">
+              <input class="input__element" type="text" name="name" placeholder="Имя" required>
+            </div>
+            <div class="input mb-2">
+              <input class="input__element" type="text" name="name" placeholder="Ваш email или логин Telegram" required>
+            </div>
+            <div class="checkbox mb-2">
+              <input class="checkbox__input" type="checkbox" id="politics" checked>
+              <label class="checkbox__label" for="politics">Я согласен с политикой конфиденциальности</label>
+            </div>
+            <button class="button button_style-3 modal-block__button">Отправить</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal modal-form" id="modal-form">
+      <div class="modal__wrapper" data-scroll-lock-scrollable>
+        <div class="modal-block">
+          <button class="modal-close" data-modal="close"></button>
+          <div class="modal-block__head mb-3">
+            <h3 class="mb-1">Оставьте контакты ниже</h3>
+            <p>и мы свяжемся с вами в ближайшее время</p>
+          </div>
+          <form class="modal-block__form" action="#">
+            <div class="input mb-2">
+              <input class="input__element" type="text" name="name" placeholder="Имя" required>
+            </div>
+            <div class="input mb-2">
+              <input class="input__element" type="text" name="name" placeholder="Ваш email или логин Telegram" required>
+            </div>
+            <div class="checkbox mb-2">
+              <input class="checkbox__input" type="checkbox" id="politics" checked>
+              <label class="checkbox__label" for="politics">Я согласен с политикой конфиденциальности</label>
+            </div>
+            <button class="button button_style-3 modal-block__button">Отправить</button>
+          </form>
+        </div>
+      </div>
+    </div>
     <!--styles-->
-    <link rel="stylesheet" href="./styles/common.min.css">
+    <link rel="stylesheet" href="./styles/common.css">
     <!--scripts-->
-    <script src="./scripts/common.min.js"></script>
+    <script src="./scripts/common.js"></script>
     <!--preview only-->
     <link rel="stylesheet" href="./styles/helper.css">
     <div class="helper"><a class="helper__trigger" href="javascript:void(0);">

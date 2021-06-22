@@ -36,12 +36,14 @@ html(lang='ru')
       main.main(data-barba="container" data-barba-namespace=namespace)
         block content
       include ../blocks/footer
+
+    include ../blocks/modal
     
     //styles
-    link(rel="stylesheet" href="./styles/common.min.css")
+    link(rel="stylesheet" href="./styles/common.css")
 
     //scripts
-    script(src="./scripts/common.min.js")
+    script(src="./scripts/common.js")
 
     //preview only
     include ../blocks/helper

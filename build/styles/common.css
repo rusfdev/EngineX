@@ -2927,7 +2927,7 @@ picture {
 .slide-bg-card {
   position: relative;
   overflow: hidden;
-  transition: color .5s ease-in-out; }
+  transition: color 0.5s ease-in-out; }
   .slide-bg-card::before {
     content: '';
     display: block;
@@ -2937,9 +2937,9 @@ picture {
     top: 0;
     left: 0;
     background: var(--gradient-1);
-    transform: scale(0.8) rotate(5deg);
+    transform: translateY(100%);
     opacity: 0;
-    transition: transform 0.5s cubic-bezier(0.23, 0.74, 0.35, 1), opacity 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     will-change: transform, opacity;
     pointer-events: none; }
   .slide-bg-card > * {
@@ -2949,7 +2949,7 @@ picture {
     color: var(--color-text-light); }
     .slide-bg-card[data-touch]::before, .slide-bg-card[data-hover]::before {
       opacity: 1;
-      transform: none; }
+      transform: translateY(0); }
 
 .screen {
   min-height: 100vh; }
@@ -3164,9 +3164,6 @@ picture {
   font-size: 1.75rem;
   max-width: 792px; }
 
-.we-create-section__head {
-  margin-bottom: 40px; }
-
 .we-create-section__text-content {
   position: relative;
   margin-bottom: 85px; }
@@ -3191,8 +3188,6 @@ picture {
 @media (max-width: 1023.98px) {
   .we-create-section__title {
     margin-bottom: 10px; }
-  .we-create-section__head {
-    margin-bottom: 20px; }
   .we-create-section__image {
     max-width: 514px;
     margin: 30px auto 0 auto; }
@@ -4671,10 +4666,12 @@ picture {
   .news-card__content {
     position: relative;
     z-index: 2;
-    transition: transform 0.3s ease-in-out; }
+    transition: transform 0.3s ease-in-out;
+    will-change: transform; }
   .news-card__title {
     margin-top: 0; }
   .news-card__date {
+    display: block;
     margin-bottom: 10px; }
   .news-card .image {
     position: absolute;
@@ -4693,6 +4690,7 @@ picture {
       left: 0;
       background: var(--image-overlay); }
     .news-card .image img {
+      will-change: transform;
       transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.3s ease-in-out; }
   @media (max-width: 1023.98px) {
     .news-card_large {
