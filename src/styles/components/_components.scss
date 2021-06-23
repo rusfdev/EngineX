@@ -237,3 +237,25 @@ img {
     }
   }
 }
+
+.lang-toggle {
+  display: flex;
+  &__item {
+    &:not(:last-child) {
+      &::after {
+        content: '|';
+        display: inline-block;
+        margin: 0 5px;
+      }
+    }
+  }
+  &__link {
+    transition: color $trs1;
+    &[data-touch], &[data-hover], &.is-active {
+      color: var(--color-accent-2);
+    }
+    &.is-active {
+      pointer-events: none;
+    }
+  }
+}

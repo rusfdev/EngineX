@@ -5,7 +5,7 @@ header.header(data-scroll-lock-fill-gap)
         span X
  
     nav.nav.header__nav
-      ul.nav__list  
+      ul.nav__list.header__nav-list 
         li.nav__item 
           a(href=home data-namespace='home').nav__link.header__nav-link Главная 
         li.nav__item 
@@ -15,6 +15,12 @@ header.header(data-scroll-lock-fill-gap)
         li.nav__item 
           a(href=blog data-namespace='blog').nav__link.header__nav-link Блог
     
+    ul.lang-toggle.header__lang-toggle
+      li.lang-toggle__item 
+        a(href="#").lang-toggle__link.header__lang-link Eng
+      li.lang-toggle__item 
+        a(href="#").lang-toggle__link.header__lang-link.is-active Rus
+
     .header__button
       //button(type='button').button.button-magic Кнопка, которую<br> НЕ надо нажимать
 
