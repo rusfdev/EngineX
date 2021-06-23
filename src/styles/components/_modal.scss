@@ -54,7 +54,6 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 700px;
     padding: 120px 100px 90px 100px;
     background-color: #fff;
     margin: auto;
@@ -83,8 +82,17 @@
   }
 }
 
-.modal-block {
+.modal-form {
+  &__container {
+    max-width: 700px;
+  }
   &__button {
     min-width: 220px;
   }
+}
+
+.modal-text {
+ &__container {
+   max-width: calc(var(--content-width) - var(--container-gutter-x) * 2);
+ }
 }

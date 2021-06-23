@@ -2856,7 +2856,6 @@ picture {
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 700px;
     padding: 120px 100px 90px 100px;
     background-color: #fff;
     margin: auto;
@@ -2876,8 +2875,14 @@ picture {
       .modal-close:before, .modal-close:after {
         width: 34px; } }
 
-.modal-block__button {
+.modal-form__container {
+  max-width: 700px; }
+
+.modal-form__button {
   min-width: 220px; }
+
+.modal-text__container {
+  max-width: calc(var(--content-width) - var(--container-gutter-x) * 2); }
 
 /*========== Blocks ==========*/
 .nav__list {
