@@ -1153,47 +1153,31 @@ const SendForm = Object.create({
   init() {
     document.addEventListener('submit', (event) => {
       event.preventDefault();
-      this.submitEvent(event.target)
+      this.submitEvent(event.target);
     })
   },
 
   submitEvent($form) {
-    console.log('send')
 
-    /* var options = {
-        url: feedback_object.url,
-        data: {
-            action: 'feedback_action',
-            nonce: feedback_object.nonce
-        },
-        type: 'POST',
-        dataType: 'json',
-        beforeSubmit: function (xhr) {
-            // При отправке меняем надпись на кнопке
-            $('#submit-feedback').val('Отправляем...');
-        },
-        success: function (request, xhr, status, error) {
-            
-            if (request.success === true) {
-                // Если все поля заполнены, отправляем данные и меняем надпись на кнопке
-                add_form.after('<div class="message-success">' + request.data + '</div>').slideDown();
-                $('#submit-feedback').val('Отправить сообщение');
-            } else {
-                // Если поля не заполнены, выводим сообщения и меняем надпись на кнопке
-                $.each(request.data, function (key, val) {
-                    $('.art_' + key).addClass('error');
-                    $('.art_' + key).before('<span class="error-' + key + '">' + val + '</span>');
-                });
-                $('#submit-feedback').val('Что-то пошло не так...');
+    $($form).ajaxForm({
+      url: feedback_object.url,
+      data: {
+        action: 'feedback_action',
+        nonce: feedback_object.nonce
+      },
+      type: 'POST',
+      dataType: 'json',
+      beforeSubmit: function (xhr) {
+        console.log('start')
+      },
+      success: function (request, xhr, status, error) {
+        console.log('end', request.success)
+        if (request.success === true) {
+          
+        } 
+      }
+    });
 
-            }
-            // При успешной отправке сбрасываем значения полей
-            $('#add_feedback')[0].reset();
-        },
-        error: function (request, status, error) {
-            $('#submit-feedback').val('Что-то пошло не так...');
-        }
-    };
-    add_form.ajaxForm(options); */
+
   }
 })
