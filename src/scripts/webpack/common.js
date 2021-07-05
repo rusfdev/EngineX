@@ -12,7 +12,7 @@ import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 //barba
 import barba from '@barba/core';
 barba.init({
-  debug: true,
+  timeout: 5000,
   preventRunning: true,
   transitions: [{
     leave(data) {
@@ -1159,7 +1159,7 @@ const SendForm = Object.create({
 
   submitEvent($form) {
 
-    /* $($form).ajaxForm({
+    $($form).ajaxSubmit({
       url: feedback_object.url,
       data: {
         action: 'feedback_action',
@@ -1175,17 +1175,6 @@ const SendForm = Object.create({
         if (request.success === true) {
           
         } 
-      }
-    }); */
-
-    console.log('test start');
-
-    $.ajax({
-      type: "POST",
-      url: "feedback_action",
-      data: $($form).serialize(),
-      success: function(data) {
-        console.log(data)
       }
     });
 
