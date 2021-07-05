@@ -1159,7 +1159,7 @@ const SendForm = Object.create({
 
   submitEvent($form) {
 
-    $($form).ajaxForm({
+    /* $($form).ajaxForm({
       url: feedback_object.url,
       data: {
         action: 'feedback_action',
@@ -1176,8 +1176,18 @@ const SendForm = Object.create({
           
         } 
       }
-    });
+    }); */
 
+    console.log('test start');
+
+    $.ajax({
+      type: "POST",
+      url: "feedback_action",
+      data: $form.serialize(),
+      success: function(data) {
+        console.log(data)
+      }
+    });
 
   }
 })
