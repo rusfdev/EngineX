@@ -1123,6 +1123,8 @@ const Modal = {
     })
   },
   open: function ($modal) {
+    
+
     let open = ()=> {
       disablePageScroll();
       $modal.classList.add('active');
@@ -1138,12 +1140,19 @@ const Modal = {
     }
   },
   close: function (callback) {
-    if(this.$active) {
+    if (this.$active) {
+
+      if(this.timeout) {
+        clearTimeout(this.timeout);
+        delete this.timeout;
+      }
+
       this.animation.timeScale(2).reverse().eventCallback('onReverseComplete', ()=> {
         delete this.animation;
         enablePageScroll();
         this.$active.classList.remove('active');
         delete this.$active;
+        if (callback) callback();
       })
     }
   }
@@ -1151,32 +1160,81 @@ const Modal = {
 
 const SendForm = Object.create({
   init() {
+
     document.addEventListener('submit', (event) => {
       event.preventDefault();
-      this.submitEvent(event.target);
+
+      let $consent = event.target.querySelector('#politics');
+      if(!$consent || $consent.checked) {
+        this.submitEvent(event.target);
+      }
     })
+
+    document.addEventListener('input', (event) => {
+      let $input = event.target,
+          $form = $input.closest('form'),
+          $submit = $form.querySelector('button');
+
+      if($input.id == 'politics') {
+        if(!$input.checked) {
+          $submit.classList.add('disabled');
+        } else {
+          $submit.classList.remove('disabled');
+        }
+      }
+    })
+
   },
 
   submitEvent($form) {
+    let $submit = $form.querySelector('button'),
+        $inputs = $form.querySelectorAll('input, textarea');
 
-    $($form).ajaxSubmit({
-      url: feedback_object.url,
-      data: {
-        action: 'feedback_action',
-        nonce: feedback_object.nonce
-      },
-      type: 'POST',
-      dataType: 'json',
-      beforeSubmit: function (xhr) {
-        console.log('start')
-      },
-      success: function (request, xhr, status, error) {
-        console.log('end', request.success)
-        if (request.success === true) {
-          
-        } 
-      }
-    });
 
+    $inputs.forEach($input => $input.parentNode.classList.add('loading'));
+    $submit.classList.add('loading');
+    $form.classList.add('loading');
+
+    let succes = () => {
+      $inputs.forEach($input => {
+        $input.parentNode.classList.remove('loading');
+        $input.value = '';
+      });
+
+      $submit.classList.remove('loading');
+      $form.classList.remove('loading');
+
+      if ($form.closest('.modal')) Modal.open(document.querySelector('#modal-form-success'));
+      else if ($form.closest('.subscribe-section')) Modal.open(document.querySelector('#modal-mailing-success'));
+
+      Modal.timeout = setTimeout(() => {
+        Modal.close();
+      }, 3000);
+    }
+
+    if(Dev) {
+
+      setTimeout(() => {
+        succes();
+      }, 1000);
+
+    } else {
+
+      $($form).ajaxSubmit({
+        url: feedback_object.url,
+        data: {
+          action: 'feedback_action',
+          nonce: feedback_object.nonce
+        },
+        type: 'POST',
+        dataType: 'json',
+        success: function (request, xhr, status, error) {
+          if (request.success === true) {
+            succes();
+          } 
+        }
+      });
+
+    }
   }
 })

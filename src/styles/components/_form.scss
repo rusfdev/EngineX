@@ -4,7 +4,7 @@
   border-radius: 4px;
   background-color: var(--color-input-bg);
   border: 1px solid var(--color-border);
-  background-color: #fff;
+  transition: background-color $trs2;
   &__element {
     &:not(textarea) {
       white-space: nowrap;
@@ -31,6 +31,10 @@
         color: transparent;
       }
     }
+  }
+  &.loading {
+    pointer-events: none;
+    background-color: var(--color-input-disabled);
   }
   @include media-breakpoint-down(sm) {
     &__element {
@@ -87,4 +91,8 @@
       transition: opacity $trs1;
     }
   }
+}
+
+form.loading {
+  pointer-events: none;
 }

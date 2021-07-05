@@ -91,8 +91,15 @@
   }
 }
 
+.modal-success {
+  text-align: center;
+  &__container {
+    max-width: 500px;
+  }
+}
+
 .modal-text {
- &__container {
-   max-width: calc(var(--content-width) - var(--container-gutter-x) * 2);
- }
+  &__container {
+    max-width: calc(var(--content-width) - var(--container-gutter-x) * 2);
+  }
 }

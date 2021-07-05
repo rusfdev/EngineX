@@ -14,6 +14,7 @@
   --section-bg-dark: var(--gradient-2);
   --color-border: #CED3D9;
   --color-input-bg: #F6F9FC;
+  --color-input-disabled: #e6ebf2;
   --color-btn-magic: #fff;
   --color-btn-magic-background: #F72585;
   --color-btn-magic-hover-background: #de2176;

@@ -2703,7 +2703,7 @@ picture {
         margin-left: 8px; }
   .button_style-1, .button_style-3 {
     padding: 20px 32px;
-    transition: background-color 0.15s ease-in-out; }
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out; }
   .button_style-1 {
     color: var(--color-btn-1);
     background-color: var(--color-btn-1-bg); }
@@ -2714,7 +2714,7 @@ picture {
   .button_style-2 {
     color: var(--color-btn-2);
     border: 1px solid var(--color-btn-2);
-    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out;
     padding: 19px 31px; }
     .button_style-2[data-touch], .button_style-2[data-hover] {
       background-color: var(--color-btn-2-hover-bg); }
@@ -2727,6 +2727,24 @@ picture {
       background-color: var(--color-btn-3-hover-bg); }
     .button_style-3[data-click] {
       background-color: var(--color-btn-3-click-bg); }
+  .button.disabled, .button.loading {
+    background-color: var(--color-border);
+    pointer-events: none; }
+  .button span {
+    transition: opacity 0.15s ease-in-out; }
+  .button svg:not([class]) {
+    width: 50px;
+    transition: opacity 0.15s ease-in-out;
+    opacity: 0;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+  .button.loading span {
+    opacity: 0; }
+  .button.loading svg:not([class]) {
+    opacity: 1; }
   @media (max-width: 575.98px) {
     .button_style-1, .button_style-2, .button_style-3 {
       font-size: 1.125rem; }
@@ -2742,7 +2760,7 @@ picture {
   border-radius: 4px;
   background-color: var(--color-input-bg);
   border: 1px solid var(--color-border);
-  background-color: #fff; }
+  transition: background-color 0.3s ease-in-out; }
   .input__element {
     font-size: 20px;
     line-height: 24px;
@@ -2776,6 +2794,9 @@ picture {
       color: transparent; }
     .input__element:focus::placeholder {
       color: transparent; }
+  .input.loading {
+    pointer-events: none;
+    background-color: var(--color-input-disabled); }
   @media (max-width: 575.98px) {
     .input__element {
       font-size: 18px;
@@ -2820,6 +2841,9 @@ picture {
       border-color: var(--color-text-dark);
       opacity: 0;
       transition: opacity 0.15s ease-in-out; }
+
+form.loading {
+  pointer-events: none; }
 
 /*========== Modal ==========*/
 .modal {
@@ -2893,6 +2917,11 @@ picture {
 
 .modal-form__button {
   min-width: 220px; }
+
+.modal-success {
+  text-align: center; }
+  .modal-success__container {
+    max-width: 500px; }
 
 .modal-text__container {
   max-width: calc(var(--content-width) - var(--container-gutter-x) * 2); }
