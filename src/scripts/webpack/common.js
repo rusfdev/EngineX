@@ -1183,7 +1183,7 @@ const SendForm = Object.create({
     $.ajax({
       type: "POST",
       url: "feedback_action",
-      data: $form.serialize(),
+      data: $($form).serialize(),
       success: function(data) {
         console.log(data)
       }
