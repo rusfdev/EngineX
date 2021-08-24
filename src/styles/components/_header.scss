@@ -59,12 +59,18 @@
   &__lang-toggle {
     margin-right: 24px;
   }
+  &__socials {
+    margin-right: 24px;
+    .socials__link {
+      color: var(--color);
+    }
+  }
   &__nav-link {
     color: var(--color);
   }
   &__container {
     display: grid;
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto 1fr auto auto auto;
     align-items: center;
     position: relative;
     z-index: 2;
@@ -92,11 +98,11 @@
   }
   
   @include media-breakpoint-down(lg) {
-    &__nav, &__button {
+    &__nav, &__button, &__socials {
       display: none;
     }
     &__container {
-      grid-template-columns: 1fr auto auto;
+      grid-template-columns: 1fr auto auto auto;
     }
   }
   @include media-breakpoint-down(xl) {
@@ -117,6 +123,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   span {
     width: 38px;
     height: 3px;

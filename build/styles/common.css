@@ -2614,6 +2614,10 @@ p {
 strong, b {
   font-weight: 700; }
 
+mark {
+  background-color: initial;
+  color: var(--color-accent-2); }
+
 a:not([class]) {
   color: var(--color-accent-2);
   transition: opacity 0.15s ease-in-out; }
@@ -2960,7 +2964,7 @@ form.loading {
       width: 100%;
       height: 100%; }
     .socials__link[data-touch], .socials__link[data-hover] {
-      color: var(--color-accent-2); }
+      color: var(--color-accent-2) !important; }
 
 .overlay {
   background-color: var(--color-overlay-background);
@@ -4773,7 +4777,11 @@ form.loading {
     padding: 40px 60px;
     flex: 1 1 auto; }
   .news-v-card__title {
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    display: block;
+    transition: color 0.15s ease-in-out; }
+    .news-v-card__title[data-touch], .news-v-card__title[data-hover] {
+      color: var(--color-accent-2); }
   .news-v-card__autor {
     display: block;
     font-style: italic;
@@ -4886,11 +4894,15 @@ form.loading {
     margin-left: 106px; }
   .header__lang-toggle {
     margin-right: 24px; }
+  .header__socials {
+    margin-right: 24px; }
+    .header__socials .socials__link {
+      color: var(--color); }
   .header__nav-link {
     color: var(--color); }
   .header__container {
     display: grid;
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto 1fr auto auto auto;
     align-items: center;
     position: relative;
     z-index: 2; }
@@ -4912,10 +4924,10 @@ form.loading {
       .header__button .button[data-click] {
         background-color: var(--color-btn-magic-click-background); }
   @media (max-width: 1023.98px) {
-    .header__nav, .header__button {
+    .header__nav, .header__button, .header__socials {
       display: none; }
     .header__container {
-      grid-template-columns: 1fr auto auto; } }
+      grid-template-columns: 1fr auto auto auto; } }
   @media (max-width: 1279.98px) {
     .header__nav-list {
       margin-left: 50px; } }
@@ -4929,7 +4941,8 @@ form.loading {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  cursor: pointer; }
   .nav-toggle span {
     width: 38px;
     height: 3px;

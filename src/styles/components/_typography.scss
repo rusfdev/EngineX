@@ -118,6 +118,11 @@ strong, b {
   font-weight: 700;
 }
 
+mark {
+  background-color: initial;
+  color: var(--color-accent-2);
+}
+
 a:not([class]) {
   color: var(--color-accent-2);
   transition: opacity $trs1;

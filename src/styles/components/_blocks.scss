@@ -40,7 +40,7 @@
       height: 100%;
     }
     &[data-touch], &[data-hover] {
-      color: var(--color-accent-2);
+      color: var(--color-accent-2) !important;
     }
   }
 }
@@ -2377,6 +2377,11 @@
   }
   &__title {
     margin-bottom: 10px;
+    display: block;
+    transition: color $trs1;
+    &[data-touch], &[data-hover] {
+      color: var(--color-accent-2);
+    }
   }
   &__autor {
     display: block;

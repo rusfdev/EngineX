@@ -53,13 +53,13 @@ block content
           a(href=article).image.image_cover
             img(data-src="./img/qlk.jpg", alt="image").lazyload
           .news-v-card__content
-            h4.news-v-card__title 7 Air-Cleaning Tropicals You Need in Your Space
+            a(href="#").h4.news-v-card__title 7 Air-Cleaning Tropicals You Need in Your Space
             p Here's where you can provide a short except or summary of the article to tease the reader to click your link... 
               a(href=article).news-v-card__more Read&nbsp;more 
         //block
         .news-v-card.news-v-card_dark.news-grid__element
           .news-v-card__content
-            h4.news-v-card__title Why Wireframing is an Essential Skill for More Than Just Designers!
+            a(href="#").h4.news-v-card__title Why Wireframing is an Essential Skill for More Than Just Designers!
             p Here's where you can provide a short except or summary of the article to tease the reader to click your link... 
               a(href=article).news-v-card__more Read&nbsp;more 
           a(href=article).image.image_cover
@@ -77,7 +77,7 @@ block content
           a(href=article).image.image_cover
             img(data-src="./img/qkf.jpg", alt="image").lazyload
           .news-v-card__content
-            h4.news-v-card__title Proven Health & Lifestyle Hacks That Will Boost Your Energy at Home
+            a(href="#").h4.news-v-card__title Proven Health & Lifestyle Hacks That Will Boost Your Energy at Home
             span.news-v-card__autor By 
               a(href="#") Steven Donovan 
               | on December 29, 2019
@@ -88,7 +88,7 @@ block content
           a(href=article).image.image_cover
             img(data-src="./img/qlf.jpg", alt="image").lazyload
           .news-v-card__content
-            h4.news-v-card__title Why Wireframing is an Essential Skill for More Than Just Designers!
+            a(href="#").h4.news-v-card__title Why Wireframing is an Essential Skill for More Than Just Designers!
             span.news-v-card__autor By 
               a(href="#") Steven Donovan 
               | on December 29, 2019
@@ -99,7 +99,7 @@ block content
           a(href=article).image.image_cover
             img(data-src="./img/qls.jpg", alt="image").lazyload
           .news-v-card__content
-            h4.news-v-card__title W7 Air-Cleaning Tropicals You Need in Your Space
+            a(href="#").h4.news-v-card__title W7 Air-Cleaning Tropicals You Need in Your Space
             span.news-v-card__autor By 
               a(href="#") Steven Donovan 
               | on December 29, 2019
@@ -113,7 +113,8 @@ block content
   section.section.section_bg-light.articles-slider
     .container 
       h2.section__title.articles-slider__title Самое новое по 
-        a(href="javascript:void(0)").select-link 
+        mark Категориям
+        //a(href="javascript:void(0)").select-link 
           span Категориям 
           svg.icon
             use(xlink:href='./img/icons/icons.svg#down')
